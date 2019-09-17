@@ -2,7 +2,7 @@
 # ---------------------------------------
 # Host     : localhost
 # Port     : 3306
-# Database : veaser
+# Database : veaser1
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -12,30 +12,32 @@
 
 SET FOREIGN_KEY_CHECKS=0;
 
-CREATE DATABASE `veaser`
+CREATE DATABASE `veaser1`
     CHARACTER SET 'latin1'
     COLLATE 'latin1_swedish_ci';
 
-USE `veaser`;
+USE `veaser1`;
 
 #
-# Structure for the `categorias` table : 
+# Structure for the `categoria` table : 
 #
 
-CREATE TABLE `categorias` (
-  `idcat` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `nombrecat` varchar(255) NOT NULL,
-  `fecha_cat` datetime NOT NULL,
-  `estado_categoria` varchar(25) NOT NULL DEFAULT 'active',
-  `imagen` varchar(25) NOT NULL DEFAULT 'default.jpg',
-  `vistas` int(11) NOT NULL DEFAULT '0',
-  `tipo` varchar(10) NOT NULL DEFAULT 'categoria',
-  PRIMARY KEY (`idcat`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `categoria`;
+
+CREATE TABLE `categoria` (
+  `categoria_id` int(11) NOT NULL AUTO_INCREMENT,
+  `estado_id` int(11) NOT NULL DEFAULT '1',
+  `categoria_nombre` varchar(255) NOT NULL,
+  `categoria_imagen` varchar(50) NOT NULL DEFAULT 'default.jpg',
+  `categoria_vistas` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`categoria_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 #
 # Structure for the `ci_session` table : 
 #
+
+DROP TABLE IF EXISTS `ci_session`;
 
 CREATE TABLE `ci_session` (
   `id` varchar(40) NOT NULL,
@@ -48,6 +50,8 @@ CREATE TABLE `ci_session` (
 #
 # Structure for the `cliente` table : 
 #
+
+DROP TABLE IF EXISTS `cliente`;
 
 CREATE TABLE `cliente` (
   `cliente_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -85,6 +89,8 @@ CREATE TABLE `cliente` (
 # Structure for the `empresa` table : 
 #
 
+DROP TABLE IF EXISTS `empresa`;
+
 CREATE TABLE `empresa` (
   `empresa_id` int(11) NOT NULL AUTO_INCREMENT,
   `dosificacion_id` int(11) DEFAULT NULL,
@@ -108,6 +114,8 @@ CREATE TABLE `empresa` (
 # Structure for the `estado` table : 
 #
 
+DROP TABLE IF EXISTS `estado`;
+
 CREATE TABLE `estado` (
   `estado_id` int(11) NOT NULL AUTO_INCREMENT,
   `estado_descripcion` varchar(50) DEFAULT NULL,
@@ -119,6 +127,8 @@ CREATE TABLE `estado` (
 #
 # Structure for the `licencia` table : 
 #
+
+DROP TABLE IF EXISTS `licencia`;
 
 CREATE TABLE `licencia` (
   `licencia_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -133,6 +143,8 @@ CREATE TABLE `licencia` (
 # Structure for the `rol` table : 
 #
 
+DROP TABLE IF EXISTS `rol`;
+
 CREATE TABLE `rol` (
   `rol_id` int(11) NOT NULL AUTO_INCREMENT,
   `estado_id` int(11) DEFAULT NULL,
@@ -146,6 +158,8 @@ CREATE TABLE `rol` (
 # Structure for the `rol_usuario` table : 
 #
 
+DROP TABLE IF EXISTS `rol_usuario`;
+
 CREATE TABLE `rol_usuario` (
   `id_rol_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `tipousuario_id` int(11) NOT NULL,
@@ -158,6 +172,8 @@ CREATE TABLE `rol_usuario` (
 # Structure for the `tipo_usuario` table : 
 #
 
+DROP TABLE IF EXISTS `tipo_usuario`;
+
 CREATE TABLE `tipo_usuario` (
   `tipousuario_id` int(11) NOT NULL AUTO_INCREMENT,
   `tipousuario_descripcion` varchar(150) DEFAULT NULL,
@@ -167,6 +183,8 @@ CREATE TABLE `tipo_usuario` (
 #
 # Structure for the `usuario` table : 
 #
+
+DROP TABLE IF EXISTS `usuario`;
 
 CREATE TABLE `usuario` (
   `usuario_id` int(11) NOT NULL AUTO_INCREMENT,
