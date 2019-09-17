@@ -24,7 +24,25 @@
                         ?>
                     <tr>
                         <td><?php echo $i; ?></td>
-                        <td><?php echo $c['categoria_nombre']; ?></td>
+                        <td>
+                            <?php
+                            $mimagen = "thumb_".$c['categoria_imagen'];
+                            if($c['categoria_imagen']){
+                            ?>
+                            <a class="btn  btn-xs" data-toggle="modal" data-target="#mostrarimagen<?php echo $c['categoria_imagen']; ?>" style="padding: 0px;">
+                                <?php
+                                echo '<img src="'.site_url('/resources/images/categoria/'.$mimagen).'" />';
+                                ?>
+                            </a>
+                            <?php
+                            }else{
+                               echo '<img style src="'.site_url('/resources/images/categoria/thumb_default.jpg').'" />'; 
+                            }
+                            ?>
+                            
+                            
+                            
+                            <?php echo $c['categoria_nombre']; ?></td>
                         <td><?php echo $c['categoria_imagen']; ?></td>
                         <td><?php echo $c['categoria_vistas']; ?></td>
                         <td><?php echo $c['estado_id']; ?></td>
