@@ -5,7 +5,11 @@
         <group>
             <file>file:/C:/xampp/htdocs/veaser/application/views/categoria/add.php</file>
             <file>file:/C:/xampp/htdocs/veaser/application/views/categoria/index.php</file>
+            <file>file:/C:/xampp/htdocs/veaser/application/views/web/index.php</file>
             <file>file:/C:/xampp/htdocs/veaser/application/models/Categoria_model.php</file>
+            <file>file:/C:/xampp/htdocs/veaser/application/models/Estado_model.php</file>
+            <file>file:/C:/xampp/htdocs/veaser/application/views/layouts/main.php</file>
+            <file>file:/C:/xampp/htdocs/veaser/application/controllers/Dashboard.php</file>
             <file>file:/C:/xampp/htdocs/veaser/application/controllers/Categoria.php</file>
             <file>file:/C:/xampp/htdocs/veaser/application/views/categoria/edit.php</file>
         </group>

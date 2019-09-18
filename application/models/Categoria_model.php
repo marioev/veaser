@@ -24,10 +24,26 @@ class Categoria_model extends CI_Model
      */
     function get_all_categoria()
     {
-        $this->db->order_by('categoria_id', 'desc');
-        return $this->db->get('categoria')->result_array();
+        $this->db->select('c.*, e.estado_descripcion, e.estado_color');
+        $this->db->from('categoria as c');
+        $this->db->join('estado as e', 'c.estado_id = e.estado_id');
+        $this->db->order_by('c.categoria_nombre', 'asc');
+        $query = $this->db->get();
+        return $query->result_array();
     }
-        
+    /*
+     * Get all categorias activas
+     */
+    function get_all_categoriactiva()
+    {
+        $this->db->select('c.*, e.estado_descripcion, e.estado_color');
+        $this->db->from('categoria as c');
+        $this->db->join('estado as e', 'c.estado_id = e.estado_id');
+        $this->db->where('c.estado_id', 1);
+        $this->db->order_by('c.categoria_nombre', 'asc');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
     /*
      * function to add new categoria
      */

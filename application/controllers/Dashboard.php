@@ -13,8 +13,12 @@ class Dashboard extends CI_Controller{
 
     function index()
     {
+        $this->load->model('Categoria_model');
+        //$data['total_categoria'] = $this->Categoria_model->get_all_categoriactiva();
+        $data['all_categoria'] = $this->Categoria_model->get_all_categoriactiva();
+        
         $data['_view'] = 'dashboard';
-        $this->load->view('layouts/main',$data);
-		//$this->load->view('web/index',$data);
+        //$this->load->view('layouts/main',$data);
+        $this->load->view('web/index',$data);
     }
 }
