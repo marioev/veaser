@@ -544,24 +544,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- //Slider -->
 		<!-- content-starts-here -->
 		<div class="main-content">
-			<div class="w3-categories">
-				<h3>Categorías</h3>
-				<div class="container">
-					<div class="col-md-3">
-						<div class="focus-grid w3layouts-boder1">
-							<a class="btn-8" href="<?php echo site_url('resources/categories.html'); ?>">
-								<div class="focus-border">
-									<div class="focus-layout">
-										<div class="focus-image"><i class="fa fa-mobile"></i></div>
-										<h4 class="clrchg">Mobiles</h4>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
+                    <div class="w3-categories">
+                        <h3>Categorías</h3>
+                        <div class="container">
+                            <?php
+                            $i = 1;
+                            foreach($all_categoria as $categoria){
+                            ?>
+                            <div class="col-md-3">
+                                <div class="focus-grid w3layouts-boder<?php echo $i; ?>">
+                                    <a class="btn-8" href="<?php echo site_url('resources/categories.html#parentVerticalTab2'); ?>">
+                                        <div class="focus-border">
+                                            <div class="focus-layout">
+                                                <?php
+                                                $esta_imagen = "default.png";
+                                                if($categoria['categoria_imagen']){
+                                                    $esta_imagen = $categoria['categoria_imagen'];
+                                                }
+                                                ?>
+                                                <div class="focus-image"><img width="85xp" height="85px" src="<?php echo site_url('resources/images/categorias/'.$esta_imagen); ?>" class="img img-circle" /></div>
+                                                <h4 class="clrchg"><?php echo $categoria['categoria_nombre']; ?></h4>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <?php
+                            }
+                            ?>
+                            <!--
 					<div class="col-md-3">
 						<div class="focus-grid w3layouts-boder2">	
-						<a class="btn-8" href="<?php echo site_url('resources/categories.html#parentVerticalTab2'); ?>">
+						<a class="btn-8" href="<?php //echo site_url('resources/categories.html#parentVerticalTab2'); ?>">
 							<div class="focus-border">
 								<div class="focus-layout">
 									<div class="focus-image"><i class="fa fa-laptop"></i></div>
@@ -573,7 +587,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="col-md-3">
 					<div class="focus-grid w3layouts-boder3">
-						<a class="btn-8" href="<?php echo site_url('resources/categories.html#parentVerticalTab3'); ?>">
+						<a class="btn-8" href="<?php //echo site_url('resources/categories.html#parentVerticalTab3'); ?>">
 							<div class="focus-border">
 								<div class="focus-layout">
 									<div class="focus-image"><i class="fa fa-car"></i></div>
@@ -585,7 +599,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="col-md-3">
 					<div class="focus-grid w3layouts-boder4">
-						<a class="btn-8" href="<?php echo site_url('resources/categories.html#parentVerticalTab4'); ?>">
+						<a class="btn-8" href="<?php //echo site_url('resources/categories.html#parentVerticalTab4'); ?>">
 							<div class="focus-border">
 								<div class="focus-layout">
 									<div class="focus-image"><i class="fa fa-motorcycle"></i></div>
@@ -597,7 +611,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="col-md-3">
 					<div class="focus-grid w3layouts-boder5">
-						<a class="btn-8" href="<?php echo site_url('resources/categories.html#parentVerticalTab5'); ?>">
+						<a class="btn-8" href="<?php //echo site_url('resources/categories.html#parentVerticalTab5'); ?>">
 							<div class="focus-border">
 								<div class="focus-layout">
 									<div class="focus-image"><i class="fa fa-wheelchair"></i></div>
@@ -609,7 +623,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="col-md-3">
 					<div class="focus-grid w3layouts-boder6">
-						<a class="btn-8" href="<?php echo site_url('resources/categories.html#parentVerticalTab6'); ?>">
+						<a class="btn-8" href="<?php //echo site_url('resources/categories.html#parentVerticalTab6'); ?>">
 							<div class="focus-border">
 								<div class="focus-layout">
 									<div class="focus-image"><i class="fa fa-paw"></i></div>
@@ -621,7 +635,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="col-md-3">
 					<div class="focus-grid w3layouts-boder7">
-						<a class="btn-8" href="<?php echo site_url('resources/categories.html#parentVerticalTab7'); ?>">
+						<a class="btn-8" href="<?php //echo site_url('resources/categories.html#parentVerticalTab7'); ?>">
 							<div class="focus-border">
 								<div class="focus-layout">
 									<div class="focus-image"><i class="fa fa-book"></i></div>
@@ -633,7 +647,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="col-md-3">
 					<div class="focus-grid w3layouts-boder8">
-						<a class="btn-8" href="<?php echo site_url('resources/categories.html#parentVerticalTab8'); ?>">
+						<a class="btn-8" href="<?php //echo site_url('resources/categories.html#parentVerticalTab8'); ?>">
 							<div class="focus-border">
 								<div class="focus-layout">
 									<div class="focus-image"><i class="fa fa-asterisk"></i></div>
@@ -645,7 +659,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="col-md-3">
 					<div class="focus-grid w3layouts-boder9">
-						<a class="btn-8" href="<?php echo site_url('resources/categories.html#parentVerticalTab9'); ?>">
+						<a class="btn-8" href="<?php //echo site_url('resources/categories.html#parentVerticalTab9'); ?>">
 							<div class="focus-border">
 								<div class="focus-layout">
 									<div class="focus-image"><i class="fa fa-gamepad"></i></div>
@@ -657,7 +671,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="col-md-3">
 					<div class="focus-grid w3layouts-boder10">
-						<a class="btn-8" href="<?php echo site_url('resources/categories.html#parentVerticalTab10'); ?>">
+						<a class="btn-8" href="<?php //echo site_url('resources/categories.html#parentVerticalTab10'); ?>">
 							<div class="focus-border">
 								<div class="focus-layout">
 									<div class="focus-image"><i class="fa fa-shield"></i></div>
@@ -669,7 +683,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="col-md-3">
 					<div class="focus-grid w3layouts-boder11">
-						<a class="btn-8" href="<?php echo site_url('resources/categories.html#parentVerticalTab11'); ?>">
+						<a class="btn-8" href="<?php //echo site_url('resources/categories.html#parentVerticalTab11'); ?>">
 							<div class="focus-border">
 								<div class="focus-layout">
 									<div class="focus-image"><i class="fa fa-at"></i></div>
@@ -681,7 +695,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="col-md-3">
 					<div class="focus-grid w3layouts-boder12">
-						<a class="btn-8" href="<?php echo site_url('resources/categories.html#parentVerticalTab12'); ?>">
+						<a class="btn-8" href="<?php //echo site_url('resources/categories.html#parentVerticalTab12'); ?>">
 							<div class="focus-border">
 								<div class="focus-layout">
 									<div class="focus-image"><i class="fa fa-home"></i></div>
@@ -690,7 +704,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</a>
 					</div>
-					</div>
+					</div>-->
 					<div class="clearfix"></div>
 				</div>
 			</div>

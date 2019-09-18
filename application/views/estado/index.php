@@ -10,7 +10,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="box">
-            <div class="box-body">
+            <div class="box-body table-responsive">
                 <table class="table table-striped" id="mitabla">
                     <tr>
                         <th>#</th>
@@ -26,7 +26,7 @@
                         <td><?php echo $i+1; ?></td>
                         <td><?php echo $e['estado_descripcion']; ?></td>
                         <td><?php echo $e['estado_tipo']; ?></td>
-                        <td style="background-color: #<?php echo $e['estado_color']; ?>"><?php echo $e['estado_color']; ?></td>
+                        <td style="background-color: <?php echo $e['estado_color']; ?>"><?php echo $e['estado_color']; ?></td>
                         <td>
                             <a href="<?php echo site_url('estado/edit/'.$e['estado_id']); ?>" class="btn btn-info btn-xs" title="Editar"><span class="fa fa-pencil"></span></a> 
                              <!--<a data-toggle="modal" data-target="#myModal<?php //echo $i; ?>"  title="Eliminar" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span></a>-->
