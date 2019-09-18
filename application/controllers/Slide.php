@@ -254,7 +254,7 @@ class Slide extends CI_Controller{
                 else
                 {
                     $this->load->model('Estado_model');
-                    $data['all_estado'] = $this->Estado_model->get_all_estado_activo_inactivo();
+                    $data['all_estado'] = $this->Estado_model->get_estado_tipo(1);
                     $data['page_title'] = "Slide";
                     $data['_view'] = 'slide/edit';
                     $this->load->view('layouts/main',$data);

@@ -198,7 +198,7 @@ private function acceso($id_rol){
                 $data['usuario'] = $this->Usuario_model->get_usuario($usuario_id);
 
                 $this->load->model('Estado_model');
-                $data['all_estado'] = $this->Estado_model->get_all_estado_activo_inactivo();
+                $data['all_estado'] = $this->Estado_model->get_estado_tipo(1);
 
                 $this->load->model('Tipo_usuario_model');
                 $data['all_tipo_usuario'] = $this->Tipo_usuario_model->get_all_tipo_usuario();
@@ -318,7 +318,7 @@ private function acceso($id_rol){
 
             } else {
                 $this->load->model('Estado_model');
-                $data['all_estado'] = $this->Estado_model->get_all_estado_activo_inactivo();
+                $data['all_estado'] = $this->Estado_model->get_estado_tipo(1);
 
                 $this->load->model('Tipo_usuario_model');
                 $data['all_tipo_usuario'] = $this->Tipo_usuario_model->get_all_tipo_usuario();
@@ -456,7 +456,7 @@ private function acceso($id_rol){
                     $data['usuario'] = $this->Usuario_model->get_usuario($usuario_id);
 
                     $this->load->model('Estado_model');
-                    $data['all_estado'] = $this->Estado_model->get_all_estado_activo_inactivo();
+                    $data['all_estado'] = $this->Estado_model->get_estado_tipo(1);
 
                     $this->load->model('Tipo_usuario_model');
                     $data['all_tipo_usuario'] = $this->Tipo_usuario_model->get_all_tipo_usuario();

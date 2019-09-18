@@ -2553,7 +2553,7 @@ if (typeof jQuery === 'undefined') {
                 return true;
             }
 
-			value = this._format(value);
+            value = this._format(value);
             if (!$.isNumeric(value)) {
                 return false;
             }
@@ -2565,7 +2565,7 @@ if (typeof jQuery === 'undefined') {
                 maxValue = this._format(max);
 
             value = parseFloat(value);
-			return (options.inclusive === true || options.inclusive === undefined)
+            return (options.inclusive === true || options.inclusive === undefined)
                     ? {
                         valid: value >= minValue && value <= maxValue,
                         message: FormValidation.Helper.format(options.message || FormValidation.I18n[locale].between['default'], [min, max])
@@ -4058,7 +4058,7 @@ if (typeof jQuery === 'undefined') {
                 compareToValue = this._format(compareTo);
 
             value = parseFloat(value);
-			return (options.inclusive === true || options.inclusive === undefined)
+            return (options.inclusive === true || options.inclusive === undefined)
                     ? {
                         valid: value >= compareToValue,
                         message: FormValidation.Helper.format(options.message || FormValidation.I18n[locale].greaterThan['default'], compareTo)
@@ -6440,7 +6440,7 @@ if (typeof jQuery === 'undefined') {
                 return true;
             }
             
-			value = this._format(value);
+            value = this._format(value);
             if (!$.isNumeric(value)) {
                 return false;
             }
@@ -6811,7 +6811,7 @@ if (typeof jQuery === 'undefined') {
                     isValid = (/^(?:(?:(?:\+|00)33[ ]?(?:\(0\)[ ]?)?)|0){1}[1-9]{1}([ .-]?)(?:\d{2}\1?){3}\d{2}$/).test(value);
                     break;
 
-            	case 'GB':
+                case 'GB':
                     // http://aa-asterisk.org.uk/index.php/Regular_Expressions_for_Validating_and_Formatting_GB_Telephone_Numbers#Match_GB_telephone_number_in_any_format
                     // http://regexr.com/38uhv
                     value   = $.trim(value);
@@ -7152,55 +7152,55 @@ if (typeof jQuery === 'undefined') {
                 weight = [1, 3, 1, 7, 3, 9, 1],
                 length = value.length;
             for (var i = 0; i < length - 1; i++) {
-	            sum += weight[i] * parseInt(value.charAt(i), 36);
-	        }
-	        sum = (10 - sum % 10) % 10;
+                sum += weight[i] * parseInt(value.charAt(i), 36);
+            }
+            sum = (10 - sum % 10) % 10;
             return sum + '' === value.charAt(length - 1);
         }
     };
 }(jQuery));
 ;(function($) {
     FormValidation.I18n = $.extend(true, FormValidation.I18n || {}, {
-		'en_US': {
-			siren: {
-				'default': 'Please enter a valid SIREN number'
-			}
-		}
+        'en_US': {
+            siren: {
+                'default': 'Please enter a valid SIREN number'
+            }
+        }
     });
 
-	FormValidation.Validator.siren = {
-		/**
-		 * Check if a string is a siren number
-		 *
-		 * @param {FormValidation.Base} validator The validator plugin instance
-		 * @param {jQuery} $field Field element
-		 * @param {Object} options Consist of key:
+    FormValidation.Validator.siren = {
+        /**
+         * Check if a string is a siren number
+         *
+         * @param {FormValidation.Base} validator The validator plugin instance
+         * @param {jQuery} $field Field element
+         * @param {Object} options Consist of key:
          * - message: The invalid message
-		 * @returns {Boolean}
-		 */
-		validate: function(validator, $field, options) {
-			var value = validator.getFieldValue($field, 'siren');
-			if (value === '') {
-				return true;
-			}
+         * @returns {Boolean}
+         */
+        validate: function(validator, $field, options) {
+            var value = validator.getFieldValue($field, 'siren');
+            if (value === '') {
+                return true;
+            }
 
             if (!/^\d{9}$/.test(value)) {
                 return false;
             }
             return FormValidation.Helper.luhn(value);
-		}
-	};
+        }
+    };
 }(jQuery));
 ;(function($) {
     FormValidation.I18n = $.extend(true, FormValidation.I18n || {}, {
-		'en_US': {
-			siret: {
-				'default': 'Please enter a valid SIRET number'
-			}
-		}
+        'en_US': {
+            siret: {
+                'default': 'Please enter a valid SIRET number'
+            }
+        }
     });
 
-	FormValidation.Validator.siret = {
+    FormValidation.Validator.siret = {
         /**
          * Check if a string is a siret number
          *
@@ -7210,28 +7210,28 @@ if (typeof jQuery === 'undefined') {
          * - message: The invalid message
          * @returns {Boolean}
          */
-		validate: function(validator, $field, options) {
-			var value = validator.getFieldValue($field, 'siret');
-			if (value === '') {
-				return true;
-			}
+        validate: function(validator, $field, options) {
+            var value = validator.getFieldValue($field, 'siret');
+            if (value === '') {
+                return true;
+            }
 
-			var sum    = 0,
+            var sum    = 0,
                 length = value.length,
                 tmp;
-			for (var i = 0; i < length; i++) {
+            for (var i = 0; i < length; i++) {
                 tmp = parseInt(value.charAt(i), 10);
-				if ((i % 2) === 0) {
-					tmp = tmp * 2;
-					if (tmp > 9) {
-						tmp -= 9;
-					}
-				}
-				sum += tmp;
-			}
-			return (sum % 10 === 0);
-		}
-	};
+                if ((i % 2) === 0) {
+                    tmp = tmp * 2;
+                    if (tmp > 9) {
+                        tmp -= 9;
+                    }
+                }
+                sum += tmp;
+            }
+            return (sum % 10 === 0);
+        }
+    };
 }(jQuery));
 ;(function($) {
     FormValidation.I18n = $.extend(true, FormValidation.I18n || {}, {

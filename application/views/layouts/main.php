@@ -19,6 +19,7 @@
         <!-- AdminLTE Skins. Choose a skin from the css/skins
              folder instead of downloading all of them to reduce the load. -->
         <link rel="stylesheet" href="<?php echo site_url('resources/css/_all-skins.min.css');?>">
+        <script src="<?php echo site_url('resources/js/jquery-2.2.3.min.js');?>"></script>
     </head>
     
     <body class="hold-transition skin-blue sidebar-mini">
@@ -153,8 +154,7 @@
         </div>
         <!-- ./wrapper -->
 
-        <!-- jQuery 2.2.3 -->
-        <script src="<?php echo site_url('resources/js/jquery-2.2.3.min.js');?>"></script>
+   
         <!-- Bootstrap 3.3.6 -->
         <script src="<?php echo site_url('resources/js/bootstrap.min.js');?>"></script>
         <!-- FastClick -->
