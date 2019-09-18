@@ -50,13 +50,12 @@
                     <tr>
 						<th>#</th>
 						<th>Título</th>
-						<th>Página</th>
-						<th>Tipo</th>
+						
 						<th>Leyenda1</th>
 						<th>Leyenda2</th>
-						<th>Leyenda3</th>
+						
 						<th>Enlace</th>
-						<th>Estado</th>
+						
 						<th></th>
                     </tr>
                     <tbody class="buscar">
@@ -69,19 +68,16 @@
                             <div id="horizontal">
                                 <div id="contieneimg">
                            <?php
-                           if($s['slide_tipo'] == 1){
+                          
                                $ancho = "80px";
                                $alto  = "31px";
-                           }else{
-                               $ancho = "80px";
-                               $alto  = "22px";
-                           }
+                           
                             $mimagen = "thumb_".$s['slide_imagen'];
                             if($s['slide_imagen']){
                                 ?> <img width="" height="" />
                             <a class="btn  btn-xs" data-toggle="modal" data-target="#mostrarimagen<?php echo $s['slide_id']; ?>" style="padding: 0px;">
                                 <?php
-                                echo '<img src="'.site_url('/resources/web/images/sliders/'.$mimagen).'" width="'.$ancho.'" height="'.$alto.'" />';
+                                echo '<img src="'.site_url('/resources/images/sliders/'.$mimagen).'" width="'.$ancho.'" height="'.$alto.'" />';
                                 ?>
                             </a>
                             <?php }
@@ -95,19 +91,11 @@
                             </div>
                           </div>
                         </td>
-                        <td><?php echo $s['pagina_nombre']; ?></td>
-                        <td><?php
-                             if($s['slide_tipo'] == 1){
-                                 echo "Slider Principal";
-                             }else{
-                                 echo "Slider Secundario";
-                             } ?>
-                        </td>
+                       
+                        
                         <td><?php echo $s['slide_leyenda1']; ?></td>
                         <td><?php echo $s['slide_leyenda2']; ?></td>
-                        <td><?php echo $s['slide_leyenda3']; ?></td>
                         <td><?php echo $s['slide_enlace']; ?></td>
-                        <td><?php echo $s['estadopag_descripcion']; ?></td>
                         <td>
                             <a href="<?php echo site_url('slide/edit/'.$s['slide_id']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span></a> 
                             <a href="<?php echo site_url('slide/remove/'.$s['slide_id']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span></a>
@@ -122,7 +110,7 @@
                                         </div>
                                         <div class="modal-body">
                                         <!------------------------------------------------------------------->
-                                        <?php echo '<img style="max-height: 100%; max-width: 100%" src="'.site_url('/resources/web/images/sliders/'.$s['slide_imagen']).'" />'; ?>
+                                        <?php echo '<img style="max-height: 100%; max-width: 100%" src="'.site_url('/resources/images/sliders/'.$s['slide_imagen']).'" />'; ?>
                                         <!------------------------------------------------------------------->
                                         </div>
                                     </div>
