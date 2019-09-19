@@ -12,8 +12,6 @@
 
 SET FOREIGN_KEY_CHECKS=0;
 
-DROP DATABASE IF EXISTS `veaser`;
-
 CREATE DATABASE `veaser`
     CHARACTER SET 'latin1'
     COLLATE 'latin1_swedish_ci';
@@ -139,7 +137,7 @@ CREATE TABLE `licencia` (
   `licencia_llave` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`licencia_id`),
   UNIQUE KEY `licencia_id` (`licencia_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 #
 # Structure for the `moneda` table : 
@@ -271,12 +269,30 @@ INSERT INTO `categoria` (`categoria_id`, `estado_id`, `categoria_nombre`, `categ
 COMMIT;
 
 #
+# Data for the `ci_session` table  (LIMIT 0,500)
+#
+
+INSERT INTO `ci_session` (`id`, `ip_address`, `timestamp`, `data`) VALUES 
+  ('il20ud9kejk5l1u6e9k5m8et9v3tuotk','127.0.0.1',1568903607,0x5F5F63695F6C6173745F726567656E65726174657C693A313536383930333332353B),
+  ('85rnsb8r9ho50imdgmnki2urctf6c6ef','127.0.0.1',1568903789,0x5F5F63695F6C6173745F726567656E65726174657C693A313536383930333635313B),
+  ('cv192farqgujqi5f2k2vmd6ppfg16tha','127.0.0.1',1568904282,0x5F5F63695F6C6173745F726567656E65726174657C693A313536383930343233383B);
+COMMIT;
+
+#
 # Data for the `estado` table  (LIMIT 0,500)
 #
 
 INSERT INTO `estado` (`estado_id`, `estado_descripcion`, `estado_tipo`, `estado_color`) VALUES 
   (1,'ACTIVO',1,'#6CC841'),
   (2,'INACTIVO',1,'RED');
+COMMIT;
+
+#
+# Data for the `licencia` table  (LIMIT 0,500)
+#
+
+INSERT INTO `licencia` (`licencia_id`, `licencia_fechaactivacion`, `licencia_fechalimite`, `licencia_llave`) VALUES 
+  (1,'2019-03-01','2020-03-01','dsdgf');
 COMMIT;
 
 #
