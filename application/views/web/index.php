@@ -27,26 +27,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--//fonts-->	
 </head>
 <body>	
-		<!-- Navigation -->
-		<div class="agiletopbar">
-			<div class="wthreenavigation">
-				<div class="menu-wrap">
-				<nav class="menu">
-					<div class="icon-list">
-						<a href="<?php echo site_url('resources/mobiles.html'); ?>"><i class="fa fa-fw fa-mobile"></i><span>Mobiles</span></a>
-						<a href="<?php echo site_url('resources/electronics-appliances.html'); ?>"><i class="fa fa-fw fa-laptop"></i><span>Electronics and appliances</span></a>
-						<a href="<?php echo site_url('resources/cars.html'); ?>"><i class="fa fa-fw fa-car"></i><span>Cars</span></a>
-						<a href="<?php echo site_url('resources/bikes.html'); ?>"><i class="fa fa-fw fa-motorcycle"></i><span>Bikes</span></a>
-						<a href="<?php echo site_url('resources/furnitures.html'); ?>"><i class="fa fa-fw fa-wheelchair"></i><span>Furnitures</span></a>
-						<a href="<?php echo site_url('resources/pets.html'); ?>"><i class="fa fa-fw fa-paw"></i><span>Pets</span></a>
-						<a href="<?php echo site_url('resources/books-sports-hobbies.html'); ?>'); ?>"><i class="fa fa-fw fa-book"></i><span>Books, Sports & Hobbies</span></a>
-						<a href="<?php echo site_url('resources/fashion.html'); ?>"><i class="fa fa-fw fa-asterisk"></i><span>Fashion</span></a>
-						<a href="<?php echo site_url('resources/kids.html'); ?>"><i class="fa fa-fw fa-asterisk"></i><span>Kids</span></a>
-						<a href="<?php echo site_url('resources/services.html'); ?>"><i class="fa fa-fw fa-shield"></i><span>Services</span></a>
-						<a href="<?php echo site_url('resources/jobs.html'); ?>"><i class="fa fa-fw fa-at"></i><span>Jobs</span></a>
-						<a href="<?php echo site_url('resources/real-estate.html'); ?>"><i class="fa fa-fw fa-home"></i><span>Real Estate</span></a>
-					</div>
-				</nav>
+    <!-- Navigation -->
+    <div class="agiletopbar">
+        <div class="wthreenavigation">
+            <div class="menu-wrap">
+                <nav class="menu">
+                    <div class="icon-list">
+                        <?php
+                        foreach ($all_categoria as $categoria) {
+                        ?>
+                        <a href="<?php echo site_url('categoria/vercategoria/'.$categoria['categoria_id']); ?>"><i class="fa fa-fw fa-mobile"></i><span><?php echo $categoria['categoria_nombre']; ?></span></a>
+                        <?php
+                        }
+                        ?>
+                        <a href="<?php echo site_url('resources/cars.html'); ?>"><i class="fa fa-fw fa-car"></i><span>Cars</span></a>
+                    </div>
+                </nav>
 				<button class="close-button" id="close-button">Close Menu</button>
 			</div>
 			<button class="menu-button" id="open-button"> </button>
@@ -473,37 +469,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			
 			<div class="clearfix"> </div> 
 		</div>
-		<div class="container">
-			<div class="agile-its-header">
-				<div class="logo">
-					<h1><a href="<?php echo site_url('resources/index.html'); ?>"><span>Re</span>sale-v2</a></h1>
-				</div>
-				<div class="agileits_search">
-					<form action="#" method="post">
-						<input name="Search" type="text" placeholder="How can we help you today?" required="" />
-						<select id="agileinfo_search" name="agileinfo_search" required="">
-							<option value="">All Categories</option>
-							<option value="Mobiles">Mobiles</option>
-							<option value="Electronics & Appliances">Electronics & Appliances</option>
-							<option value="Cars">Cars</option>
-							<option value="Bikes">Bikes</option>
-							<option value="Furnitures">Furnitures</option>
-							<option value="Books, Sports & Hobbies">Books, Sports & Hobbies</option>
-							<option value="Fashion">Fashion</option>
-							<option value="Kids">Kids</option>
-							<option value="Services">Services</option>
-							<option value="Jobs">Jobs</option>
-							<option value="Real Estates">Real Estates</option>
-						</select>
-						<button type="submit" class="btn btn-default" aria-label="Left Align">
-							<i class="fa fa-search" aria-hidden="true"> </i>
-						</button>
-					</form>
-				<a class="post-w3layouts-ad" href="<?php echo site_url('resources/post-ad.html'); ?>">Post Free Ad</a>
-				</div>	
-				<div class="clearfix"></div>
-			</div>
-		</div>
+            <div class="container">
+                <div class="agile-its-header">
+                    <div class="logo">
+                        <h1><a href="<?php echo site_url(); ?>"><span>VE</span>ASER</a></h1>
+                    </div>
+                    <div class="agileits_search">
+                        <form action="#" method="post">
+                            <input name="Search" type="text" placeholder="How can we help you today?" required="" />
+                            <select id="agileinfo_search" name="agileinfo_search" required="">
+                                <option value="">- CATEGORIAS -</option>
+                                <?php
+                                foreach ($all_categoria as $categoria) {
+                                ?>
+                                <option value="<?php echo $categoria['categoria_id']; ?>"><?php echo $categoria['categoria_nombre']; ?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                            <button type="submit" class="btn btn-default" aria-label="Left Align">
+                                <i class="fa fa-search" aria-hidden="true"> </i>
+                            </button>
+                        </form>
+                        <a class="post-w3layouts-ad" href="<?php echo site_url('resources/post-ad.html'); ?>">Post Free Ad</a>
+                    </div>	
+                    <div class="clearfix"></div>
+                </div>
+            </div>
 	</header>
 	<!-- //header -->
 	<!-- Slider -->
@@ -553,7 +545,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             ?>
                             <div class="col-md-3">
                                 <div class="focus-grid w3layouts-boder<?php echo $i; ?>">
-                                    <a class="btn-8" href="<?php echo site_url('resources/categories.html#parentVerticalTab2'); ?>">
+                                    <!--<a class="btn-8" href="<?php //echo site_url('categoria/vercategoria/'.$categoria['categoria_id'].'#parentVerticalTab'.$i); ?>">-->
+                                    <a class="btn-8" href="<?php echo site_url('categoria/vercategoria/'.$categoria['categoria_id']); ?>">
                                         <div class="focus-border">
                                             <div class="focus-layout">
                                                 <?php
@@ -570,6 +563,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                             </div>
                             <?php
+                            $i++;
                             }
                             ?>
                             <!--
@@ -584,10 +578,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</a>
 					</div>
-					</div>
+					</div>-->
 					<div class="col-md-3">
 					<div class="focus-grid w3layouts-boder3">
-						<a class="btn-8" href="<?php //echo site_url('resources/categories.html#parentVerticalTab3'); ?>">
+						<a class="btn-8" href="<?php echo site_url('resources/categories.html#parentVerticalTab3'); ?>">
 							<div class="focus-border">
 								<div class="focus-layout">
 									<div class="focus-image"><i class="fa fa-car"></i></div>
@@ -597,7 +591,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</a>
 					</div>	
 					</div>
-					<div class="col-md-3">
+					<!--<div class="col-md-3">
 					<div class="focus-grid w3layouts-boder4">
 						<a class="btn-8" href="<?php //echo site_url('resources/categories.html#parentVerticalTab4'); ?>">
 							<div class="focus-border">
