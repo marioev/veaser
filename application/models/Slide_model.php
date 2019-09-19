@@ -60,11 +60,9 @@ class Slide_model extends CI_Model
                 *
 
             FROM
-                slide s, estado_pagina e, pagina_web p
+                slide s
 
-            WHERE
-                s.estadopag_id = e.estadopag_id
-                and s.pagina_id = p.pagina_id
+           
 
             ORDER BY `slide_id` DESC
 

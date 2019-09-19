@@ -137,6 +137,68 @@ class Usuario_model extends CI_Model
     {
         return $this->db->delete('usuario',array('usuario_id'=>$usuario_id));
     }
+    public function email_repeat2($email,$idu)
+    {
+        $this->db->select('usuario_id');
+        $this->db->from('usuario');
+        $this->db->where('usuario_email', $email);
+        $this->db->where('usuario_id !=', $idu);
+        $query = $this->db->get();
+        if ( $query->num_rows() > 0 ){
+            //$row = $query->row_array();
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function login_repeat2($login, $uid)
+    {
+        $this->db->select('usuario_id');
+        $this->db->from('usuario');
+        $this->db->where('usuario_id !=', $uid);
+        $this->db->where('usuario_login', $login);
+        //$var = $this->db->last_query();
+        //return $var;
+        $query = $this->db->get();
+        if ( $query->num_rows() > 0 ){
+            return true; // si hay
+        } else {
+            return false; // no hay
+        }
+    }
+    public function hay_login($login, $uid)
+    {
+        $this->db->select('usuario_id');
+        $this->db->from('usuario');
+        $this->db->where('usuario_id !=', $uid);
+        $this->db->where('usuario_login', $login);
+        //$var = $this->db->last_query();
+        //return $var;
+        $query = $this->db->get();
+        if ( $query->num_rows() > 0 ){
+            return 1; // si hay
+        } else {
+            return 0; // no hay
+        }
+
+    }
+    public function hay_login1($login)
+    {
+        $this->db->select('usuario_id');
+        $this->db->from('usuario');
+        $this->db->where('usuario_login', $login);
+        //$var = $this->db->last_query();
+        //return $var;
+        $query = $this->db->get();
+        if ( $query->num_rows() > 0 ){
+            return 1; // si hay
+        } else {
+            return 0; // no hay
+        }
+    }
+
+   
     
     /******** Función que muestra a todos los usuarios Prevendedores ************/
  /*   function get_all_usuario_prev()

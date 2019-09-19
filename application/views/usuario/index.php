@@ -38,9 +38,7 @@
                   </div>
             <!-- ------------------- fin parametro de buscador ------------------- -->
         <div class="box">
-            <?php if($this->session->flashdata('msg')): ?>
-                <p><?php echo $this->session->flashdata('msg'); ?></p>
-            <?php endif; ?>
+            
             <div class="box-body table-responsive">
                 <table class="table table-striped table-condensed" id="mitabla">
                     <tr>

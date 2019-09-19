@@ -210,7 +210,7 @@
 
             $.ajax({
                 data:  parametros,
-                url:   '<?php echo base_url('admin/dashb/haylogin2')?>',
+                url:   '<?php echo base_url('usuario/haylogin2')?>',
                 type:  'post',
 //                    dataType: "json",
                 beforeSend: function () {
