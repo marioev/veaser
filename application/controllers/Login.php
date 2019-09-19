@@ -22,6 +22,7 @@ Class Login extends CI_Controller
     		$data['diaslic'] = 5000;
     	$this->load->view('login/singin',$data);	
     	}
+    	//$this->load->view('login/singin');
     }
     public function logout()
     {
