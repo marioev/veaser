@@ -226,5 +226,16 @@ class Categoria extends CI_Controller{
         else
             show_error('The categoria you are trying to delete does not exist.');
     }
-    
+    /*
+     * muestra al publico lo que hay en la categoria seleccionada
+     */
+    function vercategoria($categoria_id)
+    {
+        $data['categoria_id']  = $categoria_id;
+        $data['all_categoria'] = $this->Categoria_model->get_all_categoriactiva();
+        
+        //$data['_view'] = 'categoria/vercategoria';
+        $this->load->view('categoria/vercategoria',$data);
+        
+    }
 }
