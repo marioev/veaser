@@ -49,24 +49,19 @@ class Slide_model extends CI_Model
     /*
      * Get all slide
      */
-    function get_all_slide($params = array())
+    function get_all_slide()
     {
-        $limit_condition = "";
-        if(isset($params) && !empty($params))
-            $limit_condition = " LIMIT " . $params['offset'] . "," . $params['limit'];
+        
         
         $slide = $this->db->query("
             SELECT
                 *
 
             FROM
-                slide s
-
-           
+                slide            
 
             ORDER BY `slide_id` DESC
 
-            " . $limit_condition . "
         ")->result_array();
 
         return $slide;

@@ -8,14 +8,17 @@ class Dashboard extends CI_Controller{
     function __construct()
     {
         parent::__construct();
+        $this->load->model('Categoria_model');
+        $this->load->model('Slide_model');
         
     }
 
     function index()
     {
-        $this->load->model('Categoria_model');
+       
         //$data['total_categoria'] = $this->Categoria_model->get_all_categoriactiva();
         $data['all_categoria'] = $this->Categoria_model->get_all_categoriactiva();
+        $data['all_slide'] = $this->Slide_model->get_all_slide();
         
         $data['_view'] = 'dashboard';
         //$this->load->view('layouts/main',$data);

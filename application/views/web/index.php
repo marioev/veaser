@@ -7,11 +7,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<script  src="<?php echo site_url('resources/js/jquery.min.js'); ?>"></script>
+<script src="<?php echo site_url('resources/js/skdslider.min.js'); ?>"></script>
 <title>Resale_v2 a Classified ads Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
 <link rel="stylesheet" href="<?php echo site_url('resources/css/bootstrap.min.css'); ?>"><!-- bootstrap-CSS -->
 <link rel="stylesheet" href="<?php echo site_url('resources/css/bootstrap-select.css'); ?>"><!-- bootstrap-select-CSS -->
 <link href="<?php echo site_url('resources/css/style.css'); ?>" rel="stylesheet" type="text/css" media="all" /><!-- style.css -->
 <link rel="stylesheet" href="<?php echo site_url('resources/css/flexslider.css'); ?>" type="text/css" media="screen" /><!-- flexslider-CSS -->
+<link rel="stylesheet" href="<?php echo site_url('resources/css/skdslider.css'); ?>" type="text/css">
 <link rel="stylesheet" href="<?php echo site_url('resources/css/font-awesome.min.css'); ?>" /><!-- fontawesome-CSS -->
 <link rel="stylesheet" href="<?php echo site_url('resources/css/menu_sideslide.css'); ?>" type="text/css" media="all"><!-- Navigation-CSS -->
 <!-- meta tags -->
@@ -20,6 +23,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta name="keywords" content="Resale Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+
+
 <!-- //meta tags -->
 <!--fonts-->
 <link href='//fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
@@ -499,40 +505,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</header>
 	<!-- //header -->
 	<!-- Slider -->
-		<div class="slider">
-			<ul class="rslides" id="slider">
-				<li>
-					<div class="w3ls-slide-text">
-						<h3>Sell or Advertise anything online</h3>
-						<a href="<?php echo site_url('resources/categories.html'); ?>" class="w3layouts-explore-all">Browse all Categories</a>
-					</div>
-				</li>
-				<li>
-					<div class="w3ls-slide-text">
-						<h3>Find the Best Deals Here</h3>
-						<a href="<?php echo site_url('resources/categories.html'); ?>" class="w3layouts-explore">Explore</a>
-					</div>
-				</li>
-				<li>
-					<div class="w3ls-slide-text">
-						<h3>Lets build the home of your dreams</h3>
-						<a href="<?php echo site_url('resources/real-estate.html'); ?>" class="w3layouts-explore">Explore</a>
-					</div>
-				</li>
-				<li>
-					<div class="w3ls-slide-text">
-						<h3>Find your dream ride</h3>
-						<a href="<?php echo site_url('resources/bikes.html'); ?>" class="w3layouts-explore">Explore</a>
-					</div>
-				</li>
-				<li>
-					<div class="w3ls-slide-text">
-						<h3>The Easiest Way to get a Job</h3>
-						<a href="<?php echo site_url('resources/jobs.html'); ?>" class="w3layouts-explore">Find a Job</a>
-					</div>
-				</li>
-			</ul>
-		</div>
+		
+
+                  <ul id="demo1">
+                    <?php 
+                        
+                    foreach($all_slide as $s){ 
+                    ?>
+			<li>
+                            <img src="<?php echo site_url('resources/images/sliders/'.$s['slide_imagen']); ?>" alt=''> 
+                            <!--Slider Description example-->
+                            <div class="slide-desc">
+                                <h3><?php echo $s['slide_leyenda1']; ?></h3> 
+                                <h5><a href="<?php echo $s['slide_enlace']; ?>"><badge class="btn btn-info btn-xs"><b><?php echo $s['slide_leyenda2']; ?></b></badge></a></h5>
+                            </div>
+			</li>
+                    <?php } ?>
+
+		</ul>    
+                
+	
 		<!-- //Slider -->
 		<!-- content-starts-here -->
 		<div class="main-content">
@@ -1054,7 +1046,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<script type="text/javascript" src="<?php echo site_url('resources/js/classie.js'); ?>"></script>
 		<!-- //Navigation-Js-->
 		<!-- js -->
-		<script type="text/javascript" src="<?php echo site_url('resources/js/jquery.min.js'); ?>"></script>
+		
 		<!-- js -->
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="<?php echo site_url('resources/js/bootstrap.js'); ?>"></script>
@@ -1132,20 +1124,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						});
 					   </script>
 		<!-- Slider-JavaScript -->
-			<script src="<?php echo site_url('resources/js/responsiveslides.min.js'); ?>"></script>	
-			 <script>
-			$(function () {	
-			  $("#slider").responsiveSlides({
-				auto: true,
-				pager: false,
-				nav: true,
-				speed: 500,
-				maxwidth: 800,
-				namespace: "large-btns"
-			  });
-
+		<!-- main slider-banner -->
+<script type="text/javascript">
+		jQuery(document).ready(function(){
+			jQuery('#demo1').skdslider({'delay':5000, 'animationSpeed': 2000,'showNextPrev':true,'showPlayButton':true,'autoSlide':true,'animationType':'fading'});
+						
+			jQuery('#responsive').change(function(){
+			  $('#responsive_wrapper').width(jQuery(this).val());
 			});
-		  </script>
+			
+		});
+</script>	
+<!-- //main slider-banner --> 
+		<script type="text/javascript">
+		jQuery(document).ready(function(){
+			jQuery('#demo1').skdslider({'delay':5000, 'animationSpeed': 1000,'showNextPrev':true,'showPlayButton':true,'autoSlide':true,'animationType':'fading'});
+						
+			jQuery('#responsive').change(function(){
+			  $('#responsive_wrapper').width(jQuery(this).val());
+			});
+			
+		});
+</script>	
+			
 		<!-- //Slider-JavaScript -->
 		<!-- here stars scrolling icon -->
 			<script type="text/javascript">
