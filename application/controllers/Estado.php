@@ -17,26 +17,26 @@ class Estado extends CI_Controller{
         }*/
     }
     /* *****Funcion que verifica el acceso al sistema**** */
-    /*private function acceso($id_rol){
-        $rolusuario = $this->session_data['rol'];
-        if($rolusuario[$id_rol-1]['rolusuario_asignado'] == 1){
+    private function acceso($id_rol){
+       // $rolusuario = $this->session_data['rol'];
+        if(1 == 1){
             return true;
         }else{
             $data['_view'] = 'login/mensajeacceso';
             $this->load->view('layouts/main',$data);
         }
-    }*/
+    }
     /*
      * Listing of estado
      */
     function index()
     {
-        //if($this->acceso(7)){
+        if($this->acceso(7)){
             $data['estado'] = $this->Estado_model->get_all_estado();
 
             $data['_view'] = 'estado/index';
             $this->load->view('layouts/main',$data);
-        //}
+        }
     }
     /*
      * Adding a new estado
