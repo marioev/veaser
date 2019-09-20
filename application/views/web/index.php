@@ -7,11 +7,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<script  src="<?php echo site_url('resources/js/jquery.min.js'); ?>"></script>
+<script src="<?php echo site_url('resources/js/skdslider.min.js'); ?>"></script>
 <title>Resale_v2 a Classified ads Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
 <link rel="stylesheet" href="<?php echo site_url('resources/css/bootstrap.min.css'); ?>"><!-- bootstrap-CSS -->
 <link rel="stylesheet" href="<?php echo site_url('resources/css/bootstrap-select.css'); ?>"><!-- bootstrap-select-CSS -->
 <link href="<?php echo site_url('resources/css/style.css'); ?>" rel="stylesheet" type="text/css" media="all" /><!-- style.css -->
 <link rel="stylesheet" href="<?php echo site_url('resources/css/flexslider.css'); ?>" type="text/css" media="screen" /><!-- flexslider-CSS -->
+<link rel="stylesheet" href="<?php echo site_url('resources/css/skdslider.css'); ?>" type="text/css">
 <link rel="stylesheet" href="<?php echo site_url('resources/css/font-awesome.min.css'); ?>" /><!-- fontawesome-CSS -->
 <link rel="stylesheet" href="<?php echo site_url('resources/css/menu_sideslide.css'); ?>" type="text/css" media="all"><!-- Navigation-CSS -->
 <!-- meta tags -->
@@ -20,6 +23,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta name="keywords" content="Resale Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+
+
 <!-- //meta tags -->
 <!--fonts-->
 <link href='//fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
@@ -499,40 +505,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</header>
 	<!-- //header -->
 	<!-- Slider -->
-		<div class="slider">
-			<ul class="rslides" id="slider">
-				<li>
-					<div class="w3ls-slide-text">
-						<h3>Sell or Advertise anything online</h3>
-						<a href="<?php echo site_url('resources/categories.html'); ?>" class="w3layouts-explore-all">Browse all Categories</a>
-					</div>
-				</li>
-				<li>
-					<div class="w3ls-slide-text">
-						<h3>Find the Best Deals Here</h3>
-						<a href="<?php echo site_url('resources/categories.html'); ?>" class="w3layouts-explore">Explore</a>
-					</div>
-				</li>
-				<li>
-					<div class="w3ls-slide-text">
-						<h3>Lets build the home of your dreams</h3>
-						<a href="<?php echo site_url('resources/real-estate.html'); ?>" class="w3layouts-explore">Explore</a>
-					</div>
-				</li>
-				<li>
-					<div class="w3ls-slide-text">
-						<h3>Find your dream ride</h3>
-						<a href="<?php echo site_url('resources/bikes.html'); ?>" class="w3layouts-explore">Explore</a>
-					</div>
-				</li>
-				<li>
-					<div class="w3ls-slide-text">
-						<h3>The Easiest Way to get a Job</h3>
-						<a href="<?php echo site_url('resources/jobs.html'); ?>" class="w3layouts-explore">Find a Job</a>
-					</div>
-				</li>
-			</ul>
-		</div>
+		<?php 
+                        
+                    if (count($all_slide)>0) { ?>
+                    	
+                  <ul id="demo1">
+                    <?php 
+                        
+                    foreach($all_slide as $s){ 
+                    ?>
+			<li>
+                            <img src="<?php echo site_url('resources/images/sliders/'.$s['slide_imagen']); ?>" alt=''> 
+                            <!--Slider Description example-->
+                            <div class="slide-desc">
+                                <h3><?php echo $s['slide_leyenda1']; ?></h3> 
+                                <h5><a href="<?php echo $s['slide_enlace']; ?>"><badge class="btn btn-info btn-xs"><b><?php echo $s['slide_leyenda2']; ?></b></badge></a></h5>
+                            </div>
+			</li>
+                    <?php } } ?>
+
+		</ul>    
+                
+	
 		<!-- //Slider -->
 		<!-- content-starts-here -->
 		<div class="main-content">
@@ -566,139 +560,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             $i++;
                             }
                             ?>
-                            <!--
-					<div class="col-md-3">
-						<div class="focus-grid w3layouts-boder2">	
-						<a class="btn-8" href="<?php //echo site_url('resources/categories.html#parentVerticalTab2'); ?>">
-							<div class="focus-border">
-								<div class="focus-layout">
-									<div class="focus-image"><i class="fa fa-laptop"></i></div>
-									<h4 class="clrchg"> Electronics & Appliances</h4>
-								</div>
-							</div>
-						</a>
-					</div>
-					</div>-->
-					<div class="col-md-3">
-					<div class="focus-grid w3layouts-boder3">
-						<a class="btn-8" href="<?php echo site_url('resources/categories.html#parentVerticalTab3'); ?>">
-							<div class="focus-border">
-								<div class="focus-layout">
-									<div class="focus-image"><i class="fa fa-car"></i></div>
-									<h4 class="clrchg">Cars</h4>
-								</div>
-							</div>
-						</a>
-					</div>	
-					</div>
-					<!--<div class="col-md-3">
-					<div class="focus-grid w3layouts-boder4">
-						<a class="btn-8" href="<?php //echo site_url('resources/categories.html#parentVerticalTab4'); ?>">
-							<div class="focus-border">
-								<div class="focus-layout">
-									<div class="focus-image"><i class="fa fa-motorcycle"></i></div>
-									<h4 class="clrchg">Bikes</h4>
-								</div>
-							</div>
-						</a>
-					</div>	
-					</div>
-					<div class="col-md-3">
-					<div class="focus-grid w3layouts-boder5">
-						<a class="btn-8" href="<?php //echo site_url('resources/categories.html#parentVerticalTab5'); ?>">
-							<div class="focus-border">
-								<div class="focus-layout">
-									<div class="focus-image"><i class="fa fa-wheelchair"></i></div>
-									<h4 class="clrchg">Furnitures</h4>
-								</div>
-							</div>
-						</a>
-					</div>
-					</div>
-					<div class="col-md-3">
-					<div class="focus-grid w3layouts-boder6">
-						<a class="btn-8" href="<?php //echo site_url('resources/categories.html#parentVerticalTab6'); ?>">
-							<div class="focus-border">
-								<div class="focus-layout">
-									<div class="focus-image"><i class="fa fa-paw"></i></div>
-									<h4 class="clrchg">Pets</h4>
-								</div>
-							</div>
-						</a>
-					</div>	
-					</div>
-					<div class="col-md-3">
-					<div class="focus-grid w3layouts-boder7">
-						<a class="btn-8" href="<?php //echo site_url('resources/categories.html#parentVerticalTab7'); ?>">
-							<div class="focus-border">
-								<div class="focus-layout">
-									<div class="focus-image"><i class="fa fa-book"></i></div>
-									<h4 class="clrchg">Books, Sports & Hobbies</h4>
-								</div>
-							</div>
-						</a>
-					</div>	
-					</div>
-					<div class="col-md-3">
-					<div class="focus-grid w3layouts-boder8">
-						<a class="btn-8" href="<?php //echo site_url('resources/categories.html#parentVerticalTab8'); ?>">
-							<div class="focus-border">
-								<div class="focus-layout">
-									<div class="focus-image"><i class="fa fa-asterisk"></i></div>
-									<h4 class="clrchg">Fashion</h4>
-								</div>
-							</div>
-						</a>
-					</div>	
-					</div>
-					<div class="col-md-3">
-					<div class="focus-grid w3layouts-boder9">
-						<a class="btn-8" href="<?php //echo site_url('resources/categories.html#parentVerticalTab9'); ?>">
-							<div class="focus-border">
-								<div class="focus-layout">
-									<div class="focus-image"><i class="fa fa-gamepad"></i></div>
-									<h4 class="clrchg">Kids</h4>
-								</div>
-							</div>
-						</a>
-					</div>	
-					</div>
-					<div class="col-md-3">
-					<div class="focus-grid w3layouts-boder10">
-						<a class="btn-8" href="<?php //echo site_url('resources/categories.html#parentVerticalTab10'); ?>">
-							<div class="focus-border">
-								<div class="focus-layout">
-									<div class="focus-image"><i class="fa fa-shield"></i></div>
-									<h4 class="clrchg">Services</h4>
-								</div>
-							</div>
-						</a>
-					</div>
-					</div>
-					<div class="col-md-3">
-					<div class="focus-grid w3layouts-boder11">
-						<a class="btn-8" href="<?php //echo site_url('resources/categories.html#parentVerticalTab11'); ?>">
-							<div class="focus-border">
-								<div class="focus-layout">
-									<div class="focus-image"><i class="fa fa-at"></i></div>
-									<h4 class="clrchg">Jobs</h4>
-								</div>
-							</div>
-						</a>
-					</div>
-					</div>
-					<div class="col-md-3">
-					<div class="focus-grid w3layouts-boder12">
-						<a class="btn-8" href="<?php //echo site_url('resources/categories.html#parentVerticalTab12'); ?>">
-							<div class="focus-border">
-								<div class="focus-layout">
-									<div class="focus-image"><i class="fa fa-home"></i></div>
-									<h4 class="clrchg">Real Estate</h4>
-								</div>
-							</div>
-						</a>
-					</div>
-					</div>-->
+                            
 					<div class="clearfix"></div>
 				</div>
 			</div>
@@ -1054,7 +916,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<script type="text/javascript" src="<?php echo site_url('resources/js/classie.js'); ?>"></script>
 		<!-- //Navigation-Js-->
 		<!-- js -->
-		<script type="text/javascript" src="<?php echo site_url('resources/js/jquery.min.js'); ?>"></script>
+		
 		<!-- js -->
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="<?php echo site_url('resources/js/bootstrap.js'); ?>"></script>
@@ -1132,20 +994,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						});
 					   </script>
 		<!-- Slider-JavaScript -->
-			<script src="<?php echo site_url('resources/js/responsiveslides.min.js'); ?>"></script>	
-			 <script>
-			$(function () {	
-			  $("#slider").responsiveSlides({
-				auto: true,
-				pager: false,
-				nav: true,
-				speed: 500,
-				maxwidth: 800,
-				namespace: "large-btns"
-			  });
-
+		<!-- main slider-banner -->
+<script type="text/javascript">
+		jQuery(document).ready(function(){
+			jQuery('#demo1').skdslider({'delay':5000, 'animationSpeed': 2000,'showNextPrev':true,'showPlayButton':true,'autoSlide':true,'animationType':'fading'});
+						
+			jQuery('#responsive').change(function(){
+			  $('#responsive_wrapper').width(jQuery(this).val());
 			});
-		  </script>
+			
+		});
+</script>	
+<!-- //main slider-banner --> 
+		<script type="text/javascript">
+		jQuery(document).ready(function(){
+			jQuery('#demo1').skdslider({'delay':5000, 'animationSpeed': 1000,'showNextPrev':true,'showPlayButton':true,'autoSlide':true,'animationType':'fading'});
+						
+			jQuery('#responsive').change(function(){
+			  $('#responsive_wrapper').width(jQuery(this).val());
+			});
+			
+		});
+</script>	
+			
 		<!-- //Slider-JavaScript -->
 		<!-- here stars scrolling icon -->
 			<script type="text/javascript">

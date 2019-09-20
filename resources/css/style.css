@@ -382,7 +382,6 @@ i.fa.fa-language,i.fa.fa-globe {
 	-webkit-backface-visibility: hidden;
 	position: absolute;
 	display: none;
-	width: 100%;
 	left: 0;
 	top: 0;
 }
@@ -500,36 +499,10 @@ ul.callbacks_tabs li {
     background: rgba(255, 255, 255, 0.58);
 	margin-bottom:50px;
 }
-.rslides {
-  position: relative;
-  list-style: none;
-  overflow: hidden;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  }
-
-.rslides li {
-  -webkit-backface-visibility: hidden;
-  position: absolute;
-  display: none;
-  width: 100%;
-  left: 0;
-  top: 0;
-  }
-
 .rslides li:first-child {
   position: relative;
   display: block;
   float: left;
-  }
-
-.rslides img {
-  display: block;
-  height: 250px;
-  float: left;
-  width: 100%;
-  border: 0;
   }
 /*--w3layouts--*/
 /*--agileits--*/
@@ -574,6 +547,7 @@ a.w3layouts-explore-all:hover {
 .rslides {
   margin: 0 auto;
       max-width: 100%!important;
+      max-height: 100%!important;
   }
 
 .rslides_container {
