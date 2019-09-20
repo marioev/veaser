@@ -210,8 +210,8 @@ class Producto extends CI_Controller{
                     $config['upload_path'] = './resources/images/productos/';
                     $config['allowed_types'] = 'gif|jpeg|jpg|png';
                     $config['max_size'] = 0;
-                    $config['max_width'] = 5900;
-                    $config['max_height'] = 5900;
+                    $config['max_width'] = 7900;
+                    $config['max_height'] = 7900;
 
                     $new_name = time(); //str_replace(" ", "_", $this->input->post('proveedor_nombre'));
                     $config['file_name'] = $new_name; //.$extencion;
@@ -271,75 +271,42 @@ class Producto extends CI_Controller{
                 $params = array(
                     'estado_id' => $this->input->post('estado_id'),
                     'categoria_id' => $this->input->post('categoria_id'),
-                    'presentacion_id' => 1,
                     'moneda_id' => $this->input->post('moneda_id'),
                     'producto_codigo' => $this->input->post('producto_codigo'),
                     'producto_codigobarra' => $this->input->post('producto_codigobarra'),
+                    'producto_foto' => $foto,
                     'producto_nombre' => $this->input->post('producto_nombre'),
                     'producto_unidad' => $this->input->post('producto_unidad'),
                     'producto_marca' => $this->input->post('producto_marca'),
                     'producto_industria' => $this->input->post('producto_industria'),
                     'producto_costo' => $this->input->post('producto_costo'),
                     'producto_precio' => $this->input->post('producto_precio'),
-                    'producto_foto' => $foto,
                     'producto_comision' => $this->input->post('producto_comision'),
-                    'producto_tipocambio' => $this->input->post('producto_tipocambio'),
-                    'producto_factor' => $this->input->post('producto_factor'),
-                    'producto_unidadfactor' => $this->input->post('producto_unidadfactor'),
-                    'producto_codigofactor' => $this->input->post('producto_codigofactor'),
-                    'producto_preciofactor' => $this->input->post('producto_preciofactor'),
-                    'producto_factor1' => $this->input->post('producto_factor1'),
-                    'producto_unidadfactor1' => $this->input->post('producto_unidadfactor1'),
-                    'producto_codigofactor1' => $this->input->post('producto_codigofactor1'),
-                    'producto_preciofactor1' => $this->input->post('producto_preciofactor1'),
-                    'producto_factor2' => $this->input->post('producto_factor2'),
-                    'producto_unidadfactor2' => $this->input->post('producto_unidadfactor2'),
-                    'producto_codigofactor2' => $this->input->post('producto_codigofactor2'),
-                    'producto_preciofactor2' => $this->input->post('producto_preciofactor2'),
-                    'producto_factor3' => $this->input->post('producto_factor3'),
-                    'producto_unidadfactor3' => $this->input->post('producto_unidadfactor3'),
-                    'producto_codigofactor3' => $this->input->post('producto_codigofactor3'),
-                    'producto_preciofactor3' => $this->input->post('producto_preciofactor3'),
-                    'producto_factor4' => $this->input->post('producto_factor4'),
-                    'producto_unidadfactor4' => $this->input->post('producto_unidadfactor4'),
-                    'producto_codigofactor4' => $this->input->post('producto_codigofactor4'),
-                    'producto_preciofactor4' => $this->input->post('producto_preciofactor4'),
-                    'producto_ultimocosto' => $this->input->post('producto_ultimocosto'),
-                    'producto_cantidadminima' => $this->input->post('producto_cantidadminima'), 
                     'producto_caracteristicas' => $this->input->post('producto_caracteristicas'),
-                    'producto_envase' => $this->input->post('producto_envase'),
-                    'producto_nombreenvase' => $this->input->post('producto_nombreenvase'),
-                    'producto_costoenvase' => $this->input->post('producto_costoenvase'),
-                    'producto_precioenvase' => $this->input->post('producto_precioenvase'),
-                    'destino_id' => $this->input->post('destino_id'),
-                    'producto_principioact' => $this->input->post('producto_principioact'),
-                    'producto_accionterap' => $this->input->post('producto_accionterap'),
-                    
+                    //'producto_fechahora' => $fecha_hora,
+                    'producto_latitud' => $this->input->post('producto_latitud'),
+                    'producto_longitud' => $this->input->post('producto_longitud'),
                 );
 
                 $this->Producto_model->update_producto($producto_id,$params);
-                $this->load->model('Inventario_model');
-                $this->Inventario_model->update_inventario($producto_id, $params);
+                //$this->load->model('Inventario_model');
+                //$this->Inventario_model->update_inventario($producto_id, $params);
                 redirect('producto/index');
             }
             else
             {
                 $this->load->model('Estado_model');
-                $data['all_estado'] = $this->Estado_model->get_all_estado_activo_inactivo();
+                $estado_tipo = 1;
+                $data['all_estado'] = $this->Estado_model->get_estado_tipo($estado_tipo);
 
-                $this->load->model('Categoria_producto_model');
-                $data['all_categoria_producto'] = $this->Categoria_producto_model->get_all_categoria_producto();
-
+                $this->load->model('Categoria_model');
+                $data['all_categoria'] = $this->Categoria_model->get_all_categoriactiva();
+                /*
                 $this->load->model('Presentacion_model');
                 $data['all_presentacion'] = $this->Presentacion_model->get_all_presentacion();
+                */
                 $data['unidades'] = $this->Producto_model->get_all_unidad();
                 
-                $this->load->model('Destino_producto_model');
-                $data['all_destino_producto'] = $this->Destino_producto_model->get_all_destino_producto();
-                
-                $this->load->model('Parametro_model');
-                $data['parametro'] = $this->Parametro_model->get_parametro(1);
-        
                 $this->load->model('Moneda_model');
                 $data['all_moneda'] = $this->Moneda_model->get_all_moneda();
                 $data['page_title'] = "Producto";
@@ -774,53 +741,6 @@ class Producto extends CI_Controller{
         }
         }
           
-    }
-    /*
-     * Listado de productos con existencia minima
-     */
-    function existenciaminima()
-    {
-        if($this->acceso(105)) {
-        $usuario_id = $this->session_data['usuario_id'];  
-        $data = array(
-            'page_title' => 'Admin >> Mi Cuenta'
-        );
-        
-        $this->load->model('Categoria_producto_model');
-        $data['all_categoria'] = $this->Categoria_producto_model->get_all_categoria_de_producto();
-
-        $this->load->model('Estado_model');
-        $data['all_estado'] = $this->Estado_model->get_all_estado_activo_inactivo();
-        
-        $this->load->model('Empresa_model');
-        $data['empresa'] = $this->Empresa_model->get_all_empresa();
-        
-        $this->load->model('Parametro_model');
-        $data['parametro'] = $this->Parametro_model->get_parametro(1);
-        
-        $data['page_title'] = "Producto";
-        $data['_view'] = 'producto/existenciaminima';
-        $this->load->view('layouts/main',$data);
-    }
-}
-    
-    /*
-    * buscar productos con existencia minima
-    */
-    function buscarproductosexistmin()
-    {
-        if($this->acceso(105)) {
-            if ($this->input->is_ajax_request()) {
-                $parametro       = $this->input->post('parametro');
-                $categoriaestado = $this->input->post('categoriaestado'); 
-                $datos = $this->Producto_model->get_busqueda_producto_existmin($parametro, $categoriaestado);
-                echo json_encode($datos);
-            }
-            else
-            {                 
-                show_404();
-            }
-        }
     }
     
     /* * añadir unidad en producto */

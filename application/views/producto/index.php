@@ -125,22 +125,6 @@
                     </select>
                 </div>
             </div>
-           <!-- <div class="col-md-3">
-                
-                <div class="box-tools">
-                    <select name="estado_id" class="btn-primary btn-sm" id="estado_id">
-                        <option value="">-- ESTADO --</option>
-                        <?php 
-                     /*   foreach($all_estado as $estado)
-                        {
-                                $selected = ($estado['estado_id'] == $producto['estado_id']) ? ' selected="selected"' : "";
-
-                                echo '<option value="'.$estado['estado_id'].'" '.$selected.'>'.$estado['estado_descripcion'].'</option>';
-                        } */
-                        ?>
-                    </select>
-                </div>
-            </div>-->
         </div>
            
             
@@ -160,7 +144,6 @@
             <div class="box-tools text-center">
             <a href="<?php echo site_url('producto/add'); ?>" class="btn btn-success btn-foursquarexs" title="Registrar nuevo Producto"><font size="5"><span class="fa fa-user-plus"></span></font><br><small>Registrar</small></a>
             <button data-toggle="modal" data-target="#modalbuscar" class="btn btn-warning btn-foursquarexs" onclick="tablaresultadosproducto(3)" title="Mostrar todos los Productos" ><font size="5"><span class="fa fa-search"></span></font><br><small>Ver Todos</small></button>
-            <a href="<?php echo site_url('producto/existenciaminima'); ?>" class="btn btn-info btn-foursquarexs" target="_blank" ><font size="5" title="Productos con Existencia minima"><span class="fa fa-eye"></span></font><br><small>Exist. Min.</small></a>
             <?php
             /*if($rol[106-1]['rolusuario_asignado'] == 1){ ?>
             <a onclick="imprimir_producto()" class="btn btn-primary btn-foursquarexs"><font size="5" title="Imprimir Producto"><span class="fa fa-print"></span></font><br><small>Imprimir</small></a>
@@ -185,8 +168,8 @@
                             <th  role="columnheader" >#</th>
                             <th  role="columnheader" >Nombre</th>
                             <th  role="columnheader" >Categoria|<br>Presentación</th>
+                            <th  role="columnheader" class="no-print" >Map</th>
                             <th  role="columnheader" style="width: 20%;" >Caracteristicas</th>
-                            <th  role="columnheader" >Envase</th>
                             <th  role="columnheader" >Código|<br>Cód. Barra</th>
                             <th  role="columnheader" >Precio</th>
                             <th  role="columnheader" >Moneda</th>

@@ -7,7 +7,7 @@ function mostrar(a) {
     //objm = document.getElementById('map');
     if(obj.style.visibility == 'hidden'){
         $('#map').css({ 'width':'0px', 'height':'0px' });
-        $('#mosmapa').text("Obtener Ubicación del negocio");
+        $('#mosmapa').text("Obtener Ubicación");
     }else{
         $('#map').css({ 'width':'100%', 'height':'400px' });
         $('#mosmapa').text("Cerrar mapa");
@@ -45,24 +45,6 @@ function mostrar(a) {
         $('#producto_codigobarra').val(anio+mes+dia+hora+min+seg);
         $('#producto_codigo').val(anio+mes+dia+hora+min+seg);
     }
-</script>
-<script type="text/javascript">
-    jQuery(document).ready(function(){
-      $(".oculto").hide();              
-        $(".inf").click(function(){
-              var nodo = $(this).attr("href");  
-
-              if ($(nodo).is(":visible")){
-                   $(nodo).hide();
-                   return false;
-              }else{
-            $(".oculto").hide();
-            //$(".oculto").hide("slow");                             
-            $(nodo).fadeToggle("fast");
-            return false;
-              }
-        });
-    });
 </script>
 <script>
       $(document).ready(function () {
@@ -211,7 +193,7 @@ function mostrar(a) {
                             </div>
                     </div>
                     <div class="col-md-6">
-                        <label  class="control-label"><a href="#" class="btn btn-success btn-sm " id="mosmapa" onclick="mostrar('1'); return false">Obtener Ubicación del negocio</a></label>
+                        <label  class="control-label"><a href="#" class="btn btn-success btn-sm " id="mosmapa" onclick="mostrar('1'); return false">Obtener Ubicación</a></label>
                         <!-- ***********************aqui empieza el mapa para capturar coordenadas *********************** -->
                         <div id="oculto1" style="visibility:hidden">
                         <div id="map"></div>
@@ -309,33 +291,6 @@ function mostrar(a) {
       	</div>
     </div>
 </div>
-
-<!------------------------ INICIO modal para Registrar nuevo Envase ------------------->
-<div class="modal fade" id="modalunidad" tabindex="-1" role="dialog" aria-labelledby="modalunidad">
-    <div class="modal-dialog" role="document">
-        <br><br>
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-            </div>
-            <div class="modal-body">
-               <!------------------------------------------------------------------->
-               <div class="col-md-12">
-                    <label for="nueva_unidad" class="control-label">Registrar Nueva Unidad</label>
-                    <div class="form-group">
-                        <input type="text" name="nueva_unidad"  class="form-control" id="nueva_unidad" onkeyup="var start = this.selectionStart; var end = this.selectionEnd; this.value = this.value.toUpperCase(); this.setSelectionRange(start, end);" />
-                    </div>
-                </div>
-               <!------------------------------------------------------------------->
-            </div>
-            <div class="modal-footer aligncenter">
-                <a onclick="registrarnuevaunidad()" class="btn btn-success"><span class="fa fa-check"></span> Registrar </a>
-                <a href="#" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span> No </a>
-            </div>
-        </div>
-    </div>
-</div>
-<!------------------------ FIN modal para Registrar nuevo Envase ------------------->
 
 <!------------------------ INICIO modal para Registrar nueva Categoria ------------------->
 <div class="modal fade" id="modalcategoria" tabindex="-1" role="dialog" aria-labelledby="modalcategoria">

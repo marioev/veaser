@@ -124,15 +124,8 @@ function tablaresultadosproducto(limite)
                         html += "</div>";
                         html += "<div style='padding-left: 4px'>";
                         html += "<b id='masgrande'>"+registros[i]["producto_nombre"]+"</b><br>";
-                        html += ""+registros[i]["producto_unidad"]+" | "+registros[i]["producto_marca"]+" | "+registros[i]["producto_industria"]+"";
-                        if(registros[i]["destino_id"] > 0){
-                            html +="<br>Destino: "+registros[i]['destino_nombre'];
-                        }
-                        /*if(parametro_modulo == 2){
-                            html +="<br>Principio Activo: "+registros[i]['producto_principioact'];
-                            html +="<br>Acción Terapeutica: "+registros[i]['producto_accionterap'];
-                        }*/
-                        html += "";
+                        html += registros[i]["producto_unidad"]+" | "+registros[i]["producto_marca"]+" | "+registros[i]["producto_industria"];
+                        
                         html += "</div>";
                         html += "</div>";
                         html += "</td>";
@@ -150,37 +143,23 @@ function tablaresultadosproducto(limite)
                         }
                         html += "<td><b>Cat.: </b>"+escategoria+"<br><b>Pres.: </b>"+registros[i]["producto_unidad"]+"<br>";
                         html += "<b>Cant. Min.: </b>";
-                        var cantmin= 0;
-                        if(registros[i]["producto_cantidadminima"] != null || registros[i]["producto_cantidadminima"] ==""){
-                            cantmin = registros[i]["producto_cantidadminima"];
+                        html +="</td>";
+                        html += "<td class='no-print' style='text-align: center'>";
+                        if ((registros[i]["cliente_latitud"]==0 && registros[i]["producto_longitud"]==0) || (registros[i]["producto_latitud"]==null && registros[i]["producto_latitud"]==null) || (registros[i]["producto_latitud"]== "" && registros[i]["producto_latitud"]=="")){
+                            html += "<img src='"+base_url+"resources/images/noubicacion.png' width='30' height='30'>";
+                        }else{
+                            html += "<a href='https://www.google.com/maps/dir/"+registros[i]["producto_latitud"]+","+registros[i]["producto_latitud"]+"' target='_blank' title='lat:"+registros[i]["producto_latitud"]+", long:"+registros[i]["producto_latitud"]+"'>";                                                                
+                            html += "<img src='"+base_url+"resources/images/blue.png' width='30' height='30'>";
+                            html += "</a>";
                         }
-                        html += cantmin+"</td>";
+                        html +="</td>";
                         html += "<td>";
                         var caracteristica = "";
                         if(registros[i]["producto_caracteristicas"] != null){
                             caracteristica = "<div style='word-wrap: break-word;'>"+registros[i]["producto_caracteristicas"]+"</div>";
                         }
                         html+= caracteristica+"</td>";
-                        html += "<td>";
-                        var sinconenvase = "";
-                        var nombreenvase = "";
-                        var costoenvase  = "";
-                        var precioenvase = "";
-                        if(registros[i]["producto_envase"] == 1){
-                            sinconenvase = "Con Envase Retornable"+"<br>";
-                            if(registros[i]["producto_nombreenvase"] != "" || registros[i]["producto_nombreenvase"] != null){
-                                nombreenvase = registros[i]["producto_nombreenvase"]+"<br>";
-                                costoenvase  = "Costo:  "+Number(registros[i]["producto_costoenvase"]).toFixed(2)+"<br>";
-                                precioenvase = "Precio: "+Number(registros[i]["producto_precioenvase"]).toFixed(2);
-                            }
-                        }else{
-                            sinconenvase = "Sin Envase Retornable";
-                        }
-                        html += sinconenvase;
-                        html += nombreenvase;
-                        html += costoenvase;
-                        html += precioenvase;
-                        html += "</td>";
+                        
                         var codbarras = "";
                         if(!(registros[i]["producto_codigobarra"] == null)){
                             codbarras = registros[i]["producto_codigobarra"];
@@ -191,16 +170,12 @@ function tablaresultadosproducto(limite)
                             html += "<b>Comisión: </b>"+registros[i]["producto_comision"];
                             html += "</td>";
                         html += "<td><b>Moneda: </b>"+esmoneda+"<br>";
-                        html += "<b>T. Cambio: </b>";
-                        var tipocambio= 0;
-                        if(registros[i]["producto_tipocambio"] != null){ tipocambio = registros[i]["producto_tipocambio"]; }
-                        html += tipocambio+"</td>";
+                        html += "</td>";
                         html += "<td class='no-print' style='background-color: #"+registros[i]["estado_color"]+"'>"+registros[i]["estado_descripcion"]+"</td>";
 		        html += "<td class='no-print'>";
                         html += "<a href='"+base_url+"producto/edit/"+registros[i]["miprod_id"]+"' class='btn btn-info btn-xs' title='Modificar Información'><span class='fa fa-pencil'></span></a>";
                         html += "<a href='"+base_url+"imagen_producto/catalogoprod/"+registros[i]["miprod_id"]+"' class='btn btn-success btn-xs' title='Catálogo de Imagenes' ><span class='fa fa-image'></span></a>";
                         html += "<a class='btn btn-danger btn-xs' data-toggle='modal' data-target='#myModal"+i+"' title='Eliminar'><span class='fa fa-trash'></span></a>";
-                        html += "<a href='"+base_url+"producto/productoasignado/"+registros[i]["miprod_id"]+"' class='btn btn-soundcloud btn-xs' title='Ver si esta asignado a subcategorias' target='_blank' ><span class='fa fa-list'></span></a>";
                         html += "<!------------------------ INICIO modal para confirmar eliminación ------------------->";
                         html += "<div class='modal fade' id='myModal"+i+"' tabindex='-1' role='dialog' aria-labelledby='myModalLabel"+i+"'>";
                         html += "<div class='modal-dialog' role='document'>";

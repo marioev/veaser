@@ -65,7 +65,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="w3ls-header-right">
 				<ul>
 					<li class="dropdown head-dpdn">
-						<a href="<?php echo site_url('resources/signin.html'); ?>" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> Sign In</a>
+						<a href="<?php echo site_url('login'); ?>" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> Ingresar</a>
 					</li>
 					<li class="dropdown head-dpdn">
 						<a href="<?php echo site_url('resources/help.html'); ?>"><i class="fa fa-question-circle" aria-hidden="true"></i> Help</a>
@@ -560,8 +560,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             $i++;
                             }
                             ?>
+                            <div class="clearfix"></div>
                             
-					<div class="clearfix"></div>
 				</div>
 			</div>
 			<!-- most-popular-ads -->
