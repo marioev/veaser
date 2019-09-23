@@ -564,8 +564,10 @@ var elem=$('#container ul');
                                         <select id="agileinfo_search" name="agileinfo_search" required="">
                                             <option value="">All Categories</option>
                                             <?php
+                                            $es_select="";
                                             foreach ($all_categoria as $categoria) {
                                                 if($categoria['categoria_id'] == $categoria_id){
+                                                    
                                                     $es_select = "selected";
                                                 }
                                             ?>

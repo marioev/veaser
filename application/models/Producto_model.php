@@ -19,13 +19,12 @@ class Producto_model extends CI_Model
         $producto = $this->db->query("
             SELECT
                 *
-
             FROM
                 `producto`
 
             WHERE
                 `producto_id` = ?
-        ",array($producto_id))->result_array();
+        ",array($producto_id))->row_array();
 
         return $producto;
     }
