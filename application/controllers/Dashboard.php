@@ -8,6 +8,7 @@ class Dashboard extends CI_Controller{
     function __construct()
     {
         parent::__construct();
+        $this->load->model('Empresa_model');
         $this->load->model('Categoria_model');
         $this->load->model('Slide_model');
         
@@ -16,7 +17,8 @@ class Dashboard extends CI_Controller{
     function index()
     {
        
-        //$data['total_categoria'] = $this->Categoria_model->get_all_categoriactiva();
+        $empresa_id = 1;
+        $data['empresa'] = $this->Empresa_model->get_this_empresa($empresa_id);
         $data['all_categoria'] = $this->Categoria_model->get_all_categoriactiva();
         $data['all_slide'] = $this->Slide_model->get_all_slide();
         

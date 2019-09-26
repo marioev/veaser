@@ -26,10 +26,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <!--//fonts-->	
 <!-- js -->
-
-<script src="<?php echo base_url('resources/js/producto_aumentarvisto.js'); ?>" type="text/javascript"></script>
-<input type="hidden" name="base_url" id="base_url" value="<?php echo base_url(); ?>" />
-
 <script type="text/javascript" src="<?php echo site_url('resources/js/jquery.min.js') ?>"></script>
 <!-- js -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -216,7 +212,7 @@ var elem=$('#container ul');
                                                             <?php
                                                             foreach ($all_productocategoria as $pc){
                                                             ?>
-                                                            <a href="<?php echo site_url('categoria/verdetalle/'.$pc['producto_id']) ?>" onclick="aumentarvistoproducto(<?php echo $pc['producto_id']; ?>)">
+                                                            <a href="<?php echo site_url('categoria/verdetalle/'.$pc['producto_id']) ?>">
                                                                 <li>
                                                                     <?php
                                                                     //$mimagen = "";

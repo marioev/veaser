@@ -69,4 +69,34 @@ class Categoria_model extends CI_Model
     {
         return $this->db->delete('categoria',array('categoria_id'=>$categoria_id));
     }
+    /*
+     * busqueda de productos y categorias
+     */
+    function buscar_productocategoria($buscar_producto, $categoria_id)
+    {
+        $producto = "";
+        if($buscar_producto != ""){
+            $producto = "and(p.producto_nombre like '%".$buscar_producto."%') ";
+        }
+        $categoria = "";
+        if($categoria_id > 0){
+            $categoria = "and p.categoria_id = ".$categoria_id." ";
+        }
+                
+        $sql = "SELECT
+                p.*, c.categoria_nombre, m.moneda_descripcion
+            FROM
+                producto p
+            LEFT JOIN categoria c on p.categoria_id = c.categoria_id
+            LEFT JOIN moneda m on p.moneda_id = m.moneda_id
+            WHERE
+                p.estado_id = 1
+                ".$producto."
+                ".$categoria."
+            GROUP BY
+                p.producto_id
+              ORDER By p.producto_nombre ASC";
+        $producto = $this->db->query($sql)->result_array();
+        return $producto;
+    }
 }

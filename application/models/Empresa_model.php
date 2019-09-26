@@ -98,7 +98,7 @@ class Empresa_model extends CI_Model
     {
         return $this->db->delete('empresa',array('empresa_id'=>$empresa_id));
     }
-    /* *****Devielve el resultado en un arreglo simple********* */
+    /* *****Devuelve el resultado en un arreglo simple********* */
     function get_this_empresa($empresa_id)
     {
         $empresa = $this->db->query("

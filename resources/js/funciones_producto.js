@@ -145,10 +145,10 @@ function tablaresultadosproducto(limite)
                         html += "<b>Cant. Min.: </b>";
                         html +="</td>";
                         html += "<td class='no-print' style='text-align: center'>";
-                        if ((registros[i]["cliente_latitud"]==0 && registros[i]["producto_longitud"]==0) || (registros[i]["producto_latitud"]==null && registros[i]["producto_latitud"]==null) || (registros[i]["producto_latitud"]== "" && registros[i]["producto_latitud"]=="")){
+                        if(registros[i]["producto_check"] == 0){
                             html += "<img src='"+base_url+"resources/images/noubicacion.png' width='30' height='30'>";
                         }else{
-                            html += "<a href='https://www.google.com/maps/dir/"+registros[i]["producto_latitud"]+","+registros[i]["producto_latitud"]+"' target='_blank' title='lat:"+registros[i]["producto_latitud"]+", long:"+registros[i]["producto_latitud"]+"'>";                                                                
+                            html += "<a href='https://www.google.com/maps/dir/"+registros[i]["producto_latitud"]+","+registros[i]["producto_longitud"]+"' target='_blank' title='lat:"+registros[i]["producto_latitud"]+", long:"+registros[i]["producto_longitud"]+"'>";                                                                
                             html += "<img src='"+base_url+"resources/images/blue.png' width='30' height='30'>";
                             html += "</a>";
                         }

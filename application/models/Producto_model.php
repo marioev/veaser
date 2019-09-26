@@ -417,4 +417,38 @@ class Producto_model extends CI_Model
 
         return $producto;
     }
+    /* *** OBTENER PRODUCTOS CON UNA CATEGPRIA ESPECIFICA *** */
+    function get_productocategoria($categoria_id)
+    {
+        $sql = "SELECT
+             p.*, cp.categoria_nombre, m.moneda_descripcion
+              FROM
+              producto p
+              LEFT JOIN categoria cp on p.categoria_id = cp.categoria_id
+              LEFT JOIN moneda m on p.moneda_id = m.moneda_id
+              WHERE
+                   p.categoria_id = $categoria_id
+              ORDER By p.producto_nombre";
+        $producto = $this->db->query($sql)->result_array();
+        return $producto;
+
+    }
+    
+    function get_productofull($producto_id)
+    {
+        $producto = $this->db->query("
+            SELECT
+             p.*, cp.categoria_nombre, m.moneda_descripcion
+              FROM
+              producto p
+              LEFT JOIN categoria cp on p.categoria_id = cp.categoria_id
+              LEFT JOIN moneda m on p.moneda_id = m.moneda_id
+              WHERE
+                   p.producto_id = $producto_id
+        ")->row_array();
+
+        return $producto;
+    }
+    
+    
 }

@@ -22,9 +22,9 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                            <label for="categoria_vistas" class="control-label">Vistas</label>
+                            <label for="categoria_visto" class="control-label">Visto</label>
                             <div class="form-group">
-                                    <input type="text" name="categoria_vistas" value="<?php echo ($this->input->post('categoria_vistas') ? $this->input->post('categoria_vistas') : $categoria['categoria_vistas']); ?>" class="form-control" id="categoria_vistas" />
+                                    <input type="text" name="categoria_visto" value="<?php echo ($this->input->post('categoria_visto') ? $this->input->post('categoria_visto') : $categoria['categoria_visto']); ?>" class="form-control" id="categoria_visto" />
                             </div>
                     </div>
                     <div class="col-md-6">

@@ -138,6 +138,10 @@ class Producto extends CI_Controller{
                     }
             /* *********************FIN imagen***************************** */
             // est estado sera ACTIVO
+            $escheck = 0;
+            if($this->input->post('producto_check') == "on"){
+                $escheck = 1;
+            }
             $estado_id = 1;
             date_default_timezone_set('America/La_Paz');
             $fecha_hora = date('Y-m-d H:i:s');
@@ -159,6 +163,8 @@ class Producto extends CI_Controller{
                 'producto_fechahora' => $fecha_hora,
                 'producto_latitud' => $this->input->post('producto_latitud'),
                 'producto_longitud' => $this->input->post('producto_longitud'),
+                'producto_condicion' => $this->input->post('producto_condicion'),
+                'producto_check' => $escheck,
             );
             
             $producto_id = $this->Producto_model->add_producto($params);
@@ -268,6 +274,10 @@ class Producto extends CI_Controller{
                     $foto = $foto1;
                 }
             /* *********************FIN imagen***************************** */
+                $escheck = 0;
+                if($this->input->post('producto_check') == "on"){
+                    $escheck = 1;
+                }
                 $params = array(
                     'estado_id' => $this->input->post('estado_id'),
                     'categoria_id' => $this->input->post('categoria_id'),
@@ -286,6 +296,8 @@ class Producto extends CI_Controller{
                     //'producto_fechahora' => $fecha_hora,
                     'producto_latitud' => $this->input->post('producto_latitud'),
                     'producto_longitud' => $this->input->post('producto_longitud'),
+                    'producto_condicion' => $this->input->post('producto_condicion'),
+                    'producto_check' => $escheck,
                 );
 
                 $this->Producto_model->update_producto($producto_id,$params);
@@ -823,6 +835,33 @@ class Producto extends CI_Controller{
         $res = $this->Producto_model->get_this_insumo($producto_id);
 
         echo json_encode($res);
+    }
+    
+    /* * incrementa en uno la visita a un producto al hacer click * */
+    function aumentar_producto()
+    {
+        //if($this->acceso(31)){
+            if ($this->input->is_ajax_request()){
+                $producto_id = $this->input->post('producto_id');
+
+                if ($producto_id!=""){
+                    
+                    $esteproducto = $this->Producto_model->get_producto($producto_id);
+                    $num_visto = $esteproducto['producto_visto']+1;
+                    $params = array(
+                        'producto_visto' => $num_visto,
+                    );
+                    $this->Producto_model->update_producto($producto_id,$params);
+                    
+                    echo json_encode("ok");
+                }
+                else echo json_encode(null);
+            }
+            else
+            {                 
+                show_404();
+            }
+        //}
     }
     
 }

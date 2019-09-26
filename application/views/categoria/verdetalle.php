@@ -7,13 +7,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title><?php echo $empresa['empresa_nombre']; ?> - ver categorías</title>
-<link rel="stylesheet" href="<?php echo site_url('resources/css/bootstrap.min.css') ?>"><!-- bootstrap-CSS -->
-<link rel="stylesheet" href="<?php echo site_url('resources/css/bootstrap-select.css') ?>"><!-- bootstrap-select-CSS -->
-<link href="<?php echo site_url('resources/css/style.css') ?>" rel="stylesheet" type="text/css" media="all" /><!-- style.css -->
-<link rel="stylesheet" type="text/css" href="<?php echo site_url('resources/css/jquery-ui1.css') ?>">
-<link rel="stylesheet" href="<?php echo site_url('resources/css/font-awesome.min.css') ?>" /><!-- fontawesome-CSS -->
-<link rel="stylesheet" href="<?php echo site_url('resources/css/menu_sideslide.css') ?>" type="text/css" media="all"><!-- Navigation-CSS -->
+<title><?php echo $empresa['empresa_nombre']; ?> - ver producto</title>
+<link rel="stylesheet" href="<?php echo site_url('resources/css/bootstrap.min.css'); ?>"><!-- bootstrap-CSS -->
+<link rel="stylesheet" href="<?php echo site_url('resources/css/bootstrap-select.css'); ?>"><!-- bootstrap-select-CSS -->
+<link href="<?php echo site_url('resources/css/style.css'); ?>" rel="stylesheet" type="text/css" media="all" /><!-- style.css -->
+<link rel="stylesheet" href="<?php echo site_url('resources/css/font-awesome.min.css'); ?>" /><!-- fontawesome-CSS -->
+<link rel="stylesheet" href="<?php echo site_url('resources/css/menu_sideslide.css'); ?>" type="text/css" media="all"><!-- Navigation-CSS -->
 <!-- meta tags -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -26,15 +25,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <!--//fonts-->	
 <!-- js -->
-
-<script src="<?php echo base_url('resources/js/producto_aumentarvisto.js'); ?>" type="text/javascript"></script>
-<input type="hidden" name="base_url" id="base_url" value="<?php echo base_url(); ?>" />
-
-<script type="text/javascript" src="<?php echo site_url('resources/js/jquery.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo site_url('resources/js/jquery.min.js'); ?>"></script>
 <!-- js -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="<?php echo site_url('resources/js/bootstrap.js') ?>"></script>
-<script src="<?php echo site_url('resources/js/bootstrap-select.js') ?>"></script>
+<script src="<?php echo site_url('resources/js/bootstrap.js'); ?>"></script>
+<script src="<?php echo site_url('resources/js/bootstrap-select.js'); ?>"></script>
 <script>
   $(document).ready(function () {
     var mySelect = $('#first-disabled2');
@@ -56,17 +51,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   });
 </script>
 <!-- language-select -->
-<script type="text/javascript" src="<?php echo site_url('resources/js/jquery.leanModal.min.js') ?>"></script>
-<link href="<?php echo site_url('resources/css/jquery.uls.css') ?>" rel="stylesheet"/>
-<link href="<?php echo site_url('resources/css/jquery.uls.grid.css') ?>" rel="stylesheet"/>
-<link href="<?php echo site_url('resources/css/jquery.uls.lcd.css') ?>" rel="stylesheet"/>
+<script type="text/javascript" src="<?php echo site_url('resources/js/jquery.leanModal.min.js'); ?>"></script>
+<link href="<?php echo site_url('resources/css/jquery.uls.css'); ?>" rel="stylesheet"/>
+<link href="<?php echo site_url('resources/css/jquery.uls.grid.css'); ?>" rel="stylesheet"/>
+<link href="<?php echo site_url('resources/css/jquery.uls.lcd.css'); ?>" rel="stylesheet"/>
 <!-- Source -->
-<script src="<?php echo site_url('resources/js/jquery.uls.data.js') ?>') ?>"></script>
-<script src="<?php echo site_url('resources/js/jquery.uls.data.utils.js') ?>"></script>
-<script src="<?php echo site_url('resources/js/jquery.uls.lcd.') ?>"></script>
-<script src="<?php echo site_url('resources/js/jquery.uls.languagefilter.js') ?>"></script>
-<script src="<?php echo site_url('resources/js/jquery.uls.regionfilter.js') ?>"></script>
-<script src="<?php echo site_url('resources/js/jquery.uls.core.js') ?>"></script>
+<script src="<?php echo site_url('resources/js/jquery.uls.data.js'); ?>"></script>
+<script src="<?php echo site_url('resources/js/jquery.uls.data.utils.js'); ?>"></script>
+<script src="<?php echo site_url('resources/js/jquery.uls.lcd.js'); ?>"></script>
+<script src="<?php echo site_url('resources/js/jquery.uls.languagefilter.js'); ?>"></script>
+<script src="<?php echo site_url('resources/js/jquery.uls.regionfilter.js'); ?>"></script>
+<script src="<?php echo site_url('resources/js/jquery.uls.core.js'); ?>"></script>
 <script>
 			$( document ).ready( function() {
 				$( '.uls-trigger' ).uls( {
@@ -79,34 +74,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			} );
 		</script>
 <!-- //language-select -->
-<!-- switcher-grid and list alignment -->
-<script src="<?php echo site_url('resources/js/tabs.js') ?>"></script>	
-<script type="text/javascript">
-$(document).ready(function () {    
-var elem=$('#container ul');      
-	$('#viewcontrols a').on('click',function(e) {
-		if ($(this).hasClass('gridview')) {
-			elem.fadeOut(1000, function () {
-				$('#container ul').removeClass('list').addClass('grid');
-				$('#viewcontrols').removeClass('view-controls-list').addClass('view-controls-grid');
-				$('#viewcontrols .gridview').addClass('active');
-				$('#viewcontrols .listview').removeClass('active');
-				elem.fadeIn(1000);
-			});						
-		}
-		else if($(this).hasClass('listview')) {
-			elem.fadeOut(1000, function () {
-				$('#container ul').removeClass('grid').addClass('list');
-				$('#viewcontrols').removeClass('view-controls-grid').addClass('view-controls-list');
-				$('#viewcontrols .gridview').removeClass('active');
-				$('#viewcontrols .listview').addClass('active');
-				elem.fadeIn(1000);
-			});									
-		}
-	});
-});
-</script>
-<!-- //switcher-grid and list alignment -->
+<link rel="stylesheet" href="<?php echo site_url('resources/css/flexslider.css'); ?>" media="screen" /><!-- flexslider css -->
 </head>
 <body>
 	<!-- Navigation -->
@@ -132,7 +100,7 @@ var elem=$('#container ul');
             </div>
             <div class="clearfix"></div>
         </div>
-        <!-- //Navigation -->
+		<!-- //Navigation -->
 	<!-- header -->
 	<header>
             <div class="w3ls-header"><!--header-one--> 
@@ -144,12 +112,12 @@ var elem=$('#container ul');
                     </ul>
                 </div>
                 <div class="clearfix"> </div> 
-            </div>
-            <div class="container">
-                <div class="agile-its-header">
-                    <div class="logo">
-                        <h1><a href="<?php echo site_url('resources/index.html') ?>"><?php echo $empresa['empresa_nombre']; ?></a></h1>
-                    </div>
+		</div>
+		<div class="container">
+                    <div class="agile-its-header">
+                        <div class="logo">
+                            <h1><a href="<?php echo site_url(''); ?>"><?php echo $empresa['empresa_nombre']; ?></a></h1>
+                        </div>   
                     <div class="agileits_search">
                         <?php echo form_open('categoria/buscar_productoscategorias'); ?>
                         <input name="buscar_producto" id="buscar_producto" type="text" placeholder="nombre del producto..." required="" autocomplete="off" />
@@ -180,89 +148,104 @@ var elem=$('#container ul');
             </div>
 	</div>
 	<!-- //breadcrumbs -->
-	<!-- Products -->
-	<div class="total-ads main-grid-border">
+	<!--single-page-->
+	<div class="single-page main-grid-border">
 		<div class="container">
-                    <div class="all-categories">
-                        <h3> Seleccione su Categoría y encuentre el anuncio perfecto</h3>
-                        <ul class="all-cat-list">
-                            <?php
-                            foreach ($all_categoria as $categoria) {
-                            ?>
-                            <li><a href="<?php echo site_url('categoria/vercategoria/'.$categoria['categoria_id']) ?>"><?php echo $categoria['categoria_nombre']; ?>   <span class="num-of-ads"><?php //echo $categoria['categoria_vistas'] ?></span></a></li>
-                            <?php
-                            }
-                            ?>
-                            <li><a href="<?php echo site_url('resources/cars.html') ?>">Cars   <span class="num-of-ads">(2,15,306)</span></a></li>
-                        </ul>
-                    </div>
-                    <div class="ads-grid">
-                            <div class="agileinfo-ads-display col-md-12">
-					<div class="wrapper">					
-					<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-					  <ul id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
-						<li role="presentation" class="active">
-						  <a href="<?php echo site_url('resources/#home') ?>" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
-							<span class="text">All Ads</span>
-						  </a>
-						</li>
-					</ul>
-					<div id="myTabContent" class="tab-content">
-                                            <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
-                                               <div>
-                                                    <div id="container">
-                                                        <div class="clearfix"></div>
-                                                        <ul class="list">
-                                                            <?php
-                                                            foreach ($all_productocategoria as $pc){
-                                                            ?>
-                                                            <a href="<?php echo site_url('categoria/verdetalle/'.$pc['producto_id']) ?>" onclick="aumentarvistoproducto(<?php echo $pc['producto_id']; ?>)">
-                                                                <li>
-                                                                    <?php
-                                                                    //$mimagen = "";
-                                                                    if($pc["producto_foto"]){
-                                                                        //$tipo_imagen = "circle";
-                                                                        $tipo_imagen = "";
-                                                                    ?>
-                                                                        <!--mimagen += "<a class='btn  btn-xs' data-toggle='modal' data-target='#mostrarimagen"+i+"' style='padding: 0px;'>";-->
-                                                                        <img src="<?php echo site_url('resources/images/productos/'.$pc['producto_foto']) ?>" class="img img-<?php echo $tipo_imagen; ?>" width="207px" height="186px" />
-                                                                        <!--mimagen += "</a>";-->
-                                                                    <?php
-                                                                    }else{
-                                                                    ?>
-                                                                        <img src="<?php echo site_url('resources/images/productos/thumb_image.png') ?>" class="img img-<?php echo $tipo_imagen; ?>"  width="207px" height="186px" />;
-                                                                    <?php
-                                                                    }
-                                                                    ?>
-                                                                    
-                                                                <section class="list-left">
-                                                                <h5 class="title"><?php echo $pc['producto_nombre']; ?></h5>
-                                                                <span class="adprice"><?php echo $pc['moneda_descripcion']." ".$pc['producto_precio']; ?></span>
-                                                                <p class="catpath"><?php echo $pc['producto_marca']." » ".$pc['producto_industria']; ?></p>
-                                                                </section>
-                                                                <section class="list-right">
-                                                                <span class="date"><?php echo date("d/m/Y H:i:s", strtotime($pc['producto_fechahora'])); ?></span>
-                                                                <!--<span class="cityname">City name</span>-->
-                                                                </section>
-                                                                <div class="clearfix"></div>
-                                                                </li> 
-                                                            </a>
-                                                            <?php
-                                                            }
-                                                            ?>
-							</ul>
-                                                    </div>
-                                                </div>
-						</div>
-					  </div>
+			<div class="product-desc">
+				<div class="col-md-7 product-view">
+					<h2><?php echo $producto['producto_nombre']; ?></h2>
+					<p>
+                                            <?php
+                                            if(true){
+                                            ?>
+                                                <a href='<?php echo "https://www.google.com/maps/dir/".$producto["producto_latitud"].",".$producto["producto_longitud"]; ?>' target="_blank" title='<?php echo "lat:".$producto["producto_latitud"].", long:".$producto["producto_longitud"]; ?>'>
+                                                <img src='<?php echo site_url("resources/images/blue.png"); ?>' width='30' height='30'>
+                                                </a>
+                                            <?php
+                                            }
+                                            ?>
+                                            
+                                            | añadido el <?php echo date("d/m/Y H:i:s", strtotime($producto['producto_fechahora'])); ?>
+                                        </p>
+					<div class="flexslider">
+                                            <ul class="slides">
+                                                <?php
+                                                foreach ($all_galeria as $galeria){
+                                                ?>
+                                                <li data-thumb="<?php echo site_url('resources/images/galeria/'."thumb_".$galeria['galeria_imagen']); ?>">
+                                                    <img src="<?php echo site_url('resources/images/galeria/'.$galeria['galeria_imagen']); ?>" />
+                                                </li>
+                                                <?php
+                                                }
+                                                ?>
+                                            </ul>
+					</div>
+					<!-- FlexSlider -->
+					  <script defer src="<?php echo site_url('resources/js/jquery.flexslider.js'); ?>"></script>
+
+						<script>
+					// Can also be used with $(document).ready()
+					$(window).load(function() {
+					  $('.flexslider').flexslider({
+						animation: "slide",
+						controlNav: "thumbnails"
+					  });
+					});
+					</script>
+					<!-- //FlexSlider -->
+					<div class="product-details">
+						<h4><span class="w3layouts-agileinfo">Marca </span> : <a href="<?php echo site_url('#'); ?>"><?php echo $producto['producto_marca']; ?></a><div class="clearfix"></div></h4>
+						<h4><span class="w3layouts-agileinfo">Industria </span> : <?php echo $producto['producto_industria']; ?></h4>
+						<h4><span class="w3layouts-agileinfo">Visto </span> : <strong><?php echo $producto['producto_visto']; ?></strong></h4>
+						<h4><span class="w3layouts-agileinfo">Detalle</span> :<p><?php echo $producto['producto_caracteristicas']; ?></p><div class="clearfix"></div></h4>
+					
 					</div>
 				</div>
+				<div class="col-md-5 product-details-grid">
+					<div class="item-price">
+						<div class="product-price">
+							<p class="p-price">Precio</p>
+							<h3 class="rate"><?php echo $producto['moneda_descripcion']." ".$producto['producto_precio']; ?></h3>
+							<div class="clearfix"></div>
+						</div>
+						<div class="condition">
+							<p class="p-price">Condición</p>
+							<h4><?php echo $producto['producto_condicion']; ?></h4>
+							<div class="clearfix"></div>
+						</div>
+						<div class="itemtype">
+							<p class="p-price">Categoría</p>
+							<h4><?php echo $producto['categoria_nombre']; ?></h4>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+					<div class="interested text-center">
+                                            
+                                            <a href="https://wa.me/59174334110" target="_blank">
+						<h4>¿Estas interesado?<small> Contactanos!</small></h4>
+						<p><i class="fa fa-whatsapp"></i>+591 74334110</p>
+                                            </a>
+					</div>
+                                        <!--<div class="tips">
+                                            <h4>Safety Tips for Buyers</h4>
+                                                <ol>
+                                                    <li><a href="<?php /*echo site_url('resources/#'); ?>">Contrary to popular belief.</a></li>
+                                                    <li><a href="<?php echo site_url('resources/#'); ?>">Contrary to popular belief.</a></li>
+                                                    <li><a href="<?php echo site_url('resources/#'); ?>">Contrary to popular belief.</a></li>
+                                                    <li><a href="<?php echo site_url('resources/#'); ?>">Contrary to popular belief.</a></li>
+                                                    <li><a href="<?php echo site_url('resources/#'); ?>">Contrary to popular belief.</a></li>
+                                                    <li><a href="<?php echo site_url('resources/#'); ?>">Contrary to popular belief.</a></li>
+                                                    <li><a href="<?php echo site_url('resources/#'); ?>">Contrary to popular belief.</a></li>
+                                                    <li><a href="<?php echo site_url('resources/#'); ?>">Contrary to popular belief.</a></li>
+                                                    <li><a href="<?php echo site_url('resources/#');*/ ?>">Contrary to popular belief.</a></li>
+                                                </ol>
+                                        </div>-->
 				</div>
-				<div class="clearfix"></div>
+			<div class="clearfix"></div>
 			</div>
-		</div>	
+		</div>
 	</div>
-	<!-- // Products -->
+	<!--//single-page-->
 	<!--footer section start-->		
 		<footer>
 			<div class="w3-agileits-footer-top">
@@ -342,8 +325,8 @@ var elem=$('#container ul');
         <!--footer section end-->
 </body>
 		<!-- Navigation-JavaScript -->
-			<script src="<?php echo site_url('resources/js/classie.js') ?>"></script>
-			<script src="<?php echo site_url('resources/js/main.js') ?>"></script>
+			<script src="<?php echo site_url('resources/js/classie.js'); ?>"></script>
+			<script src="<?php echo site_url('resources/js/main.js'); ?>"></script>
 		<!-- //Navigation-JavaScript -->
 		<!-- here stars scrolling icon -->
 			<script type="text/javascript">
@@ -362,8 +345,8 @@ var elem=$('#container ul');
 					});
 			</script>
 			<!-- start-smoth-scrolling -->
-			<script type="text/javascript" src="<?php echo site_url('resources/js/move-top.js') ?>"></script>
-			<script type="text/javascript" src="<?php echo site_url('resources/js/easing.js') ?>"></script>
+			<script type="text/javascript" src="<?php echo site_url('resources/js/move-top.js'); ?>"></script>
+			<script type="text/javascript" src="<?php echo site_url('resources/js/easing.js'); ?>"></script>
 			<script type="text/javascript">
 				jQuery(document).ready(function($) {
 					$(".scroll").click(function(event){		

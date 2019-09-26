@@ -32,7 +32,7 @@
                         <th>#</th>
                         <th>Nombre</th>
                         <th>Imagen</th>
-                        <th># Vistas</th>
+                        <th># Vistos</th>
                         <th>Estado</th>
                         <th></th>
                     </tr>
@@ -61,7 +61,7 @@
                             }
                             ?>
                         </td>
-                        <td><?php echo $c['categoria_vistas']; ?></td>
+                        <td><?php echo $c['categoria_visto']; ?></td>
                         <td style="background-color: <?php echo $c['estado_color']; ?>"><?php echo $c['estado_descripcion']; ?></td>
                         <td>
                             <a href="<?php echo site_url('categoria/edit/'.$c['categoria_id']); ?>" class="btn btn-info btn-xs" title="Modificar"><span class="fa fa-pencil"></span></a> 

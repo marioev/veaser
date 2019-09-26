@@ -47,7 +47,7 @@ function mostrar(a) {
     }
 </script>
 <script>
-      $(document).ready(function () {
+      /*$(document).ready(function () {
           $("#producto_costo").keyup(function () {
               var value = $(this).val();
               $("#producto_precio").val(value/0.8);
@@ -59,7 +59,7 @@ function mostrar(a) {
                   alert("El Precio de Compra es mayor o igual a Precio de Venta");
               }
           });
-      });
+      });*/
       function loader() {
      	$("form").submit(function() {
    document.getElementById('loader').style.display = 'block'; //ocultar el bloque del loader 
@@ -92,7 +92,7 @@ function mostrar(a) {
                     <div class="col-md-6">
                             <label for="producto_nombre" class="control-label"><span class="text-danger">*</span>Nombre</label>
                             <div class="form-group">
-                                <input type="text" name="producto_nombre" value="<?php echo $this->input->post('producto_nombre'); ?>" class="form-control" id="producto_nombre" required onkeyup="var start = this.selectionStart; var end = this.selectionEnd; this.value = this.value.toUpperCase(); this.setSelectionRange(start, end);" autofocus />
+                                <input type="text" name="producto_nombre" value="<?php echo $this->input->post('producto_nombre'); ?>" class="form-control" id="producto_nombre" required onkeyup="var start = this.selectionStart; var end = this.selectionEnd; this.value = this.value.toUpperCase(); this.setSelectionRange(start, end);" autofocus autocomplete="off" />
                                     <span class="text-danger"><?php echo form_error('producto_nombre');?></span>
                             </div>
                     </div>
@@ -222,8 +222,8 @@ function mostrar(a) {
 
                             function setMapa (coords_lat, coords_lng)
                             {
-                                    document.getElementById("cliente_latitud").value = coords_lat.lat;
-                                    document.getElementById("cliente_longitud").value = coords_lng.lng;
+                                    document.getElementById("producto_latitud").value = coords_lat.lat;
+                                    document.getElementById("producto_longitud").value = coords_lng.lng;
                                   //Se crea una nueva instancia del objeto mapa
                                   var map = new google.maps.Map(document.getElementById('map'),
                                   {
@@ -249,8 +249,8 @@ function mostrar(a) {
                                   marker.addListener( 'dragend', function (event)
                                   {
                                     //escribimos las coordenadas de la posicion actual del marcador dentro del input #coords
-                                    document.getElementById("cliente_latitud").value = this.getPosition().lat();
-                                    document.getElementById("cliente_longitud").value = this.getPosition().lng();
+                                    document.getElementById("producto_latitud").value = this.getPosition().lat();
+                                    document.getElementById("producto_longitud").value = this.getPosition().lng();
                                   });
                             }
                             initMap();
@@ -259,22 +259,34 @@ function mostrar(a) {
                         </div>
                         <!-- ***********************aqui termina el mapa para capturar coordenadas *********************** -->
                     </div>
-                    <div class="col-md-3">
-                            <label for="cliente_latitud" class="control-label">Latitud</label>
+                    <div class="col-md-2">
+                        <label for="producto_check" class="control-label">Geolocalización</label>
+                        <div class="form-group">
+                            <input type="checkbox" name="producto_check" class="form-check" id="producto_check" checked />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="producto_latitud" class="control-label">Latitud</label>
+                        <div class="form-group">
+                            <input type="number" step="any" name="producto_latitud" value="<?php echo $this->input->post('producto_latitud'); ?>" class="form-control" id="producto_latitud" />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                            <label for="producto_longitud" class="control-label">Longitud</label>
                             <div class="form-group">
-                                <input type="number" step="any" name="cliente_latitud" value="<?php echo $this->input->post('cliente_latitud'); ?>" class="form-control" id="cliente_latitud" />
+                                <input type="number" step="any" name="producto_longitud" value="<?php echo $this->input->post('producto_longitud'); ?>" class="form-control" id="producto_longitud" />
                             </div>
                     </div>
-                    <div class="col-md-3">
-                            <label for="cliente_longitud" class="control-label">Longitud</label>
+                    <div class="col-md-4">
+                            <label for="producto_condicion" class="control-label">Condición</label>
                             <div class="form-group">
-                                <input type="number" step="any" name="cliente_longitud" value="<?php echo $this->input->post('cliente_longitud'); ?>" class="form-control" id="cliente_longitud" />
+                                <input type="text" name="producto_condicion" value="<?php echo $this->input->post('producto_condicion'); ?>" class="form-control" id="producto_condicion" placeholder="Nuevo, semi-nuevo...." />
                             </div>
                     </div>
                     <div class="col-md-6">
                         <label for="producto_caracteristicas" class="control-label">Características</label>
                         <div class="form-group">
-                            <textarea rows="1" type="texarea" name="producto_caracteristicas" value="" class="form-control" id="producto_caracteristicas" onkeyup="var start = this.selectionStart; var end = this.selectionEnd; this.value = this.value.toUpperCase(); this.setSelectionRange(start, end);"> </textarea>
+                            <textarea rows="3" type="texarea" name="producto_caracteristicas" value="" class="form-control" id="producto_caracteristicas" onkeyup="var start = this.selectionStart; var end = this.selectionEnd; this.value = this.value.toUpperCase(); this.setSelectionRange(start, end);"> </textarea>
                         </div>
                     </div>
                     

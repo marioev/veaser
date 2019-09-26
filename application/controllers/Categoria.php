@@ -92,7 +92,7 @@ class Categoria extends CI_Controller{
                 'estado_id' => $estado_id,
                 'categoria_nombre' => $this->input->post('categoria_nombre'),
                 'categoria_imagen' => $foto,
-                'categoria_vistas' => $categoria_vistas,
+                'categoria_visto' => $categoria_vistas,
             );
             
             $categoria_id = $this->Categoria_model->add_categoria($params);
@@ -190,7 +190,7 @@ class Categoria extends CI_Controller{
                     'estado_id' => $this->input->post('estado_id'),
                     'categoria_nombre' => $this->input->post('categoria_nombre'),
                     'categoria_imagen' => $foto,
-                    'categoria_vistas' => $this->input->post('categoria_vistas'),
+                    'categoria_visto' => $this->input->post('categoria_visto'),
                 );
 
                 $this->Categoria_model->update_categoria($categoria_id,$params);            
@@ -231,11 +231,93 @@ class Categoria extends CI_Controller{
      */
     function vercategoria($categoria_id)
     {
+        $this->load->model('Empresa_model');
+        $empresa_id = 1;
+        $data['empresa'] = $this->Empresa_model->get_this_empresa($empresa_id);
+        
         $data['categoria_id']  = $categoria_id;
         $data['all_categoria'] = $this->Categoria_model->get_all_categoriactiva();
         
+        $this->load->model('Producto_model');
+        $data['all_productocategoria'] = $this->Producto_model->get_productocategoria($categoria_id);
         //$data['_view'] = 'categoria/vercategoria';
         $this->load->view('categoria/vercategoria',$data);
         
+    }
+    /*
+     * muestra al publico el detalle de un producto...
+     */
+    function verdetalle($producto_id)
+    {
+        $this->load->model('Producto_model');
+        $data['producto'] = $this->Producto_model->get_productofull($producto_id);
+        
+        $this->load->model('Categoria_model');
+        $data['all_categoria'] = $this->Categoria_model->get_all_categoriactiva();
+        
+        $this->load->model('Galeria_model');
+        $data['all_galeria'] = $this->Galeria_model->get_all_galeria($producto_id);
+        
+        $this->load->model('Empresa_model');
+        $empresa_id = 1;
+        $data['empresa'] = $this->Empresa_model->get_this_empresa($empresa_id);
+        
+        $this->load->view('categoria/verdetalle',$data);
+        
+    }
+    
+    /*
+     * busca productos y categorias...
+     */
+    function buscar_productoscategorias()
+    {
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('buscar_producto','Producto','trim|required', array('required' => 'Este Campo no debe ser vacio'));
+
+        if($this->form_validation->run())     
+        {
+            $this->load->model('Empresa_model');
+            $empresa_id = 1;
+            $data['empresa'] = $this->Empresa_model->get_this_empresa($empresa_id);
+        
+            $data['categoria_id']  = $this->input->post('agileinfo_search');
+            $data['all_categoria'] = $this->Categoria_model->get_all_categoriactiva();
+            
+            $buscar_producto = $this->input->post('buscar_producto');
+            $categoria_id = $this->input->post('agileinfo_search');
+            
+            $data['all_productocategoria'] = $this->Categoria_model->buscar_productocategoria($buscar_producto, $categoria_id);
+            
+            $this->load->view('categoria/buscar_productoscategorias',$data);
+        }else{
+            redirect('');
+        }
+    }
+    
+    /* * incrementa en uno la visita a una categoria al ahacer click * */
+    function aumentar_categoria()
+    {
+        //if($this->acceso(31)){
+            if ($this->input->is_ajax_request()){
+                $categoria_id = $this->input->post('categoria_id');
+
+                if ($categoria_id!=""){
+                    
+                    $estacategoria = $this->Categoria_model->get_categoria($categoria_id);
+                    $num_visto = $estacategoria['categoria_visto']+1;
+                    $params = array(
+                        'categoria_visto' => $num_visto,
+                    );
+                    $this->Categoria_model->update_categoria($categoria_id,$params);
+                    
+                    echo json_encode("ok");
+                }
+                else echo json_encode(null);
+            }
+            else
+            {                 
+                show_404();
+            }
+        //}
     }
 }

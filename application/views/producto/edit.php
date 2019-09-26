@@ -52,13 +52,6 @@ function mostrar(a) {
 </script>
 
 <script>
-      function verificar_precio(){
-              var venta = $("#producto_precio").val();
-              var costo = $("#producto_costo").val();
-              if(costo >= venta){
-                  alert("El Precio de Compra es mayor o igual a Precio de Venta");
-              }
-      };
       function loader() {
      	$("form").submit(function() {
    document.getElementById('loader').style.display = 'block'; //ocultar el bloque del loader 
@@ -172,7 +165,7 @@ function mostrar(a) {
                     <div class="col-md-3">
                         <label for="producto_precio" class="control-label">Precio de Venta</label>
                         <div class="form-group">
-                            <input type="number" step="any" min="0" name="producto_precio" value="<?php echo ($this->input->post('producto_precio') ? $this->input->post('producto_precio') : $producto['producto_precio']); ?>" class="form-control" id="producto_precio" onchange="verificar_precio();" />
+                            <input type="number" step="any" min="0" name="producto_precio" value="<?php echo ($this->input->post('producto_precio') ? $this->input->post('producto_precio') : $producto['producto_precio']); ?>" class="form-control" id="producto_precio" />
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -284,22 +277,40 @@ function mostrar(a) {
                         </div>
                         <!-- ***********************aqui termina el mapa para capturar coordenadas *********************** -->
                     </div>
-                    <div class="col-md-3">
-                            <label for="producto_latitud" class="control-label">Latitud</label>
-                            <div class="form-group">
-                                <input type="number" step="any" name="producto_latitud" value="<?php echo ($this->input->post('producto_latitud') ? $this->input->post('producto_latitud') : $producto['producto_latitud']); ?>" class="form-control" id="producto_latitud" />
-                            </div>
+                    <div class="col-md-2">
+                        <label for="producto_check" class="control-label">Geolocalización</label>
+                        <div class="form-group">
+                            <?php
+                            $eschecked = "";
+                            if($producto['producto_check'] == 1){
+                                $eschecked = "checked";
+                            }
+                            ?>
+                            <input type="checkbox" name="producto_check" class="form-check" id="producto_check" <?php echo $eschecked; ?> />
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                            <label for="producto_longitud" class="control-label">Longitud</label>
-                            <div class="form-group">
-                                <input type="number" step="any" name="producto_longitud" value="<?php echo ($this->input->post('producto_longitud') ? $this->input->post('producto_longitud') : $producto['producto_longitud']); ?>" class="form-control" id="producto_longitud" />
-                            </div>
+                    <div class="col-md-2">
+                        <label for="producto_latitud" class="control-label">Latitud</label>
+                        <div class="form-group">
+                            <input type="number" step="any" name="producto_latitud" value="<?php echo ($this->input->post('producto_latitud') ? $this->input->post('producto_latitud') : $producto['producto_latitud']); ?>" class="form-control" id="producto_latitud" />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="producto_longitud" class="control-label">Longitud</label>
+                        <div class="form-group">
+                            <input type="number" step="any" name="producto_longitud" value="<?php echo ($this->input->post('producto_longitud') ? $this->input->post('producto_longitud') : $producto['producto_longitud']); ?>" class="form-control" id="producto_longitud" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="producto_condicion" class="control-label">Condición</label>
+                        <div class="form-group">
+                            <input type="text" name="producto_condicion" value="<?php echo ($this->input->post('producto_condicion') ? $this->input->post('producto_condicion') : $producto['producto_condicion']); ?>" class="form-control" id="producto_condicion" />
+                        </div>
                     </div>
                     <div class="col-md-5">
                         <label for="producto_caracteristicas" class="control-label">Características</label>
                         <div class="form-group">
-                            <textarea rows="1" type="texarea" name="producto_caracteristicas" value="" class="form-control" id="producto_caracteristicas" onkeyup="var start = this.selectionStart; var end = this.selectionEnd; this.value = this.value.toUpperCase(); this.setSelectionRange(start, end);" ><?php echo ($this->input->post('producto_caracteristicas') ? $this->input->post('producto_caracteristicas') : $producto['producto_caracteristicas']); ?></textarea>
+                            <textarea rows="3" type="texarea" name="producto_caracteristicas" value="" class="form-control" id="producto_caracteristicas" onkeyup="var start = this.selectionStart; var end = this.selectionEnd; this.value = this.value.toUpperCase(); this.setSelectionRange(start, end);" ><?php echo ($this->input->post('producto_caracteristicas') ? $this->input->post('producto_caracteristicas') : $producto['producto_caracteristicas']); ?></textarea>
                         </div>
                     </div>
                     <div class="col-md-2">
