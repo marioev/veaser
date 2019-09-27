@@ -160,236 +160,89 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<!-- most-popular-ads -->
 			<div class="w3l-popular-ads">  
-				<h3>Most Popular Ads</h3>
-				 <div class="w3l-popular-ads-info">
-					<div class="col-md-4 w3ls-portfolio-left">
-						<div class="portfolio-img event-img">
-							<img src="<?php echo site_url('resources/images/ad1.jpg'); ?>" class="img-responsive" alt=""/>
-							<div class="over-image"></div>
-						</div>
-						<div class="portfolio-description">
-						   <h4><a href="<?php echo site_url('resources/cars.html'); ?>">Latest Cars</a></h4>
-						   <p>Suspendisse placerat mattis arcu nec por</p>
-							<a href="<?php echo site_url('resources/cars.html'); ?>">
-								<span>Explore</span>
-							</a>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="col-md-4 w3ls-portfolio-left">
-						<div class="portfolio-img event-img">
-							<img src="<?php echo site_url('resources/images/ad2.jpg'); ?>" class="img-responsive" alt=""/>
-							 <div class="over-image"></div>
-						</div>
-						<div class="portfolio-description">
-						   <h4><a href="<?php echo site_url('resources/real-estate.html'); ?>">Apartments for Sale</a></h4>
-						   <p>Suspendisse placerat mattis arcu nec por</p>
-							<a href="<?php echo site_url('resources/real-estate.html'); ?>">
-								<span>Explore</span>
-							</a>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="col-md-4 w3ls-portfolio-left">
-						<div class="portfolio-img event-img">
-							<img src="<?php echo site_url('resources/images/ad3.jpg'); ?>" class="img-responsive" alt=""/>
-							 <div class="over-image"></div>
-						</div>
-						<div class="portfolio-description">
-						   <h4><a href="<?php echo site_url('resources/jobs.html'); ?>">BPO jobs</a></h4>
-						   <p>Suspendisse placerat mattis arcu nec por</p>
-							<a href="<?php echo site_url('resources/jobs.html'); ?>">
-								<span>Explore</span>
-							</a>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="col-md-4 w3ls-portfolio-left">
-						<div class="portfolio-img event-img">
-							<img src="<?php echo site_url('resources/images/ad4.jpg'); ?>" class="img-responsive" alt=""/>
-							 <div class="over-image"></div>
-						</div>
-						<div class="portfolio-description">
-						   <h4><a href="<?php echo site_url('resources/electronics-appliances.html'); ?>">Accessories</a></h4>
-						   <p>Suspendisse placerat mattis arcu nec por</p>
-							<a href="<?php echo site_url('resources/electronics-appliances.html'); ?>">
-								<span>Explore</span>
-							</a>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="col-md-4 w3ls-portfolio-left">
-						<div class="portfolio-img event-img">
-							<img src="<?php echo site_url('resources/images/ad5.jpg'); ?>" class="img-responsive" alt=""/>
-							 <div class="over-image"></div>
-						</div>
-						<div class="portfolio-description">
-						   <h4><a href="<?php echo site_url('resources/furnitures.html'); ?>">Home Appliances</a></h4>
-						   <p>Suspendisse placerat mattis arcu nec por</p>
-							<a href="<?php echo site_url('resources/furnitures.html'); ?>">
-								<span>Explore</span>
-							</a>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="col-md-4 w3ls-portfolio-left">
-						<div class="portfolio-img event-img">
-							<img src="<?php echo site_url('resources/images/ad6.jpg'); ?>" class="img-responsive" alt=""/>
-							 <div class="over-image"></div>
-						</div>
-						<div class="portfolio-description">
-						   <h4><a href="<?php echo site_url('resources/fashion.html'); ?>">Clothing</a></h4>
-						   <p>Suspendisse placerat mattis arcu nec por</p>
-							<a href="<?php echo site_url('resources/fashion.html'); ?>">
-								<span>Explore</span>
-							</a>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="clearfix"> </div>
+				<h3>Productos Mas Vistos</h3>
+				<div class="w3l-popular-ads-info">
+                                    <?php
+                                    foreach ($productos_vistos as $visto) {
+                                        $foto = $visto['producto_foto'];
+                                        if($visto['producto_foto'] == "" || $visto['producto_foto'] == "foto.jpg"){
+                                            $foto = "thumb_image.png";
+                                        }
+                                    ?>
+                                    <div class="col-md-4 w3ls-portfolio-left">
+                                        <div class="portfolio-img event-img">
+                                            <img src="<?php echo site_url('resources/images/productos/'.$foto); ?>" class="img-responsive" alt="" width="216px" height="216px" />
+                                                <div class="over-image"></div>
+                                        </div>
+                                        <div class="portfolio-description">
+                                           <h5><a href="<?php echo site_url('categoria/verdetalle/'.$visto['producto_id']); ?>"><?php echo $visto['producto_nombre']; ?></a></h5>
+                                           <p><?php echo "Marca: ".$visto['producto_marca']."<br>Industria: ".$visto['producto_industria']; ?></p>
+                                            <a href="<?php echo site_url('categoria/verdetalle/'.$visto['producto_id']); ?>">
+                                                <span>Explorar</span>
+                                            </a>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                    <?php
+                                    }
+                                    ?>
+                                    <div class="clearfix"> </div>
 				 </div>
 			 </div>
-			<!-- most-popular-ads -->									
+			<!-- most-popular-ads -->
+                        <?php /* ?>
 			<div class="trending-ads">
-				<div class="container">
-				<!-- slider -->
+                            <div class="container">
+                                <!-- slider -->
 				<div class="agile-trend-ads">
-					<h2>Trending Ads</h2>
-							<ul id="flexiselDemo3">
-								<li>
-									<div class="col-md-3 biseller-column">
-										<a href="<?php echo site_url('resources/single.html'); ?>">
-											<img src="<?php echo site_url('resources/images/p1.jpg'); ?>" alt="" />
-											<span class="price">&#36; 450</span>
-										</a> 
-										<div class="w3-ad-info">
-											<h5>There are many variations of passages</h5>
-											<span>1 hour ago</span>
-										</div>
-									</div>
-									<div class="col-md-3 biseller-column">
-										<a href="<?php echo site_url('resources/single.html'); ?>">
-											<img src="<?php echo site_url('resources/images/p2.jpg'); ?>" alt="" />
-											<span class="price">&#36; 399</span>
-										</a> 
-										<div class="w3-ad-info">
-											<h5>Lorem Ipsum is simply dummy</h5>
-											<span>3 hour ago</span>
-										</div>
-									</div>
-									<div class="col-md-3 biseller-column">
-										<a href="<?php echo site_url('resources/single.html'); ?>">
-											<img src="<?php echo site_url('resources/images/p3.jpg'); ?>" alt="" />
-											<span class="price">&#36; 199</span>
-										</a> 
-										<div class="w3-ad-info">
-											<h5>It is a long established fact that a reader</h5>
-											<span>8 hour ago</span>
-										</div>
-									</div>
-									<div class="col-md-3 biseller-column">
-										<a href="<?php echo site_url('resources/single.html'); ?>">
-											<img src="<?php echo site_url('resources/images/p4.jpg'); ?>" alt="" />
-											<span class="price">&#36; 159</span>
-										</a> 
-										<div class="w3-ad-info">
-											<h5>passage of Lorem Ipsum you need to be</h5>
-											<span>19 hour ago</span>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="col-md-3 biseller-column">
-										<a href="<?php echo site_url('resources/single.html'); ?>">
-											<img src="<?php echo site_url('resources/images/p5.jpg'); ?>" alt="" />
-											<span class="price">&#36; 1599</span>
-										</a> 
-										<div class="w3-ad-info">
-											<h5>There are many variations of passages</h5>
-											<span>1 hour ago</span>
-										</div>
-									</div>
-									<div class="col-md-3 biseller-column">
-										<a href="<?php echo site_url('resources/single.html'); ?>">
-											<img src="<?php echo site_url('resources/images/p6.jpg'); ?>" alt="" />
-											<span class="price">&#36; 1099</span>
-										</a> 
-										<div class="w3-ad-info">
-											<h5>passage of Lorem Ipsum you need to be</h5>
-											<span>1 day ago</span>
-										</div>
-									</div>
-									<div class="col-md-3 biseller-column">
-										<a href="<?php echo site_url('resources/single.html'); ?>">
-											<img src="<?php echo site_url('resources/images/p7.jpg'); ?>" alt="" />
-											<span class="price">&#36; 109</span>
-										</a> 
-										<div class="w3-ad-info">
-											<h5>It is a long established fact that a reader</h5>
-											<span>9 hour ago</span>
-										</div>
-									</div>
-									<div class="col-md-3 biseller-column">
-										<a href="<?php echo site_url('resources/single.html'); ?>">
-											<img src="<?php echo site_url('resources/images/p8.jpg'); ?>" alt="" />
-											<span class="price">&#36; 189</span>
-										</a> 
-										<div class="w3-ad-info">
-											<h5>Lorem Ipsum is simply dummy</h5>
-											<span>3 hour ago</span>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="col-md-3 biseller-column">
-										<a href="<?php echo site_url('resources/single.html'); ?>">
-											<img src="<?php echo site_url('resources/images/p9.jpg'); ?>" alt="" />
-											<span class="price">&#36; 2599</span>
-										</a> 
-										<div class="w3-ad-info">
-											<h5>Lorem Ipsum is simply dummy</h5>
-											<span>3 hour ago</span>
-										</div>
-									</div>
-									<div class="col-md-3 biseller-column">
-										<a href="<?php echo site_url('resources/single.html'); ?>">
-											<img src="<?php echo site_url('resources/images/p10.jpg'); ?>" alt="" />
-											<span class="price">&#36; 3999</span>
-										</a> 
-										<div class="w3-ad-info">
-											<h5>It is a long established fact that a reader</h5>
-											<span>9 hour ago</span>
-										</div>
-									</div>
-									<div class="col-md-3 biseller-column">
-										<a href="<?php echo site_url('resources/single.html'); ?>">
-											<img src="<?php echo site_url('resources/images/p11.jpg'); ?>" alt="" />
-											<span class="price">&#36; 2699</span>
-										</a> 
-										<div class="w3-ad-info">
-											<h5>passage of Lorem Ipsum you need to be</h5>
-											<span>1 day ago</span>
-										</div>
-									</div>
-									<div class="col-md-3 biseller-column">
-										<a href="<?php echo site_url('resources/single.html'); ?>">
-											<img src="<?php echo site_url('resources/images/p12.jpg'); ?>" alt="" />
-											<span class="price">&#36; 899</span>
-										</a> 
-										<div class="w3-ad-info">
-											<h5>There are many variations of passages</h5>
-											<span>1 hour ago</span>
-										</div>
-									</div>
-								</li>
-						</ul>
-					</div>   
-			</div>
+                                    <h2>Nuevos Productos</h2>
+                                    <ul id="flexiselDemo3">
+                                        <?php
+                                        $cont = 1;
+                                        foreach ($productos_ultimos as $pu) {
+                                            if($cont >= 5){
+                                                $cont =1;
+                                            }
+                                            if($cont <5){
+                                                if($cont == 1){
+                                                    echo "<li>";
+                                                }
+                                        ?>
+                                        <!--<li>-->
+                                            <div class="col-md-3 biseller-column">
+                                                <a href="<?php echo site_url('categoria/verdetalle/'.$pu['producto_id']); ?>">
+                                                    <?php
+                                                        $esfoto= "foto.png";
+                                                        if($pu['producto_foto'] != "foto.jpg" || $pu['producto_foto'] !=""){
+                                                            $esfoto= $pu['producto_foto'];
+                                                        }
+                                                        ?>
+                                                        <img src="<?php echo site_url('resources/images/productos/'.$esfoto); ?>" alt="" width=210px" height="332px" />
+                                                        <span class="price"><?php echo $pu['moneda_descripcion']." ".$pu['producto_precio']; ?></span>
+                                                </a> 
+                                                <div class="w3-ad-info">
+                                                    <h5>There are many variations of passages</h5>
+                                                    <span>1 hour ago</span>
+                                                </div>
+                                            </div>
+                                        
+                                        <?php
+                                        if($cont == 4){
+                                            echo "</li>";
+                                        }
+                                        }
+                                        $cont++;
+                                        }
+                                        ?>
+                                    </ul>
+                                </div>   
+                            </div>
 			<!-- //slider -->				
 			</div>
+                        <?php */ ?>
 			<!--partners-->
 			<div class="w3layouts-partners">
-				<h3>Our Partners</h3>
+				<h3>Auspiciadores</h3>
 					<div class="container">
 						<ul>
 							<li><a href="<?php echo site_url('resources/#'); ?>"><img class="img-responsive" src="<?php echo site_url('resources/images/p-1.png'); ?>" alt=""></a></li>
@@ -405,12 +258,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</ul>
 					</div>
 				</div>	
-		<!--//partners-->	
+		<!--//partners-->
+                
+                <div class="w3layouts-breadcrumbs text-center">
+                    <div class="container">
+                        <span class="agile-breadcrumbs"></span>
+                    </div>
+                </div>
 		<!-- mobile app -->
-			<div class="agile-info-mobile-app">
-				<div class="container">
-					<div class="col-md-5 w3-app-left">
-						<a href="<?php echo site_url('resources/mobileapp.html'); ?>"><img src="<?php echo site_url('resources/images/app.png'); ?>" alt=""></a>
+			<!--<div class="agile-info-mobile-app">-->
+				<!--<div class="container">-->
+					<!--<div class="col-md-5 w3-app-left">
+						<a href="<?php /*echo site_url('resources/mobileapp.html'); ?>"><img src="<?php echo site_url('resources/images/app.png'); ?>" alt=""></a>
 					</div>
 					<div class="col-md-7 w3-app-right">
 						<h3>Resale App is the <span>Easiest</span> way for Selling and buying second-hand goods</h3>
@@ -419,66 +278,75 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<h6>Download The App : 
 								<a href="<?php echo site_url('resources/#'); ?>"><i class="fa fa-apple"></i></a>
 								<a href="<?php echo site_url('resources/#'); ?>"><i class="fa fa-windows"></i></a>
-								<a href="<?php echo site_url('resources/#'); ?>"><i class="fa fa-android"></i></a>
+								<a href="<?php echo site_url('resources/#');*/ ?>"><i class="fa fa-android"></i></a>
 							</h6>
 						</div>
 					</div>
-					<div class="clearfix"></div>
-				</div>
-			</div>
+					<div class="clearfix"></div>-->
+				<!--</div>-->
+			<!--</div>-->
 			<!-- //mobile app -->
 		</div>
 		<!--footer section start-->		
 		<footer>
-			<div class="w3-agileits-footer-top">
-				<div class="container">
-					<div class="wthree-foo-grids">
-						<div class="col-md-3 wthree-footer-grid">
-							<h4 class="footer-head">¿Quienes Somos?</h4>
-							<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-							<p>The point of using Lorem Ipsum is that it has a more-or-less normal letters, as opposed to using 'Content here.</p>
-						</div>
-						<div class="col-md-3 wthree-footer-grid">
-							<h4 class="footer-head">Ayuda</h4>
-							<ul>
-								<li><a href="<?php echo site_url('resources/howitworks.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>How it Works</a></li>						
-								<li><a href="<?php echo site_url('resources/sitemap.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Sitemap</a></li>
-								<li><a href="<?php echo site_url('resources/faq.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Faq</a></li>
-								<li><a href="<?php echo site_url('resources/feedback.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Feedback</a></li>
-								<li><a href="<?php echo site_url('resources/contact.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Contact</a></li>
-								<li><a href="<?php echo site_url('resources/typography.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Short codes</a></li>
-								<li><a href="<?php echo site_url('resources/icons.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Icons Page</a></li>
-							</ul>
-						</div>
-						<div class="col-md-3 wthree-footer-grid">
-							<h4 class="footer-head">Información</h4>
-							<ul>
-								<li><a href="<?php echo site_url('resources/regions.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Locations Map</a></li>	
-								<li><a href="<?php echo site_url('resources/terms.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Terms of Use</a></li>
-								<li><a href="<?php echo site_url('resources/popular-search.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Popular searches</a></li>	
-								<li><a href="<?php echo site_url('resources/privacy.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Privacy Policy</a></li>	
-							</ul>
-						</div>
-						<div class="col-md-3 wthree-footer-grid">
-							<h4 class="footer-head">Contáctanos</h4>
-							<span class="hq">Our headquarters</span>
-							<address>
-								<ul class="location">
-									<li><span class="glyphicon glyphicon-map-marker"></span></li>
-									<li>CENTER FOR FINANCIAL ASSISTANCE TO DEPOSED NIGERIAN ROYALTY</li>
-								</ul>	
-								<div class="clearfix"> </div>
-								<ul class="location">
-									<li><span class="glyphicon glyphicon-earphone"></span></li>
-									<li>+0 561 111 235</li>
-								</ul>	
-								<div class="clearfix"> </div>
-								<ul class="location">
-									<li><span class="glyphicon glyphicon-envelope"></span></li>
-									<li><a href="<?php echo site_url('resources/mailto:info@example.com'); ?>">mail@example.com</a></li>
-								</ul>						
-							</address>
-						</div>
+                    <div class="w3-agileits-footer-top">
+                        <div class="container">
+                            <div class="wthree-foo-grids">
+                                <div class="col-md-3 wthree-footer-grid">
+                                    <h4 class="footer-head">¿Quienes Somos?</h4>
+                                    <p>Somos una empresa en linea ; con el prestigio de poder servir a los clientes.</p>
+                                    <p></p>
+                                </div>
+                                <div class="col-md-3 wthree-footer-grid">
+                                    <h4 class="footer-head">Compromiso</h4>
+                                    <p>Tenemos una firme implicación de la organización con todos nuestros grupos de interés: clientes, personas, aliados y sociedad.</p>
+                                    <p></p>
+                                </div>
+                                <!--<div class="col-md-3 wthree-footer-grid">
+                                    <h4 class="footer-head">Ayuda</h4>
+                                    <ul>
+                                        <li><a href="<?php /*echo site_url('resources/howitworks.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>How it Works</a></li>						
+                                        <li><a href="<?php echo site_url('resources/sitemap.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Sitemap</a></li>
+                                        <li><a href="<?php echo site_url('resources/faq.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Faq</a></li>
+                                        <li><a href="<?php echo site_url('resources/feedback.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Feedback</a></li>
+                                        <li><a href="<?php echo site_url('resources/contact.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Contact</a></li>
+                                        <li><a href="<?php echo site_url('resources/typography.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Short codes</a></li>
+                                        <li><a href="<?php echo site_url('resources/icons.html');*/ ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Icons Page</a></li>
+                                    </ul>
+                                </div>-->
+                                <div class="col-md-3 wthree-footer-grid">
+                                    <h4 class="footer-head">Información</h4>
+                                    <ul>
+                                        <li><a href="<?php echo site_url('resources/regions.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Locations Map</a></li>	
+                                        <li><a href="<?php echo site_url('resources/terms.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Terms of Use</a></li>
+                                        <li><a href="<?php echo site_url('resources/popular-search.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Popular searches</a></li>	
+                                        <li><a href="<?php echo site_url('resources/privacy.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Privacy Policy</a></li>	
+                                    </ul>
+                                </div>
+                                <div class="col-md-3 wthree-footer-grid">
+                                    <h4 class="footer-head">Contáctanos</h4>
+                                    <span class="hq">Our headquarters</span>
+                                    <address>
+                                        <ul class="location">
+                                            <li><span class="glyphicon glyphicon-map-marker"></span></li>
+                                            <li>CENTER FOR FINANCIAL ASSISTANCE TO DEPOSED NIGERIAN ROYALTY</li>
+                                        </ul>	
+                                        <div class="clearfix"> </div>
+                                        <ul class="location">
+                                            <li><span class="glyphicon glyphicon-earphone"></span></li>
+                                            <li>+0 561 111 235</li>
+                                        </ul>
+                                        <div class="clearfix"> </div>
+                                        <ul class="location">
+                                            <li><span class="glyphicon glyphicon-envelope"></span></li>
+                                            <li><a href="<?php echo site_url('resources/mailto:info@example.com'); ?>">mail@example.com</a></li>
+                                        </ul>
+                                        <ul class="location">
+                                            <li><span class="glyphicon glyphicon-envelope"></span></li>
+                                            <li><a href="<?php echo site_url('resources/contact.html'); ?>">Contact</a></li>
+                                        </ul>
+                                    </address>
+                                </div>
 						<div class="clearfix"></div>
 					</div>						
 				</div>	

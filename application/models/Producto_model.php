@@ -449,6 +449,39 @@ class Producto_model extends CI_Model
 
         return $producto;
     }
-    
-    
+    /*
+     * Get 6 productos mas vistos
+     */
+    function get_productosvistos()
+    {
+        $producto = $this->db->query("
+            SELECT
+                p.*
+            FROM
+                producto p
+            WHERE
+                p.estado_id = 1
+              ORDER By p.producto_visto DESC limit 6
+        ")->result_array();
+
+        return $producto;
+    }
+    /*
+     * Get 32 ultimos productos
+     */
+    function get_productosultimos()
+    {
+        $producto = $this->db->query("
+            SELECT
+                p.*, m.moneda_descripcion
+            FROM
+                producto p
+            LEFT JOIN moneda m on p.moneda_id = m.moneda_id
+            WHERE
+                p.estado_id = 1
+              ORDER By p.producto_id DESC limit 32
+        ")->result_array();
+
+        return $producto;
+    }
 }

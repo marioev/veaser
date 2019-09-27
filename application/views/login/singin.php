@@ -72,7 +72,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="login-head">
                         <h2 class="text-center"><?php echo $empresa[0]["empresa_nombre"] ?></h2>
                         <center><img src="<?php echo base_url('resources/images/empresas/'.$empresa[0]["empresa_imagen"].''); ?>"  style="width:80px;height:80px"></center>
-                        <h3 class="text-center">Ximpleman</h3>
+                        <!--<h3 class="text-center">Ximpleman</h3>-->
                     </div>
                     <?php echo form_open('verificar'); ?>
                     <input type="text" name="username" id="username" placeholder="Usuario" autocomplete="off" autofocus  required="" <?php if($diaslic['dias'] < 0){ ?> readonly <?php } ?> >

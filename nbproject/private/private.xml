@@ -2,16 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/xampp/htdocs/veaser/application/views/categoria/verdetalle.php</file>
-            <file>file:/C:/xampp/htdocs/veaser/application/views/web/index.php</file>
-            <file>file:/C:/xampp/htdocs/veaser/application/views/categoria/buscar_productoscategorias.php</file>
-            <file>file:/C:/xampp/htdocs/veaser/application/models/Empresa_model.php</file>
-            <file>file:/C:/xampp/htdocs/veaser/application/models/Categoria_model.php</file>
-            <file>file:/C:/xampp/htdocs/veaser/application/models/Producto_model.php</file>
-            <file>file:/C:/xampp/htdocs/veaser/application/views/categoria/vercategoria.php</file>
-            <file>file:/C:/xampp/htdocs/veaser/application/controllers/Dashboard.php</file>
-            <file>file:/C:/xampp/htdocs/veaser/application/controllers/Categoria.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

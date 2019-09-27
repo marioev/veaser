@@ -20,6 +20,9 @@
              folder instead of downloading all of them to reduce the load. -->
         <link rel="stylesheet" href="<?php echo site_url('resources/css/_all-skins.min.css');?>">
         <script src="<?php echo site_url('resources/js/jquery-2.2.3.min.js');?>"></script>
+        <?php
+            $session_data = $this->session->userdata('logged_in');
+        ?>
     </head>
     
     <body class="hold-transition skin-blue sidebar-mini">
@@ -47,27 +50,27 @@
                         <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img src="<?php echo site_url('resources/img/user2-160x160.jpg');?>" class="user-image" alt="User Image">
-                                    <span class="hidden-xs">Alexander Pierce</span>
+                                    <img src="<?php echo site_url('resources/images/usuarios/'.$session_data['thumb']);?>" class="user-image" alt="User Image">
+                                    <span class="hidden-xs"><?php echo $session_data['usuario_nombre']?></span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
-                                        <img src="<?php echo site_url('resources/img/user2-160x160.jpg');?>" class="img-circle" alt="User Image">
-
+                                        <?php if($session_data['usuario_imagen']!= ""){ ?>
+                                        <img src="<?php echo site_url('resources/images/usuarios/'.$session_data['usuario_imagen']);?>" class="img-circle" alt="User Image">
+                                        <?php }else{ ?>
+                                        <img src="<?php echo site_url('resources/images/usuarios/default.jpg');?>" class="img-circle" alt="User Image">
+                                        <?php } ?>
                                     <p>
-                                        Alexander Pierce - Web Developer
-                                        <small>Member since Nov. 2012</small>
+                                        <?php echo $session_data['usuario_nombre']?> - <?php echo $session_data['tipousuario_descripcion']?>
+                                        <small><?php //echo "Gestión ".$session_data['gestion_nombre']?></small>
                                     </p>
                                     </li>
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
-                                        <div class="pull-left">
-                                            <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                        </div>
                                         <div class="pull-right">
-                                            <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                                        </div>
+                                    <a href="<?php echo site_url()?>login/logout" class="btn btn-default btn-flat">Salir</a>
+                                </div>
                                     </li>
                                 </ul>
                             </li>
@@ -82,16 +85,19 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="<?php echo site_url('resources/img/user2-160x160.jpg');?>" class="img-circle" alt="User Image">
+                            <img src="<?php echo site_url('resources/images/usuarios/'.$session_data['thumb']);?>" class="img-circle" alt="User Image">
                         </div>
+                        <!--<div class="pull-left image">
+                            <img src="<?php //echo site_url('resources/img/user2-160x160.jpg');?>" class="img-circle" alt="User Image">
+                        </div>-->
                         <div class="pull-left info">
-                            <p>Alexander Pierce</p>
+                            <div  style=" white-space: normal; word-wrap: break-word;"><?php echo $session_data['usuario_nombre']?></div>
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
                     </div>
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
-                        <li class="header">MAIN NAVIGATION</li>
+                        
                         <li>
                             <a href="<?php echo site_url();?>">
                                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
@@ -118,6 +124,39 @@
                                 <li>
                                     <a href="<?php echo site_url('empresa');?>"><i class="fa fa-university"></i> Empresa</a>
                                 </li>
+                                <li>
+                                    <a href="<?php echo site_url('unidad');?>"><i class="fa fa-university"></i> Unidad</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-lock"></i> <span>Seguridad</span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <?php
+                                //if($rolusuario[20-1]['rolusuario_asignado'] == 1){
+                                ?>
+                                <li class="active">
+                                    <a href="<?php echo site_url('rol');?>"><i class="fa fa-users"></i> Roles</a>
+                                </li>
+                                <?php
+                                //}
+                                //if($rolusuario[21-1]['rolusuario_asignado'] == 1){
+                                ?>
+                                <li>
+                                    <a href="<?php echo site_url('tipo_usuario/index');?>"><i class="fa fa-users"></i> Tipos de usuarios</a>
+                                </li>
+                                <?php
+                                //}
+                                //if($rolusuario[23-1]['rolusuario_asignado'] == 1){
+                                ?>
+                                <li>
+                                    <a href="<?php echo site_url('usuario/index');?>"><i class="fa fa-user-circle"></i> Usuarios</a>
+                                </li>
+                                <?php
+                                //}
+                                ?>
                             </ul>
                         </li>
                     </ul>
