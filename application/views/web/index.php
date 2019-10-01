@@ -73,7 +73,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="container">
                 <div class="agile-its-header">
                     <div class="logo">
-                        <h1><a href="<?php echo site_url(); ?>"><?php echo $empresa['empresa_nombre']; ?></a></h1>
+                        <img src="<?php echo site_url('resources/images/empresas/'.$empresa['empresa_imagen']) ?>" width="144" height="70" />
+                        <!--<h1><a href="<?php //echo site_url(); ?>"><?php //echo $empresa['empresa_nombre']; ?></a></h1>-->
                     </div>
                     <div class="agileits_search">
                         <?php echo form_open('categoria/buscar_productoscategorias'); ?>
@@ -190,56 +191,138 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				 </div>
 			 </div>
 			<!-- most-popular-ads -->
-                        <?php /* ?>
-			<div class="trending-ads">
+                        <div class="trending-ads">
+                            <?php  ?>
                             <div class="container">
-                                <!-- slider -->
+                                <div class="agile-trend-ads">
+                                    <h2>Nuevas Ofertas</h2>  
+                                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                        <!-- Indicators -->
+                                        <ol class="carousel-indicators">
+                                            <?php
+                                            $cont = 0;
+                                            foreach ($productos_ultimos as $ul) {
+                                                if($cont ==0 ){ ?>
+                                            <li data-target="#myCarousel" data-slide-to="<?php echo $cont; ?>" class="active"></li>
+                                               <?php
+                                                }else{
+                                                ?>
+                                            <li data-target="#myCarousel" data-slide-to="<?php echo $cont; ?>"></li>
+                                                <?php
+                                                }
+                                            $cont++;
+                                            }
+                                            ?>
+                                        </ol>
+                                        <!-- Wrapper for slides -->
+                                        <div class="carousel-inner">
+                                            <?php
+                                            $cont1 = 0;
+                                            foreach ($productos_ultimos as $ul) {
+                                                $lafoto = "thumb_image.png";
+                                                if($ul['producto_foto'] != "foto.jpg" || $ul['producto_foto'] != "" || $ul['producto_foto'] != null){
+                                                    $lafoto = $ul['producto_foto'];
+                                                }
+                                                if($cont1 ==0 ){ ?>
+                                            <div class="item active">
+                                                <a href="<?php echo site_url('categoria/verdetalle/'.$ul['producto_id']); ?>">
+                                                <img src="<?php echo site_url('resources/images/productos/'.$lafoto) ?>" width="100%" height="300px" />
+                                                <span class="price"><?php echo $ul['moneda_descripcion']." ".$ul['producto_precio']; ?></span>
+                                                </a>
+                                                <div class="carousel-caption">
+                                                    <h3><?php echo $ul['producto_nombre']; ?></h3>
+                                                    <!--<p>LA is always so much fun!</p>-->
+                                                </div>
+                                            </div>
+                                               <?php
+                                                }else{
+                                                ?>
+                                            <div class="item">
+                                                <a href="<?php echo site_url('categoria/verdetalle/'.$ul['producto_id']); ?>">
+                                                <img src="<?php echo site_url('resources/images/productos/'.$lafoto) ?>" width="100%" height="300px" />
+                                                <span class="price"><?php echo $ul['moneda_descripcion']." ".$ul['producto_precio']; ?></span>
+                                                </a>
+                                                <div class="carousel-caption">
+                                                    <h3><?php echo $ul['producto_nombre']; ?></h3>
+                                                    <!--<p>LA is always so much fun!</p>-->
+                                                </div>
+                                            </div>
+                                                <?php
+                                                }
+                                            $cont1++;
+                                            }
+                                            ?>
+                                        </div>
+                                        <!-- Left and right controls -->
+                                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                                            <span class="glyphicon glyphicon-chevron-left"></span>
+                                            <span class="sr-only">Atras</span>
+                                        </a>
+                                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                            <span class="glyphicon glyphicon-chevron-right"></span>
+                                            <span class="sr-only">Adelante</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div><?php  ?>
+
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            <div class="container">
+				<!-- slider -->
+                                <?php /* ?>
 				<div class="agile-trend-ads">
-                                    <h2>Nuevos Productos</h2>
+                                    <h2>Nuevas Ofertas</h2>
                                     <ul id="flexiselDemo3">
                                         <?php
                                         $cont = 1;
-                                        foreach ($productos_ultimos as $pu) {
-                                            if($cont >= 5){
-                                                $cont =1;
+                                        foreach ($productos_ultimos as $ul) {
+                                            if($cont ==1 ){
+                                                echo '<li>';
                                             }
-                                            if($cont <5){
-                                                if($cont == 1){
-                                                    echo "<li>";
-                                                }
                                         ?>
-                                        <!--<li>-->
+                                        
                                             <div class="col-md-3 biseller-column">
-                                                <a href="<?php echo site_url('categoria/verdetalle/'.$pu['producto_id']); ?>">
+                                                <a href="single.html">
                                                     <?php
-                                                        $esfoto= "foto.png";
-                                                        if($pu['producto_foto'] != "foto.jpg" || $pu['producto_foto'] !=""){
-                                                            $esfoto= $pu['producto_foto'];
-                                                        }
-                                                        ?>
-                                                        <img src="<?php echo site_url('resources/images/productos/'.$esfoto); ?>" alt="" width=210px" height="332px" />
-                                                        <span class="price"><?php echo $pu['moneda_descripcion']." ".$pu['producto_precio']; ?></span>
+                                                    $lafoto = "thumb_image.png";
+                                                    if($ul['producto_foto'] != "foto.jpg" || $ul['producto_foto'] != "" || $ul['producto_foto'] != null){
+                                                        $lafoto = $ul['producto_foto'];
+                                                    }
+                                                    ?>
+                                                    <img src="<?php echo site_url('resources/images/productos/'.$lafoto) ?>" />
+                                                    <span class="price">&#36; 450</span>
                                                 </a> 
                                                 <div class="w3-ad-info">
                                                     <h5>There are many variations of passages</h5>
                                                     <span>1 hour ago</span>
                                                 </div>
                                             </div>
+                                            
                                         
                                         <?php
-                                        if($cont == 4){
-                                            echo "</li>";
+                                        
+                                        if($cont == 3){
+                                            echo '</li>';
                                         }
+                                        $cont ++;
+                                        if($cont > 4){
+                                            $cont =1;
                                         }
-                                        $cont++;
                                         }
                                         ?>
                                     </ul>
-                                </div>   
-                            </div>
+                                </div> <?php */ ?>  
+			</div>
 			<!-- //slider -->				
 			</div>
-                        <?php */ ?>
 			<!--partners-->
 			<div class="w3layouts-partners">
 				<h3>Auspiciadores</h3>
@@ -429,7 +512,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- //language-select -->
 		<script type="text/javascript" src="<?php echo site_url('resources/js/jquery.flexisel.js'); ?>"></script><!-- flexisel-js -->	
 					<script type="text/javascript">
-						 $(window).load(function() {
+					/*	 $(window).load(function() {
 							$("#flexiselDemo3").flexisel({
 								visibleItems:1,
 								animationSpeed: 1000,
@@ -453,7 +536,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								}
 							});
 							
-						});
+						});*/
 					   </script>
 		<!-- Slider-JavaScript -->
 		<!-- main slider-banner -->

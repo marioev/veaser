@@ -479,7 +479,7 @@ class Producto_model extends CI_Model
             LEFT JOIN moneda m on p.moneda_id = m.moneda_id
             WHERE
                 p.estado_id = 1
-              ORDER By p.producto_id DESC limit 32
+              ORDER By p.producto_id DESC limit 12
         ")->result_array();
 
         return $producto;

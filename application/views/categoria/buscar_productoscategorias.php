@@ -116,7 +116,7 @@ var elem=$('#container ul');
                             foreach($all_categoria as $c){
                             $i++;
                             ?>
-                            <a href="<?php echo site_url('categoria/vercategoria/'.$c['categoria_id']); ?>"><i class="fa fa-fw fa-mobile"></i><span><?php echo $c['categoria_nombre']; ?></span></a>
+                            <a href="<?php echo site_url('categoria/vercategoria/'.$c['categoria_id']); ?>"><i class="fa fa-fw fa-mobile"></i><!--<img src="<?php //echo site_url('resources/images/categorias/'.$c['categoria_imagen']) ?>" width="26px" height="19px" />--><span><?php echo $c['categoria_nombre']; ?></span></a>
                             <?php
                             }
                             ?>
@@ -144,7 +144,8 @@ var elem=$('#container ul');
             <div class="container">
                 <div class="agile-its-header">
                     <div class="logo">
-                        <h1><a href="<?php echo site_url('resources/index.html') ?>"><?php echo $empresa['empresa_nombre']; ?></a></h1>
+                        <img src="<?php echo site_url('resources/images/empresas/'.$empresa['empresa_imagen']) ?>" width="144" height="70" />
+                        <!--<h1><a href="<?php //echo site_url() ?>"><?php //echo $empresa['empresa_nombre']; ?></a></h1>-->
                     </div>
                     <div class="agileits_search">
                         <?php echo form_open('categoria/buscar_productoscategorias'); ?>
@@ -189,7 +190,6 @@ var elem=$('#container ul');
                             <?php
                             }
                             ?>
-                            <li><a href="<?php echo site_url('resources/cars.html') ?>">Cars   <span class="num-of-ads">(2,15,306)</span></a></li>
                         </ul>
                     </div>
                     <div class="ads-grid">
