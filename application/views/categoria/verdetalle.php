@@ -116,7 +116,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
                     <div class="agile-its-header">
                         <div class="logo">
-                            <img src="<?php echo site_url('resources/images/empresas/'.$empresa['empresa_imagen']) ?>" width="144" height="70" />
+                            <a href="<?php echo site_url(''); ?>">
+                                <img src="<?php echo site_url('resources/images/empresas/'.$empresa['empresa_imagen']) ?>" width="144" height="70" />
+                            </a>
                             <!--<h1><a href="<?php //echo site_url(''); ?>"><?php //echo $empresa['empresa_nombre']; ?></a></h1>-->
                         </div>   
                     <div class="agileits_search">
@@ -195,7 +197,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</script>
 					<!-- //FlexSlider -->
 					<div class="product-details">
-						<h4><span class="w3layouts-agileinfo">Marca </span> : <a href="<?php echo site_url('#'); ?>"><?php echo $producto['producto_marca']; ?></a><div class="clearfix"></div></h4>
+						<h4><span class="w3layouts-agileinfo">Marca </span> : <a href=""><?php echo $producto['producto_marca']; ?></a><div class="clearfix"></div></h4>
 						<h4><span class="w3layouts-agileinfo">Industria </span> : <?php echo $producto['producto_industria']; ?></h4>
 						<h4><span class="w3layouts-agileinfo">Visto </span> : <strong><?php echo $producto['producto_visto']; ?></strong></h4>
 						<h4><span class="w3layouts-agileinfo">Detalle</span> :<p><?php echo $producto['producto_caracteristicas']; ?></p><div class="clearfix"></div></h4>

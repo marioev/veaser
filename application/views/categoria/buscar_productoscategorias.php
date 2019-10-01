@@ -144,7 +144,9 @@ var elem=$('#container ul');
             <div class="container">
                 <div class="agile-its-header">
                     <div class="logo">
-                        <img src="<?php echo site_url('resources/images/empresas/'.$empresa['empresa_imagen']) ?>" width="144" height="70" />
+                        <a href="<?php echo site_url(''); ?>">
+                            <img src="<?php echo site_url('resources/images/empresas/'.$empresa['empresa_imagen']) ?>" width="144" height="70" />
+                        </a>
                         <!--<h1><a href="<?php //echo site_url() ?>"><?php //echo $empresa['empresa_nombre']; ?></a></h1>-->
                     </div>
                     <div class="agileits_search">
@@ -199,7 +201,7 @@ var elem=$('#container ul');
 					  <ul id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
 						<li role="presentation" class="active">
 						  <a href="<?php echo site_url('resources/#home') ?>" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
-							<span class="text">All Ads</span>
+							<span class="text"><?php echo count($all_productocategoria); ?> productos</span>
 						  </a>
 						</li>
 					</ul>

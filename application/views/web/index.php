@@ -73,7 +73,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="container">
                 <div class="agile-its-header">
                     <div class="logo">
-                        <img src="<?php echo site_url('resources/images/empresas/'.$empresa['empresa_imagen']) ?>" width="144" height="70" />
+                        <a href="<?php echo site_url(''); ?>">
+                            <img src="<?php echo site_url('resources/images/empresas/'.$empresa['empresa_imagen']) ?>" width="144" height="70" />
+                        </a>
                         <!--<h1><a href="<?php //echo site_url(); ?>"><?php //echo $empresa['empresa_nombre']; ?></a></h1>-->
                     </div>
                     <div class="agileits_search">
