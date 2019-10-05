@@ -114,6 +114,14 @@
                             </ul>
                         </li>
                         <li>
+                            <a href="#"><i class="fa fa-cogs"></i> <span>Operaciones</span></a>
+                            <ul class="treeview-menu">
+                                <li class="active">
+                                    <a href="<?php echo site_url('mensaje');?>"><i class="fa fa-envelope"></i> Mensaje</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
                             <a href="#">
                                 <i class="fa fa-list-ol"></i> <span>Parametros Generales</span>
                             </a>

@@ -38,64 +38,6 @@ class Mensaje extends CI_Controller{
             $this->load->view('layouts/main',$data);
         }
     }
-
-    /*
-     * Adding a new mensaje
-     */
-    function add()
-    {
-        if($this->acceso(124)){
-            $this->load->model('Empresa_model');
-            $empresa_id = 1;
-            $data['empresa'] = $this->Empresa_model->get_this_empresa($empresa_id);
-                
-            $this->load->library('form_validation');
-            $this->form_validation->set_rules('mensaje_nombre','Nombre','trim|required', array('required' => 'Este Campo no debe ser vacio'));
-            $this->form_validation->set_rules('mensaje_email','Correo','trim|required|valid_email', array('required' => 'Este Campo no debe ser vacio'));
-            $this->form_validation->set_rules('mensaje_texto','Mensaje','trim|required', array('required' => 'Este Campo no debe ser vacio'));
-            if($this->form_validation->run())     
-            {
-                $fecha_mensajerecibido = date('Y-m-d H:i:s');
-                $estado = 3;
-                $params = array(
-                    'estado_id' => $estado,
-                    'mensaje_nombre' => $this->input->post('mensaje_nombre'),
-                    'mensaje_email' => $this->input->post('mensaje_email'),
-                    'mensaje_telefono' => $this->input->post('mensaje_telefono'),
-                    'mensaje_texto' => $this->input->post('mensaje_texto'),
-                    'mensaje_fechahoraing' => $fecha_mensajerecibido,
-                );
-
-                $mensaje_id = $this->Mensaje_model->add_mensaje($params);
-                
-                $this->load->library('email');
-                $micorreo = $data['empresa']['empresa_correo'];
-                $miempresa = $data['empresa']['empresa_nombre'];
-                $this->email->from($micorreo, $miempresa);
-                $this->email->to($this->input->post('mensaje_email'));
-                //$this->email->cc('another@another-example.com');
-                //$this->email->bcc('them@their-example.com');
-                $this->email->subject('Gracias '.$this->input->post('mensaje_nombre').' por tu consulta');
-                $this->email->message('<b>Gracias por escribirnos,</b> <br>Te responderemos lo mas antes posible');
-                $this->email->set_mailtype('html');
-                $this->email->send();
-                
-                redirect('mensaje/index');
-            }
-            else
-            {
-                $this->load->model('Categoria_model');
-                //$this->load->model('Empresa_model');
-                //$empresa_id = 1;
-                $data['nom_mensaje'] = 1;
-                //$data['empresa'] = $this->Empresa_model->get_this_empresa($empresa_id);
-
-                $data['all_categoria'] = $this->Categoria_model->get_all_categoriactiva();
-
-                $this->load->view('empresa/contacto',$data);
-            }
-        }  
-    }
     
     /* ***** cambiar estado a leido ***** */
     function buscarmensaje()
@@ -203,41 +145,5 @@ class Mensaje extends CI_Controller{
         }
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /*
-     * Deleting moneda
-     */
-    function remove($moneda_id)
-    {
-        if($this->acceso(124)){
-        $moneda = $this->Moneda_model->get_moneda($moneda_id);
-
-        // check if the moneda exists before trying to delete it
-        if(isset($moneda['moneda_id']))
-        {
-            $this->Moneda_model->delete_moneda($moneda_id);
-            redirect('moneda/index');
-        }
-        else
-            show_error('The moneda you are trying to delete does not exist.');
-        }
-    }
     
 }
