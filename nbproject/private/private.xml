@@ -2,6 +2,19 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/xampp/htdocs/veaser/application/views/mensaje/index.php</file>
+            <file>file:/C:/xampp/htdocs/veaser/application/views/categoria/verdetalle.php</file>
+            <file>file:/C:/xampp/htdocs/veaser/application/controllers/Mensaje.php</file>
+            <file>file:/C:/xampp/htdocs/veaser/application/models/Empresa_model.php</file>
+            <file>file:/C:/xampp/htdocs/veaser/resources/js/mensaje.js</file>
+            <file>file:/C:/xampp/htdocs/veaser/application/views/empresa/edit.php</file>
+            <file>file:/C:/xampp/htdocs/veaser/application/views/categoria/vercategoria.php</file>
+            <file>file:/C:/xampp/htdocs/veaser/application/views/empresa/contacto.php</file>
+            <file>file:/C:/xampp/htdocs/veaser/application/views/mensaje/responder.php</file>
+            <file>file:/C:/xampp/htdocs/veaser/application/models/Mensaje_model.php</file>
+            <file>file:/C:/xampp/htdocs/veaser/application/controllers/Categoria.php</file>
+            <file>file:/C:/xampp/htdocs/veaser/application/controllers/Empresa.php</file>
+        </group>
     </open-files>
 </project-private>

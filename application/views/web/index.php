@@ -24,7 +24,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 
-<script src="<?php echo base_url('resources/js/categoria_aumentarvisto.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url('resources/js/web_aumentarvisto.js'); ?>" type="text/javascript"></script>
 <input type="hidden" name="base_url" id="base_url" value="<?php echo base_url(); ?>" />
 
 
@@ -44,7 +44,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <?php
                         foreach ($all_categoria as $categoria) {
                         ?>
-                        <a href="<?php echo site_url('categoria/vercategoria/'.$categoria['categoria_id']); ?>" onclick="aumentarvisto(<?php echo $categoria['categoria_id']; ?>)"><i class="fa fa-fw fa-mobile"></i><span><?php echo $categoria['categoria_nombre']; ?></span></a>
+                        <a href="<?php echo site_url('web/vercategoria/'.$categoria['categoria_id']); ?>" onclick="aumentarvisto(<?php echo $categoria['categoria_id']; ?>)"><i class="fa fa-fw fa-mobile"></i><span><?php echo $categoria['categoria_nombre']; ?></span></a>
                         <?php
                         }
                         ?>
@@ -79,7 +79,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <!--<h1><a href="<?php //echo site_url(); ?>"><?php //echo $empresa['empresa_nombre']; ?></a></h1>-->
                     </div>
                     <div class="agileits_search">
-                        <?php echo form_open('categoria/buscar_productoscategorias'); ?>
+                        <?php echo form_open('web/buscar_productoscategorias'); ?>
                         <input name="buscar_producto" id="buscar_producto" type="text" placeholder="nombre del producto..." required="" autocomplete="off" />
                             <select id="agileinfo_search" name="agileinfo_search" required="">
                                 <option value="">- CATEGORIAS -</option>
@@ -137,7 +137,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="col-md-3">
                                 <div class="focus-grid w3layouts-boder<?php echo $i; ?>">
                                     <!--<a class="btn-8" href="<?php //echo site_url('categoria/vercategoria/'.$categoria['categoria_id'].'#parentVerticalTab'.$i); ?>">-->
-                                    <a class="btn-8" href="<?php echo site_url('categoria/vercategoria/'.$categoria['categoria_id']); ?>" onclick="aumentarvisto(<?php echo $categoria['categoria_id']; ?>)">
+                                    <a class="btn-8" href="<?php echo site_url('web/vercategoria/'.$categoria['categoria_id']); ?>" onclick="aumentarvisto(<?php echo $categoria['categoria_id']; ?>)">
                                         <div class="focus-border">
                                             <div class="focus-layout">
                                                 <?php
@@ -178,9 +178,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 <div class="over-image"></div>
                                         </div>
                                         <div class="portfolio-description">
-                                           <h5><a href="<?php echo site_url('categoria/verdetalle/'.$visto['producto_id']); ?>"><?php echo $visto['producto_nombre']; ?></a></h5>
+                                           <h5><a href="<?php echo site_url('web/verdetalle/'.$visto['producto_id']); ?>"><?php echo $visto['producto_nombre']; ?></a></h5>
                                            <p><?php echo "Marca: ".$visto['producto_marca']."<br>Industria: ".$visto['producto_industria']; ?></p>
-                                            <a href="<?php echo site_url('categoria/verdetalle/'.$visto['producto_id']); ?>">
+                                            <a href="<?php echo site_url('web/verdetalle/'.$visto['producto_id']); ?>">
                                                 <span>Explorar</span>
                                             </a>
                                         </div>
@@ -227,7 +227,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 }
                                                 if($cont1 ==0 ){ ?>
                                             <div class="item active">
-                                                <a href="<?php echo site_url('categoria/verdetalle/'.$ul['producto_id']); ?>">
+                                                <a href="<?php echo site_url('web/verdetalle/'.$ul['producto_id']); ?>">
                                                 <img src="<?php echo site_url('resources/images/productos/'.$lafoto) ?>" width="100%" height="300px" />
                                                 <span class="price"><?php echo $ul['moneda_descripcion']." ".$ul['producto_precio']; ?></span>
                                                 </a>
@@ -240,7 +240,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 }else{
                                                 ?>
                                             <div class="item">
-                                                <a href="<?php echo site_url('categoria/verdetalle/'.$ul['producto_id']); ?>">
+                                                <a href="<?php echo site_url('web/verdetalle/'.$ul['producto_id']); ?>">
                                                 <img src="<?php echo site_url('resources/images/productos/'.$lafoto) ?>" width="100%" height="300px" />
                                                 <span class="price"><?php echo $ul['moneda_descripcion']." ".$ul['producto_precio']; ?></span>
                                                 </a>
@@ -381,24 +381,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <h4 class="footer-head">¿Quienes Somos?</h4>
                                     <p>Somos una empresa en linea ; con el prestigio de poder servir a los clientes.</p>
                                     <p></p>
-                                </div>
-                                <div class="col-md-3 wthree-footer-grid">
                                     <h4 class="footer-head">Compromiso</h4>
                                     <p>Tenemos una firme implicación de la organización con todos nuestros grupos de interés: clientes, personas, aliados y sociedad.</p>
                                     <p></p>
                                 </div>
-                                <!--<div class="col-md-3 wthree-footer-grid">
+                                <div class="col-md-3 wthree-footer-grid">
                                     <h4 class="footer-head">Ayuda</h4>
                                     <ul>
-                                        <li><a href="<?php /*echo site_url('resources/howitworks.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>How it Works</a></li>						
+                                        <li><a href="<?php echo site_url('#'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Como Trabajar</a></li>						
+                                        <!--<li><a href="<?php /*echo site_url('web/contacto'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Contactanos</a></li>
                                         <li><a href="<?php echo site_url('resources/sitemap.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Sitemap</a></li>
                                         <li><a href="<?php echo site_url('resources/faq.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Faq</a></li>
                                         <li><a href="<?php echo site_url('resources/feedback.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Feedback</a></li>
-                                        <li><a href="<?php echo site_url('resources/contact.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Contact</a></li>
                                         <li><a href="<?php echo site_url('resources/typography.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Short codes</a></li>
-                                        <li><a href="<?php echo site_url('resources/icons.html');*/ ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Icons Page</a></li>
+                                        <li><a href="<?php echo site_url('resources/icons.html');*/ ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Icons Page</a></li>-->
                                     </ul>
-                                </div>-->
+                                </div>
                                 <div class="col-md-3 wthree-footer-grid">
                                     <h4 class="footer-head">Información</h4>
                                     <ul>
@@ -410,25 +408,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                                 <div class="col-md-3 wthree-footer-grid">
                                     <h4 class="footer-head">Contáctanos</h4>
-                                    <span class="hq">Our headquarters</span>
+                                    <span class="hq">Estamos Ubicados en</span>
                                     <address>
                                         <ul class="location">
-                                            <li><span class="glyphicon glyphicon-map-marker"></span></li>
-                                            <li>CENTER FOR FINANCIAL ASSISTANCE TO DEPOSED NIGERIAN ROYALTY</li>
+                                            <?php if($empresa['empresa_ubicacion'] != null && $empresa['empresa_ubicacion'] != ""){ ?>
+                                            <li><a href='<?php echo 'https://www.google.com/maps?ll=-17.398219,-66.153848&z=16&t=m&hl=es&gl=BO&mapclient=embed&cid=8758050680115265211'; ?>' target="_blank">
+                                                    <span class="glyphicon glyphicon-map-marker"></span>
+                                                </a>
+                                            </li>
+                                            
+                                            
+                                            <?php } ?>
+                                            <li><?php echo $empresa['empresa_direccion']; ?></li>
                                         </ul>	
                                         <div class="clearfix"> </div>
                                         <ul class="location">
                                             <li><span class="glyphicon glyphicon-earphone"></span></li>
-                                            <li>+0 561 111 235</li>
+                                            <li><?php echo $empresa['empresa_telefono']." | ".$empresa['empresa_celular']; ?></li>
                                         </ul>
                                         <div class="clearfix"> </div>
                                         <ul class="location">
                                             <li><span class="glyphicon glyphicon-envelope"></span></li>
-                                            <li><a href="<?php echo site_url('resources/mailto:info@example.com'); ?>">mail@example.com</a></li>
+                                            <li><?php echo $empresa['empresa_email'] ?></li>
                                         </ul>
                                         <ul class="location">
-                                            <li><span class="glyphicon glyphicon-envelope"></span></li>
-                                            <li><a href="<?php echo site_url('resources/contact.html'); ?>">Contact</a></li>
+                                            <li><a href="<?php echo site_url('web/contacto'); ?>"><span class="glyphicon glyphicon-envelope"></span></a></li>
+                                            <li><a href="<?php echo site_url('web/contacto'); ?>">Contactanos</a></li>
                                         </ul>
                                     </address>
                                 </div>
@@ -451,7 +456,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</ul>
 				</div>
 				<div class="copyrights">
-					<p> © 2016 Resale. All Rights Reserved | Design by  <a href="<?php echo site_url('resources/http://w3layouts.com/'); ?>"> W3layouts</a></p>
+                                    <p>Desarrollado por <a href="http://www.passwordbolivia.com/">PASSWORD SRL</a> Ingenieria Hardware & Software</p>
 				</div>
 				<div class="clearfix"></div>
 			</div>

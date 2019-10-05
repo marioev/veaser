@@ -26,12 +26,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <!--//fonts-->	
 <!-- js -->
+
+<script src="<?php echo base_url('resources/js/producto_aumentarvisto.js'); ?>" type="text/javascript"></script>
+<input type="hidden" name="base_url" id="base_url" value="<?php echo base_url(); ?>" />
+
 <script type="text/javascript" src="<?php echo site_url('resources/js/jquery.min.js') ?>"></script>
 <!-- js -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="<?php echo site_url('resources/js/bootstrap.js') ?>"></script>
 <script src="<?php echo site_url('resources/js/bootstrap-select.js') ?>"></script>
-<script>
+<!--<script>
   $(document).ready(function () {
     var mySelect = $('#first-disabled2');
 
@@ -50,7 +54,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       maxOptions: 1
     });
   });
-</script>
+</script>-->
 <!-- language-select -->
 <script type="text/javascript" src="<?php echo site_url('resources/js/jquery.leanModal.min.js') ?>"></script>
 <link href="<?php echo site_url('resources/css/jquery.uls.css') ?>" rel="stylesheet"/>
@@ -63,7 +67,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="<?php echo site_url('resources/js/jquery.uls.languagefilter.js') ?>"></script>
 <script src="<?php echo site_url('resources/js/jquery.uls.regionfilter.js') ?>"></script>
 <script src="<?php echo site_url('resources/js/jquery.uls.core.js') ?>"></script>
-<script>
+<!-- <script>
 			$( document ).ready( function() {
 				$( '.uls-trigger' ).uls( {
 					onSelect : function( language ) {
@@ -73,11 +77,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					quickList: ['en', 'hi', 'he', 'ml', 'ta', 'fr'] //FIXME
 				} );
 			} );
-		</script>
+		</script>-->
 <!-- //language-select -->
 <!-- switcher-grid and list alignment -->
 <script src="<?php echo site_url('resources/js/tabs.js') ?>"></script>	
-<script type="text/javascript">
+<!--<script type="text/javascript">
 $(document).ready(function () {    
 var elem=$('#container ul');      
 	$('#viewcontrols a').on('click',function(e) {
@@ -101,7 +105,7 @@ var elem=$('#container ul');
 		}
 	});
 });
-</script>
+</script>-->
 <!-- //switcher-grid and list alignment -->
 </head>
 <body>
@@ -116,7 +120,7 @@ var elem=$('#container ul');
                             foreach($all_categoria as $c){
                             $i++;
                             ?>
-                            <a href="<?php echo site_url('categoria/vercategoria/'.$c['categoria_id']); ?>"><i class="fa fa-fw fa-mobile"></i><!--<img src="<?php //echo site_url('resources/images/categorias/'.$c['categoria_imagen']) ?>" width="26px" height="19px" />--><span><?php echo $c['categoria_nombre']; ?></span></a>
+                            <a href="<?php echo site_url('web/vercategoria/'.$c['categoria_id']); ?>"><i class="fa fa-fw fa-mobile"></i><span><?php echo $c['categoria_nombre']; ?></span></a>
                             <?php
                             }
                             ?>
@@ -147,10 +151,10 @@ var elem=$('#container ul');
                         <a href="<?php echo site_url(''); ?>">
                             <img src="<?php echo site_url('resources/images/empresas/'.$empresa['empresa_imagen']) ?>" width="144" height="70" />
                         </a>
-                        <!--<h1><a href="<?php //echo site_url() ?>"><?php //echo $empresa['empresa_nombre']; ?></a></h1>-->
+                        <!--<h1><a href="<?php //echo site_url('') ?>"><?php //echo $empresa['empresa_nombre']; ?></a></h1>-->
                     </div>
                     <div class="agileits_search">
-                        <?php echo form_open('categoria/buscar_productoscategorias'); ?>
+                        <?php echo form_open('web/buscar_productoscategorias'); ?>
                         <input name="buscar_producto" id="buscar_producto" type="text" placeholder="nombre del producto..." required="" autocomplete="off" />
                             <select id="agileinfo_search" name="agileinfo_search" required="">
                                 <option value="">- CATEGORIAS -</option>
@@ -181,40 +185,46 @@ var elem=$('#container ul');
 	<!-- //breadcrumbs -->
 	<!-- Products -->
 	<div class="total-ads main-grid-border">
-		<div class="container">
-                    <div class="all-categories">
-                        <h3> Seleccione su Categoría y encuentre el anuncio perfecto</h3>
-                        <ul class="all-cat-list">
-                            <?php
-                            foreach ($all_categoria as $categoria) {
-                            ?>
-                            <li><a href="<?php echo site_url('categoria/vercategoria/'.$categoria['categoria_id']) ?>"><?php echo $categoria['categoria_nombre']; ?>   <span class="num-of-ads"><?php //echo $categoria['categoria_vistas'] ?></span></a></li>
-                            <?php
-                            }
-                            ?>
-                        </ul>
-                    </div>
-                    <div class="ads-grid">
-                            <div class="agileinfo-ads-display col-md-12">
-					<div class="wrapper">					
-					<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-					  <ul id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
-						<li role="presentation" class="active">
-						  <a href="<?php echo site_url('resources/#home') ?>" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
-							<span class="text"><?php echo count($all_productocategoria); ?> productos</span>
-						  </a>
-						</li>
-					</ul>
-					<div id="myTabContent" class="tab-content">
-                                            <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
-                                               <div>
-                                                    <div id="container">
-                                                        <div class="clearfix"></div>
-                                                        <ul class="list">
+            <div class="container">
+                <div class="all-categories">
+                    <h3> Seleccione su Categoría y encuentre el anuncio perfecto</h3>
+                    <ul class="all-cat-list">
+                        <?php
+                        foreach ($all_categoria as $categoria) {
+                        ?>
+                        <li><a href="<?php echo site_url('web/vercategoria/'.$categoria['categoria_id']) ?>"><?php echo $categoria['categoria_nombre']; ?>   <span class="num-of-ads"><?php //echo $categoria['categoria_vistas'] ?></span></a></li>
+                        <?php
+                        }
+                        ?>
+                    </ul>
+                </div>
+                <div class="ads-grid">
+                    <div class="agileinfo-ads-display col-md-12">
+                        <div class="wrapper">					
+                            <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                                <ul id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
+                                    <li role="presentation" class="active">
+                                        <a href="<?php echo site_url('resources/#home') ?>" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
+                                            <?php
+                                            $detalle_titulo = "No hay productos...";
+                                            if(count($all_productocategoria) >0){
+                                                $detalle_titulo = count($all_productocategoria)." ".$all_productocategoria[0]['categoria_nombre'];
+                                            }
+                                            ?>
+                                            <span class="text"><?php echo $detalle_titulo ?></span>
+                                      </a>
+                                    </li>
+                                </ul>
+                                <div id="myTabContent" class="tab-content">
+                                    <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+                                       <div>
+                                            <div id="container">
+                                                <div class="clearfix"></div>
+                                                    <ul class="list">
                                                             <?php
                                                             foreach ($all_productocategoria as $pc){
                                                             ?>
-                                                            <a href="<?php echo site_url('categoria/verdetalle/'.$pc['producto_id']) ?>">
+                                                            <a href="<?php echo site_url('web/verdetalle/'.$pc['producto_id']) ?>" onclick="aumentarvistoproducto(<?php echo $pc['producto_id']; ?>)">
                                                                 <li>
                                                                     <?php
                                                                     //$mimagen = "";
@@ -263,55 +273,69 @@ var elem=$('#container ul');
 	<!-- // Products -->
 	<!--footer section start-->		
 		<footer>
-			<div class="w3-agileits-footer-top">
-				<div class="container">
-					<div class="wthree-foo-grids">
-						<div class="col-md-3 wthree-footer-grid">
-							<h4 class="footer-head">¿Quienes Somos?</h4>
-							<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-							<p>The point of using Lorem Ipsum is that it has a more-or-less normal letters, as opposed to using 'Content here.</p>
-						</div>
-						<div class="col-md-3 wthree-footer-grid">
-							<h4 class="footer-head">Ayuda</h4>
-							<ul>
-								<li><a href="<?php echo site_url('resources/howitworks.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>How it Works</a></li>						
-								<li><a href="<?php echo site_url('resources/sitemap.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Sitemap</a></li>
-								<li><a href="<?php echo site_url('resources/faq.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Faq</a></li>
-								<li><a href="<?php echo site_url('resources/feedback.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Feedback</a></li>
-								<li><a href="<?php echo site_url('resources/contact.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Contact</a></li>
-								<li><a href="<?php echo site_url('resources/typography.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Short codes</a></li>
-								<li><a href="<?php echo site_url('resources/icons.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Icons Page</a></li>
-							</ul>
-						</div>
-						<div class="col-md-3 wthree-footer-grid">
-							<h4 class="footer-head">Información</h4>
-							<ul>
-								<li><a href="<?php echo site_url('resources/regions.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Locations Map</a></li>	
-								<li><a href="<?php echo site_url('resources/terms.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Terms of Use</a></li>
-								<li><a href="<?php echo site_url('resources/popular-search.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Popular searches</a></li>	
-								<li><a href="<?php echo site_url('resources/privacy.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Privacy Policy</a></li>	
-							</ul>
-						</div>
-						<div class="col-md-3 wthree-footer-grid">
-							<h4 class="footer-head">Contáctanos</h4>
-							<span class="hq">Our headquarters</span>
-							<address>
-								<ul class="location">
-									<li><span class="glyphicon glyphicon-map-marker"></span></li>
-									<li>CENTER FOR FINANCIAL ASSISTANCE TO DEPOSED NIGERIAN ROYALTY</li>
-								</ul>	
-								<div class="clearfix"> </div>
-								<ul class="location">
-									<li><span class="glyphicon glyphicon-earphone"></span></li>
-									<li>+0 561 111 235</li>
-								</ul>	
-								<div class="clearfix"> </div>
-								<ul class="location">
-									<li><span class="glyphicon glyphicon-envelope"></span></li>
-									<li><a href="<?php echo site_url('resources/mailto:info@example.com'); ?>">mail@example.com</a></li>
-								</ul>						
-							</address>
-						</div>
+                    <div class="w3-agileits-footer-top">
+                        <div class="container">
+                            <div class="wthree-foo-grids">
+                                <div class="col-md-3 wthree-footer-grid">
+                                    <h4 class="footer-head">¿Quienes Somos?</h4>
+                                    <p>Somos una empresa en linea ; con el prestigio de poder servir a los clientes.</p>
+                                    <p></p>
+                                    <h4 class="footer-head">Compromiso</h4>
+                                    <p>Tenemos una firme implicación de la organización con todos nuestros grupos de interés: clientes, personas, aliados y sociedad.</p>
+                                    <p></p>
+                                </div>
+                                <div class="col-md-3 wthree-footer-grid">
+                                    <h4 class="footer-head">Ayuda</h4>
+                                    <ul>
+                                        <li><a href="<?php echo site_url('#'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Como Trabajar</a></li>						
+                                        <!--<li><a href="<?php /*echo site_url('web/contacto'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Contactanos</a></li>
+                                        <li><a href="<?php echo site_url('resources/sitemap.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Sitemap</a></li>
+                                        <li><a href="<?php echo site_url('resources/faq.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Faq</a></li>
+                                        <li><a href="<?php echo site_url('resources/feedback.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Feedback</a></li>
+                                        <li><a href="<?php echo site_url('resources/typography.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Short codes</a></li>
+                                        <li><a href="<?php echo site_url('resources/icons.html');*/ ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Icons Page</a></li>-->
+                                    </ul>
+                                </div>
+                                <div class="col-md-3 wthree-footer-grid">
+                                    <h4 class="footer-head">Información</h4>
+                                    <ul>
+                                        <li><a href="<?php echo site_url('resources/regions.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Locations Map</a></li>	
+                                        <li><a href="<?php echo site_url('resources/terms.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Terms of Use</a></li>
+                                        <li><a href="<?php echo site_url('resources/popular-search.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Popular searches</a></li>	
+                                        <li><a href="<?php echo site_url('resources/privacy.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Privacy Policy</a></li>	
+                                    </ul>
+                                </div>
+                                <div class="col-md-3 wthree-footer-grid">
+                                    <h4 class="footer-head">Contáctanos</h4>
+                                    <span class="hq">Estamos Ubicados en</span>
+                                    <address>
+                                        <ul class="location">
+                                            <?php if($empresa['empresa_ubicacion'] != null && $empresa['empresa_ubicacion'] != ""){ ?>
+                                            <li><a href='<?php echo 'https://www.google.com/maps?ll=-17.398219,-66.153848&z=16&t=m&hl=es&gl=BO&mapclient=embed&cid=8758050680115265211'; ?>' target="_blank">
+                                                    <span class="glyphicon glyphicon-map-marker"></span>
+                                                </a>
+                                            </li>
+                                            
+                                            
+                                            <?php } ?>
+                                            <li><?php echo $empresa['empresa_direccion']; ?></li>
+                                        </ul>	
+                                        <div class="clearfix"> </div>
+                                        <ul class="location">
+                                            <li><span class="glyphicon glyphicon-earphone"></span></li>
+                                            <li><?php echo $empresa['empresa_telefono']." | ".$empresa['empresa_celular']; ?></li>
+                                        </ul>
+                                        <div class="clearfix"> </div>
+                                        <ul class="location">
+                                            <li><span class="glyphicon glyphicon-envelope"></span></li>
+                                            <li><?php echo $empresa['empresa_email'] ?></li>
+                                        </ul>
+                                        <ul class="location">
+                                            <li><a href="<?php echo site_url('web/contacto'); ?>"><span class="glyphicon glyphicon-envelope"></span></a></li>
+                                            <li><a href="<?php echo site_url('web/contacto'); ?>">Contactanos</a></li>
+                                        </ul>
+                                    </address>
+                                </div>
 						<div class="clearfix"></div>
 					</div>						
 				</div>	
@@ -331,7 +355,7 @@ var elem=$('#container ul');
 					</ul>
 				</div>
 				<div class="copyrights">
-					<p> © 2016 Resale. All Rights Reserved | Design by  <a href="<?php echo site_url('resources/http://w3layouts.com/'); ?>"> W3layouts</a></p>
+                                    <p>Desarrollado por <a href="http://www.passwordbolivia.com/">PASSWORD SRL</a> Ingenieria Hardware & Software</p>
 				</div>
 				<div class="clearfix"></div>
 			</div>

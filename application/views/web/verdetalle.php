@@ -88,7 +88,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             foreach($all_categoria as $c){
                             $i++;
                             ?>
-                            <a href="<?php echo site_url('categoria/vercategoria/'.$c['categoria_id']); ?>"><i class="fa fa-fw fa-mobile"></i><span><?php echo $c['categoria_nombre']; ?></span></a>
+                            <a href="<?php echo site_url('web/vercategoria/'.$c['categoria_id']); ?>"><i class="fa fa-fw fa-mobile"></i><span><?php echo $c['categoria_nombre']; ?></span></a>
                             <?php
                             }
                             ?>
@@ -122,7 +122,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <!--<h1><a href="<?php //echo site_url(''); ?>"><?php //echo $empresa['empresa_nombre']; ?></a></h1>-->
                         </div>   
                     <div class="agileits_search">
-                        <?php echo form_open('categoria/buscar_productoscategorias'); ?>
+                        <?php echo form_open('web/buscar_productoscategorias'); ?>
                         <input name="buscar_producto" id="buscar_producto" type="text" placeholder="nombre del producto..." required="" autocomplete="off" />
                             <select id="agileinfo_search" name="agileinfo_search" required="">
                                 <option value="">- CATEGORIAS -</option>
@@ -159,16 +159,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h2><?php echo $producto['producto_nombre']; ?></h2>
 					<p>
                                             <?php
-                                            if(true){
+                                            if($producto['producto_check'] == 1){
                                             ?>
                                                 <a href='<?php echo "https://www.google.com/maps/dir/".$producto["producto_latitud"].",".$producto["producto_longitud"]; ?>' target="_blank" title='<?php echo "lat:".$producto["producto_latitud"].", long:".$producto["producto_longitud"]; ?>'>
                                                 <img src='<?php echo site_url("resources/images/blue.png"); ?>' width='30' height='30'>
-                                                </a>
+                                                </a> | 
                                             <?php
                                             }
                                             ?>
                                             
-                                            | añadido el <?php echo date("d/m/Y H:i:s", strtotime($producto['producto_fechahora'])); ?>
+                                            añadido el <?php echo date("d/m/Y H:i:s", strtotime($producto['producto_fechahora'])); ?>
                                         </p>
 					<div class="flexslider">
                                             <ul class="slides">
@@ -197,7 +197,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</script>
 					<!-- //FlexSlider -->
 					<div class="product-details">
-						<h4><span class="w3layouts-agileinfo">Marca </span> : <a href=""><?php echo $producto['producto_marca']; ?></a><div class="clearfix"></div></h4>
+						<h4><span class="w3layouts-agileinfo">Marca </span> : <a href="#"><?php echo $producto['producto_marca']; ?></a><div class="clearfix"></div></h4>
 						<h4><span class="w3layouts-agileinfo">Industria </span> : <?php echo $producto['producto_industria']; ?></h4>
 						<h4><span class="w3layouts-agileinfo">Visto </span> : <strong><?php echo $producto['producto_visto']; ?></strong></h4>
 						<h4><span class="w3layouts-agileinfo">Detalle</span> :<p><?php echo $producto['producto_caracteristicas']; ?></p><div class="clearfix"></div></h4>
@@ -224,9 +224,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="interested text-center">
                                             
-                                            <a href="https://wa.me/59174334110" target="_blank">
+                                            <a href="https://wa.me/<?php echo $empresa['empresa_celular']; ?>" target="_blank">
 						<h4>¿Estas interesado?<small> Contactanos!</small></h4>
-						<p><i class="fa fa-whatsapp"></i>+591 74334110</p>
+						<p><i class="fa fa-whatsapp"></i>+<?php echo $empresa['empresa_celular']; ?></p>
                                             </a>
 					</div>
                                         <!--<div class="tips">
@@ -251,55 +251,69 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--//single-page-->
 	<!--footer section start-->		
 		<footer>
-			<div class="w3-agileits-footer-top">
-				<div class="container">
-					<div class="wthree-foo-grids">
-						<div class="col-md-3 wthree-footer-grid">
-							<h4 class="footer-head">¿Quienes Somos?</h4>
-							<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-							<p>The point of using Lorem Ipsum is that it has a more-or-less normal letters, as opposed to using 'Content here.</p>
-						</div>
-						<div class="col-md-3 wthree-footer-grid">
-							<h4 class="footer-head">Ayuda</h4>
-							<ul>
-								<li><a href="<?php echo site_url('resources/howitworks.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>How it Works</a></li>						
-								<li><a href="<?php echo site_url('resources/sitemap.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Sitemap</a></li>
-								<li><a href="<?php echo site_url('resources/faq.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Faq</a></li>
-								<li><a href="<?php echo site_url('resources/feedback.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Feedback</a></li>
-								<li><a href="<?php echo site_url('resources/contact.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Contact</a></li>
-								<li><a href="<?php echo site_url('resources/typography.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Short codes</a></li>
-								<li><a href="<?php echo site_url('resources/icons.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Icons Page</a></li>
-							</ul>
-						</div>
-						<div class="col-md-3 wthree-footer-grid">
-							<h4 class="footer-head">Información</h4>
-							<ul>
-								<li><a href="<?php echo site_url('resources/regions.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Locations Map</a></li>	
-								<li><a href="<?php echo site_url('resources/terms.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Terms of Use</a></li>
-								<li><a href="<?php echo site_url('resources/popular-search.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Popular searches</a></li>	
-								<li><a href="<?php echo site_url('resources/privacy.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Privacy Policy</a></li>	
-							</ul>
-						</div>
-						<div class="col-md-3 wthree-footer-grid">
-							<h4 class="footer-head">Contáctanos</h4>
-							<span class="hq">Our headquarters</span>
-							<address>
-								<ul class="location">
-									<li><span class="glyphicon glyphicon-map-marker"></span></li>
-									<li>CENTER FOR FINANCIAL ASSISTANCE TO DEPOSED NIGERIAN ROYALTY</li>
-								</ul>	
-								<div class="clearfix"> </div>
-								<ul class="location">
-									<li><span class="glyphicon glyphicon-earphone"></span></li>
-									<li>+0 561 111 235</li>
-								</ul>	
-								<div class="clearfix"> </div>
-								<ul class="location">
-									<li><span class="glyphicon glyphicon-envelope"></span></li>
-									<li><a href="<?php echo site_url('resources/mailto:info@example.com'); ?>">mail@example.com</a></li>
-								</ul>						
-							</address>
-						</div>
+                    <div class="w3-agileits-footer-top">
+                        <div class="container">
+                            <div class="wthree-foo-grids">
+                                <div class="col-md-3 wthree-footer-grid">
+                                    <h4 class="footer-head">¿Quienes Somos?</h4>
+                                    <p>Somos una empresa en linea ; con el prestigio de poder servir a los clientes.</p>
+                                    <p></p>
+                                    <h4 class="footer-head">Compromiso</h4>
+                                    <p>Tenemos una firme implicación de la organización con todos nuestros grupos de interés: clientes, personas, aliados y sociedad.</p>
+                                    <p></p>
+                                </div>
+                                <div class="col-md-3 wthree-footer-grid">
+                                    <h4 class="footer-head">Ayuda</h4>
+                                    <ul>
+                                        <li><a href="<?php echo site_url('#'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Como Trabajar</a></li>						
+                                        <!--<li><a href="<?php /*echo site_url('web/contacto'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Contactanos</a></li>
+                                        <li><a href="<?php echo site_url('resources/sitemap.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Sitemap</a></li>
+                                        <li><a href="<?php echo site_url('resources/faq.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Faq</a></li>
+                                        <li><a href="<?php echo site_url('resources/feedback.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Feedback</a></li>
+                                        <li><a href="<?php echo site_url('resources/typography.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Short codes</a></li>
+                                        <li><a href="<?php echo site_url('resources/icons.html');*/ ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Icons Page</a></li>-->
+                                    </ul>
+                                </div>
+                                <div class="col-md-3 wthree-footer-grid">
+                                    <h4 class="footer-head">Información</h4>
+                                    <ul>
+                                        <li><a href="<?php echo site_url('resources/regions.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Locations Map</a></li>	
+                                        <li><a href="<?php echo site_url('resources/terms.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Terms of Use</a></li>
+                                        <li><a href="<?php echo site_url('resources/popular-search.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Popular searches</a></li>	
+                                        <li><a href="<?php echo site_url('resources/privacy.html'); ?>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Privacy Policy</a></li>	
+                                    </ul>
+                                </div>
+                                <div class="col-md-3 wthree-footer-grid">
+                                    <h4 class="footer-head">Contáctanos</h4>
+                                    <span class="hq">Estamos Ubicados en</span>
+                                    <address>
+                                        <ul class="location">
+                                            <?php if($empresa['empresa_ubicacion'] != null && $empresa['empresa_ubicacion'] != ""){ ?>
+                                            <li><a href='<?php echo 'https://www.google.com/maps?ll=-17.398219,-66.153848&z=16&t=m&hl=es&gl=BO&mapclient=embed&cid=8758050680115265211'; ?>' target="_blank">
+                                                    <span class="glyphicon glyphicon-map-marker"></span>
+                                                </a>
+                                            </li>
+                                            
+                                            
+                                            <?php } ?>
+                                            <li><?php echo $empresa['empresa_direccion']; ?></li>
+                                        </ul>	
+                                        <div class="clearfix"> </div>
+                                        <ul class="location">
+                                            <li><span class="glyphicon glyphicon-earphone"></span></li>
+                                            <li><?php echo $empresa['empresa_telefono']." | ".$empresa['empresa_celular']; ?></li>
+                                        </ul>
+                                        <div class="clearfix"> </div>
+                                        <ul class="location">
+                                            <li><span class="glyphicon glyphicon-envelope"></span></li>
+                                            <li><?php echo $empresa['empresa_email'] ?></li>
+                                        </ul>
+                                        <ul class="location">
+                                            <li><a href="<?php echo site_url('web/contacto'); ?>"><span class="glyphicon glyphicon-envelope"></span></a></li>
+                                            <li><a href="<?php echo site_url('web/contacto'); ?>">Contactanos</a></li>
+                                        </ul>
+                                    </address>
+                                </div>
 						<div class="clearfix"></div>
 					</div>						
 				</div>	
@@ -319,7 +333,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</ul>
 				</div>
 				<div class="copyrights">
-					<p> © 2016 Resale. All Rights Reserved | Design by  <a href="<?php echo site_url('resources/http://w3layouts.com/'); ?>"> W3layouts</a></p>
+                                    <p>Desarrollado por <a href="http://www.passwordbolivia.com/">PASSWORD SRL</a> Ingenieria Hardware & Software</p>
 				</div>
 				<div class="clearfix"></div>
 			</div>

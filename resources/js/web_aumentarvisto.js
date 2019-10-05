@@ -1,7 +1,7 @@
 function aumentarvisto(categoria_id){
     var controlador = "";
     var base_url  = document.getElementById('base_url').value;
-    controlador = base_url+'categoria/aumentar_categoria';
+    controlador = base_url+'web/aumentar_categoria';
     $.ajax({url: controlador,
            type:"POST",
            data:{categoria_id:categoria_id},

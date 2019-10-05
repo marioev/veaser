@@ -27,9 +27,9 @@
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="empresa_telefono" class="control-label">Teléfono</label>
+						<label for="empresa_telefono" class="control-label">Teléfono (para whatsapp: 591########)</label>
 						<div class="form-group">
-							<input type="text" name="empresa_telefono" value="<?php echo ($this->input->post('empresa_telefono') ? $this->input->post('empresa_telefono') : $empresas['empresa_telefono']); ?>" class="form-control" id="empresa_telefono" onkeyup="var start = this.selectionStart; var end = this.selectionEnd; this.value = this.value.toUpperCase(); this.setSelectionRange(start, end);" />
+                                                    <input type="text" name="empresa_telefono" value="<?php echo ($this->input->post('empresa_telefono') ? $this->input->post('empresa_telefono') : $empresas['empresa_telefono']); ?>" class="form-control" id="empresa_telefono" onkeyup="var start = this.selectionStart; var end = this.selectionEnd; this.value = this.value.toUpperCase(); this.setSelectionRange(start, end);" placeholder="para whatsapp: 591########" />
 						</div>
 					</div>
 					<div class="col-md-6">
