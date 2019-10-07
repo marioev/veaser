@@ -30,7 +30,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="<?php echo site_url('resources/js/bootstrap.js'); ?>"></script>
 <script src="<?php echo site_url('resources/js/bootstrap-select.js'); ?>"></script>
-<script>
+<!--<script>
   $(document).ready(function () {
     var mySelect = $('#first-disabled2');
 
@@ -49,7 +49,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       maxOptions: 1
     });
   });
-</script>
+</script>-->
 <?php if(isset($nom_mensaje) && $nom_mensaje ==1){ ?>
 <script>
     alert("Nombre, Correro Electronico(valido) y Mensaje son obligatorios");
@@ -67,7 +67,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="<?php echo site_url('resources/js/jquery.uls.languagefilter.js'); ?>"></script>
 <script src="<?php echo site_url('resources/js/jquery.uls.regionfilter.js'); ?>"></script>
 <script src="<?php echo site_url('resources/js/jquery.uls.core.js'); ?>"></script>
-<script>
+<!--<script>
 			$( document ).ready( function() {
 				$( '.uls-trigger' ).uls( {
 					onSelect : function( language ) {
@@ -77,7 +77,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					quickList: ['en', 'hi', 'he', 'ml', 'ta', 'fr'] //FIXME
 				} );
 			} );
-		</script>
+		</script>-->
 <!-- //language-select -->
 </head>
 <body>	
@@ -162,13 +162,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <section style="margin-top: 10px; " id="hire">    
                         <form class="submit" id="filldetails" action="<?php echo site_url('web/recibir_mensaje'); ?>" method="post">
                             <div class="field name-box">
-                                <input type="text" name="mensaje_nombre" placeholder="¿Quien eres?" required autocomplete="off" />
+                                <input type="text" name="mensaje_nombre" placeholder="¿Quien eres?" required autocomplete="off" onkeyup="var start = this.selectionStart; var end = this.selectionEnd; this.value = this.value.toUpperCase(); this.setSelectionRange(start, end);" />
                                 <label>Nombre</label>
                                 <span class="ss-icon">check</span>
                             </div>
 
                             <div class="field email-box">
-                                <input type="text" name="mensaje_email" placeholder="example@email.com" autocomplete="off" />
+                                <input style="text-transform: none;"  type="text" name="mensaje_email" placeholder="example@email.com" autocomplete="off" />
                                 <label>e-m@il</label>
                                 <span class="ss-icon">check</span>
                             </div>
@@ -180,13 +180,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                           </div>-->
 
                             <div class="field phonenum-box">
-                                <input type="text" name="mensaje_telefono" placeholder="Numero de Teléfono" autocomplete="off" />
+                                <input type="text" name="mensaje_telefono" placeholder="Numero de Teléfono" autocomplete="off" onkeyup="var start = this.selectionStart; var end = this.selectionEnd; this.value = this.value.toUpperCase(); this.setSelectionRange(start, end);" />
                                 <label>Teléfono</label>
                                 <span class="ss-icon">check</span>
                             </div>
 
                             <div class="field msg-box">
-                                <textarea name="mensaje_texto" id="mensaje_texto" rows="4" placeholder="Tu mensaje va aquí..." required></textarea>
+                                <textarea name="mensaje_texto" id="mensaje_texto" rows="4" placeholder="Tu mensaje va aquí..." required onkeyup="var start = this.selectionStart; var end = this.selectionEnd; this.value = this.value.toUpperCase(); this.setSelectionRange(start, end);" ></textarea>
                                 <label>Tú Mensaje</label>
                                 <span class="ss-icon">check</span>
                             </div>

@@ -116,9 +116,9 @@
                                   if($e['empresa_email']){
                                             echo "<br><b>e-mail: </b>".$e['empresa_email'];
                                         } ?></td>
-                        <td><?php echo $e['empresa_telefono']; ?></td>
+                        <td><?php echo $e['empresa_telefono']." | ".$e['empresa_celular']; ?></td>
                         <td><?php echo $e['empresa_zona']; ?></td>
-                        <td><?php echo $e['empresa_ubicacion']; ?></td>
+                        <td style='word-break: break-all;'><?php echo $e['empresa_ubicacion']; ?></td>
                         <td><?php echo $e['empresa_departamento']; ?></td>
                         <td>
                             <a href="<?php echo site_url('empresa/edit/'.$e['empresa_id']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span></a> 

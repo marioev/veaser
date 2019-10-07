@@ -148,7 +148,7 @@ class Web extends CI_Controller{
             $mensaje_id = $this->Mensaje_model->add_mensaje($params);
 
             $this->load->library('email');
-            $micorreo = $data['empresa']['empresa_correo'];
+            $micorreo = $data['empresa']['empresa_email'];
             $miempresa = $data['empresa']['empresa_nombre'];
             $this->email->from($micorreo, $miempresa);
             $this->email->to($this->input->post('mensaje_email'));

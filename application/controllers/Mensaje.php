@@ -122,7 +122,7 @@ class Mensaje extends CI_Controller{
                 $empresa_id = 1;
                 $data['empresa'] = $this->Empresa_model->get_this_empresa($empresa_id);
                 $this->load->library('email');
-                $micorreo = $data['empresa']['empresa_correo'];
+                $micorreo = $data['empresa']['empresa_email'];
                 $miempresa = $data['empresa']['empresa_nombre'];
                 $this->email->from($micorreo, $miempresa);
                 $this->email->to($data['mensaje']['mensaje_email']);

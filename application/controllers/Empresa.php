@@ -119,6 +119,7 @@ class Empresa extends CI_Controller{
                     'empresa_eslogan' => $this->input->post('empresa_eslogan'),
                     'empresa_direccion' => $this->input->post('empresa_direccion'),
                     'empresa_telefono' => $this->input->post('empresa_telefono'),
+                    'empresa_celular' => $this->input->post('empresa_celular'),
                     'empresa_imagen' => $foto,
                     'empresa_zona' => $this->input->post('empresa_zona'),
                     'empresa_ubicacion' => $this->input->post('empresa_ubicacion'),
@@ -227,19 +228,20 @@ class Empresa extends CI_Controller{
                 }
             /* *********************FIN imagen***************************** */
                 $params = array(
-                        'empresa_nombre' => $this->input->post('empresa_nombre'),
-                        'empresa_eslogan' => $this->input->post('empresa_eslogan'),
-                        'empresa_direccion' => $this->input->post('empresa_direccion'),
-                        'empresa_telefono' => $this->input->post('empresa_telefono'),
-                        'empresa_imagen' => $foto,
-                        'empresa_zona' => $this->input->post('empresa_zona'),
-                        'empresa_ubicacion' => $this->input->post('empresa_ubicacion'),
-                        'empresa_departamento' => $this->input->post('empresa_departamento'),
-                        'empresa_propietario' => $this->input->post('empresa_propietario'),
-                        'empresa_codigo' => $this->input->post('empresa_codigo'),
-                        'empresa_email' => $this->input->post('empresa_email'),
-                        'empresa_profesion' => $this->input->post('empresa_profesion'),
-                        'empresa_cargo' => $this->input->post('empresa_cargo'),
+                    'empresa_nombre' => $this->input->post('empresa_nombre'),
+                    'empresa_eslogan' => $this->input->post('empresa_eslogan'),
+                    'empresa_direccion' => $this->input->post('empresa_direccion'),
+                    'empresa_telefono' => $this->input->post('empresa_telefono'),
+                    'empresa_celular' => $this->input->post('empresa_celular'),
+                    'empresa_imagen' => $foto,
+                    'empresa_zona' => $this->input->post('empresa_zona'),
+                    'empresa_ubicacion' => $this->input->post('empresa_ubicacion'),
+                    'empresa_departamento' => $this->input->post('empresa_departamento'),
+                    'empresa_propietario' => $this->input->post('empresa_propietario'),
+                    'empresa_codigo' => $this->input->post('empresa_codigo'),
+                    'empresa_email' => $this->input->post('empresa_email'),
+                    'empresa_profesion' => $this->input->post('empresa_profesion'),
+                    'empresa_cargo' => $this->input->post('empresa_cargo'),
                 );
 
                 $this->Empresa_model->update_empresa($empresa_id,$params);            
