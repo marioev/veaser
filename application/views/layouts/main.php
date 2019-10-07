@@ -130,10 +130,13 @@
                                     <a href="<?php echo site_url('categoria');?>"><i class="fa fa-list-ul"></i> Categoría</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo site_url('empresa');?>"><i class="fa fa-university"></i> Empresa</a>
+                                    <a href="<?php echo site_url('empresa');?>"><i class="fa fa-bank"></i> Empresa</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo site_url('unidad');?>"><i class="fa fa-university"></i> Unidad</a>
+                                    <a href="<?php echo site_url('estado');?>"><i class="fa fa-ellipsis-v"></i> Estado</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo site_url('unidad');?>"><i class="fa fa-file-text-o"></i> Unidad</a>
                                 </li>
                             </ul>
                         </li>
