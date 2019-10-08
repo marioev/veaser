@@ -192,7 +192,7 @@ var elem=$('#container ul');
                         <?php
                         foreach ($all_categoria as $categoria) {
                         ?>
-                        <li><a href="<?php echo site_url('web/vercategoria/'.$categoria['categoria_id']) ?>"><?php echo $categoria['categoria_nombre']; ?>   <span class="num-of-ads"><?php //echo $categoria['categoria_vistas'] ?></span></a></li>
+                        <li><a href="<?php echo site_url('web/vercategoria/'.$categoria['categoria_id']) ?>"><?php echo $categoria['categoria_nombre']; ?>   <span class="num-of-ads"><?php echo "(".$categoria['categoria_visto']." vistos)" ?></span></a></li>
                         <?php
                         }
                         ?>

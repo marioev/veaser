@@ -126,9 +126,9 @@ class Producto extends CI_Controller{
                         $confi['source_image'] = './resources/images/productos/'.$new_name.$extension;
                         $confi['new_image'] = './resources/images/productos/'."thumb_".$new_name.$extension;
                         $confi['create_thumb'] = FALSE;
-                        $confi['maintain_ratio'] = TRUE;
-                        $confi['width'] = 50;
-                        $confi['height'] = 50;
+                        $confi['maintain_ratio'] = FALSE;
+                        $confi['width'] = 216;
+                        $confi['height'] = 216;
 
                         $this->image_lib->clear();
                         $this->image_lib->initialize($confi);
@@ -261,9 +261,9 @@ class Producto extends CI_Controller{
                     $confi['source_image'] = './resources/images/productos/'.$new_name.$extension;
                     $confi['new_image'] = './resources/images/productos/'."thumb_".$new_name.$extension;
                     $confi['create_thumb'] = FALSE;
-                    $confi['maintain_ratio'] = TRUE;
-                    $confi['width'] = 50;
-                    $confi['height'] = 50;
+                    $confi['maintain_ratio'] = FALSE;
+                    $confi['width'] = 216;
+                    $confi['height'] = 216;
 
                     $this->image_lib->clear();
                     $this->image_lib->initialize($confi);

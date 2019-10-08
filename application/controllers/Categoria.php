@@ -59,7 +59,7 @@ class Categoria extends CI_Controller{
                             $conf['image_library'] = 'gd2';
                             $conf['source_image'] = $img_data['full_path'];
                             $conf['new_image'] = './resources/images/categorias/';
-                            $conf['maintain_ratio'] = TRUE;
+                            $conf['maintain_ratio'] = FALSE;
                             $conf['create_thumb'] = FALSE;
                             $conf['width'] = 120;
                             $conf['height'] = 120;
@@ -145,7 +145,7 @@ class Categoria extends CI_Controller{
                         $conf['image_library'] = 'gd2';
                         $conf['source_image'] = $img_data['full_path'];
                         $conf['new_image'] = './resources/images/categorias/';
-                        $conf['maintain_ratio'] = TRUE;
+                        $conf['maintain_ratio'] = FALSE;
                         $conf['create_thumb'] = FALSE;
                         $conf['width'] = 120;
                         $conf['height'] = 120;

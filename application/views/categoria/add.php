@@ -15,7 +15,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="categoria_imagen" class="control-label">Imagen</label>
+                            <label for="categoria_imagen" class="control-label">Imagen (de preferencia imagen cuadrada (n * n))</label>
                             <div class="form-group">
                                 <input type="file" name="categoria_imagen" value="<?php echo $this->input->post('categoria_imagen'); ?>" class="btn btn-success btn-sm form-control" id="categoria_imagen" accept="image/png, image/jpeg, jpg, image/gif" />
                             </div>
