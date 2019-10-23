@@ -156,8 +156,8 @@ function mostrar(a) {
                         </div>
                     </div>
 
-                    <div class="col-md-3">
-                        <label for="producto_costo" class="control-label">Precio de Compra</label>
+                    <div class="col-md-2">
+                        <label for="producto_costo" class="control-label">Comisión</label>
                         <div class="form-group">
                             <input type="number" step="any" min="0" name="producto_costo" value="<?php echo ($this->input->post('producto_costo') ? $this->input->post('producto_costo') : $producto['producto_costo']); ?>" class="form-control" id="producto_costo" />
                         </div>
@@ -168,7 +168,13 @@ function mostrar(a) {
                             <input type="number" step="any" min="0" name="producto_precio" value="<?php echo ($this->input->post('producto_precio') ? $this->input->post('producto_precio') : $producto['producto_precio']); ?>" class="form-control" id="producto_precio" />
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
+                        <label for="producto_preciominimo" class="control-label">Precio de Venta Minimo</label>
+                        <div class="form-group">
+                            <input type="number" step="any" min="0" name="producto_preciominimo" value="<?php echo ($this->input->post('producto_preciominimo') ? $this->input->post('producto_preciominimo') : $producto['producto_preciominimo']); ?>" class="form-control" id="producto_preciominimo" />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
                         <label for="producto_comision" class="control-label">Comisión (%)</label>
                         <div class="form-group">
                             <input type="number" step="any" min="0" max="100" name="producto_comision" value="<?php echo ($this->input->post('producto_comision') ? $this->input->post('producto_comision') : $producto['producto_comision']); ?>" class="form-control" id="producto_comision"  onclick="this.select();"/>

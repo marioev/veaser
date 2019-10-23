@@ -167,8 +167,8 @@ function mostrar(a) {
                             </div>
                     </div>
 
-                    <div class="col-md-3">
-                            <label for="producto_costo" class="control-label">Precio de Compra</label>
+                    <div class="col-md-2">
+                            <label for="producto_costo" class="control-label">Comisión</label>
                             <div class="form-group">
                                 <input type="number" step="any" min="0" name="producto_costo" value="<?php echo '0.00'; ?>" class="form-control" id="producto_costo"  onclick="this.select();"/>
                             </div>
@@ -179,8 +179,14 @@ function mostrar(a) {
                                 <input type="number" step="any" min="0" name="producto_precio" value="<?php echo '0.00'; ?>" class="form-control" id="producto_precio"  onclick="this.select();"/>
                             </div>
                     </div>
+                    <div class="col-md-2">
+                            <label for="producto_preciominimo" class="control-label">Precio de Venta Minimo</label>
+                            <div class="form-group">
+                                <input type="number" step="any" min="0" name="producto_preciominimo" value="<?php echo '0.00'; ?>" class="form-control" id="producto_preciominimo"  onclick="this.select();"/>
+                            </div>
+                    </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                             <label for="producto_comision" class="control-label">Comisión (%)</label>
                             <div class="form-group">
                                     <input type="number" step="any" min="0" max="100" name="producto_comision" value="<?php echo '0.00'; ?>" class="form-control" id="producto_comision"  onclick="this.select();"/>

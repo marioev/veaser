@@ -118,7 +118,17 @@
                                         } ?></td>
                         <td><?php echo $e['empresa_telefono']." | ".$e['empresa_celular']; ?></td>
                         <td><?php echo $e['empresa_zona']; ?></td>
-                        <td style='word-break: break-all;'><?php echo $e['empresa_ubicacion']; ?></td>
+                        <td><?php
+                            if(($e['empresa_latitud']==0 && $e['empresa_longitud']==0) || ($e['empresa_latitud']==null && $e['empresa_longitud']==null) || ($e['empresa_latitud']== "" && $e['empresa_longitud']=="")){
+                                echo "<img src='".site_url()."resources/images/noubicacion.png' width='30' height='30'>";
+                            }else{
+                                echo "<a href='https://www.google.com/maps/dir/".$e['empresa_latitud'].",".$e['empresa_longitud']."' target='_blank' title='lat:".$e['empresa_latitud'].", long:".$e['empresa_longitud']."'>";                                                                
+                                echo "<img src='".site_url()."resources/images/blue.png' width='30' height='30'>";
+                                echo "</a>";
+                            }
+                            ?>
+                        </td>
+                        <!--<td style='word-break: break-all;'><?php //echo $e['empresa_ubicacion']; ?></td>-->
                         <td><?php echo $e['empresa_departamento']; ?></td>
                         <td>
                             <a href="<?php echo site_url('empresa/edit/'.$e['empresa_id']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span></a> 

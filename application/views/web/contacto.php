@@ -286,8 +286,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<!-- //address -->
 		<div class="map-w3layouts">
+                    
 			<h3>Ubicación</h3>
-			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3807.2821128420683!2d-66.1539126187563!3d-17.398243844690437!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93e373b94696b823%3A0x798ad8b101237ebb!2sPASSWORD%20-%20Ingenier%C3%ADa%20Hardware%20%26%20Software!5e0!3m2!1ses!2sbo!4v1570045997741!5m2!1ses!2sbo" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                        -17.366988952086626
+                        -66.27184632734372
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1903.6480194583864!2d-66.27184632734372!3d-17.366988952086626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x38335e31f9621ae3!2sSastreria+Altiplano!5e0!3m2!1ses-419!2sbo!4v1547604524452" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22702.22744502486!2d11.113366067229226!3d44.662878362361056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477fc3eca9065c15%3A0x12ec8a03aadae866!2s40019+Sant'Agata+Bolognese+BO%2C+Italy!5e0!3m2!1sen!2sin!4v1451281303075" allowfullscreen=""></iframe>
+                        <iframe src='https://www.google.com/maps/dir/-17.366988952086626,-66.27184632734372' target='_blank' title='lat:-17.366988952086626, long:-66.27184632734372' width='600' height='450' frameborder='0' style='border:0;' allowfullscreen=''></iframe>
+                        <?php
+                        echo "<iframe src='https://www.google.com/maps/dir/".$empresa['empresa_latitud'].",".$empresa['empresa_longitud']."' target='_blank' title='lat:".$empresa['empresa_latitud'].", long:".$empresa['empresa_longitud']."' width='600' height='450' frameborder='0' style='border:0;' allowfullscreen=''></iframe>";
+                            //echo "</iframe>";
+                        ?>
+                        <!--<iframe src="https://www.google.com/maps/dir/<?php echo $empresa['empresa_latitud'].",".$empresa['empresa_longitud']."/@".$empresa['empresa_latitud'].",".$empresa['empresa_longitud'].",12z"; ?>" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>-->
 		</div>
 	</div>
 
