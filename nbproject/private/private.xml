@@ -2,6 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/xampp/htdocs/veaser/application/views/producto/add.php</file>
+            <file>file:/C:/xampp/htdocs/veaser/resources/js/funciones_producto.js</file>
+            <file>file:/C:/xampp/htdocs/veaser/application/controllers/Producto.php</file>
+            <file>file:/C:/xampp/htdocs/veaser/application/views/producto/edit.php</file>
+            <file>file:/C:/xampp/htdocs/veaser/application/views/producto/index.php</file>
+        </group>
     </open-files>
 </project-private>

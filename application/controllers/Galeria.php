@@ -50,7 +50,7 @@ class Galeria extends CI_Controller{
             $this->load->library('form_validation');
             /* *********************INICIO imagen***************************** */
             $foto="";
-            if (!empty($_FILES['galeria_imagen']['name'])){
+            if (!empty($_FILES['file']['name'])){
 		
                         $this->load->library('image_lib');
                         $config['upload_path'] = './resources/images/galeria/';
@@ -67,7 +67,7 @@ class Galeria extends CI_Controller{
                         $config['file_ext_tolower'] = TRUE;
 
                         $this->load->library('upload', $config);
-                        $this->upload->do_upload('galeria_imagen');
+                        $this->upload->do_upload('file');
 
                         $img_data = $this->upload->data();
                         $extension = $img_data['file_ext'];
@@ -104,7 +104,7 @@ class Galeria extends CI_Controller{
             /* *********************FIN imagen***************************** */
                 $params = array(
                     'producto_id' => $producto_id,
-                    'galeria_nombre' => $this->input->post('galeria_nombre'),
+                    'galeria_nombre' => $foto, //$this->input->post('galeria_nombre'),
                     'galeria_imagen' => $foto,
                 );
 

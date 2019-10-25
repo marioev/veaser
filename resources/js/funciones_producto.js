@@ -165,10 +165,10 @@ function tablaresultadosproducto(limite)
                             codbarras = registros[i]["producto_codigobarra"];
                         }
                         html += "<td>"+registros[i]["producto_codigo"]+"<br>"+ codbarras +"</td>";
-                        html += "<td><b>Comisión: </b>"+registros[i]["producto_costo"]+"<br>";
-                            html += "<b>Venta: </b>"+registros[i]["producto_precio"]+"<br>";
-                            html += "<span class='text-danger'><b>Venta Min.: "+registros[i]["producto_preciominimo"]+"</b></span><br>";
-                            html += "<b>Comisión: </b>"+registros[i]["producto_comision"];
+                        html += "<td><b>Venta: </b>"+registros[i]["producto_precio"]+"<br>";
+                        html += "<span class='text-danger'><b>Venta Min.: "+registros[i]["producto_preciominimo"]+"</b></span><br>";
+                        html += "<b>Comisión: </b>"+registros[i]["producto_costo"]+"<br>";
+                            //html += "<b>Comisión: </b>"+registros[i]["producto_comision"];
                             html += "</td>";
                         html += "<td><b>Moneda: </b>"+esmoneda+"<br>";
                         html += "</td>";

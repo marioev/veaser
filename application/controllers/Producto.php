@@ -68,7 +68,7 @@ class Producto extends CI_Controller{
         $this->form_validation->set_rules('producto_nombre','Producto Nombre','required');
         if($this->form_validation->run())     
         {
-                $producto_nombre = $this->input->post('producto_nombre');
+                /*$producto_nombre = $this->input->post('producto_nombre');
                 $resultado = $this->Producto_model->es_producto_registrado($producto_nombre);
                 if($resultado > 0){
                     $this->load->model('Categoria_model');
@@ -82,7 +82,7 @@ class Producto extends CI_Controller{
                     $data['page_title'] = "Producto";
                     $data['_view'] = 'producto/add';
                     $this->load->view('layouts/main',$data);
-                }else{
+                }else{*/
             /* *********************INICIO imagen***************************** */
             $foto="";
             if (!empty($_FILES['producto_foto']['name'])){
@@ -172,7 +172,7 @@ class Producto extends CI_Controller{
             //$this->load->model('Inventario_model');
             //$this->Inventario_model->ingresar_producto_inventario($producto_id);
             redirect('producto/index');
-        }
+        //}
         }else{
             $this->load->model('Categoria_model');
             $data['all_categoria'] = $this->Categoria_model->get_all_categoriactiva();
