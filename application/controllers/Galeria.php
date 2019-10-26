@@ -107,7 +107,7 @@ class Galeria extends CI_Controller{
                     'galeria_nombre' => $foto, //$this->input->post('galeria_nombre'),
                     'galeria_imagen' => $foto,
                 );
-
+                sleep(1);
                 $galeria_id = $this->Galeria_model->add_galeria($params);
                 redirect('galeria/index/'.$producto_id);
             

@@ -93,7 +93,7 @@
         </div>
         <div class="modal-footer">
             <!--<button type="submit" class="btn btn-success">Guardar</button>-->
-            <a onclick="refrescar()" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-close"></span> Cerrar</a>
+            <a onclick="refrescar()" class="btn btn-success" data-dismiss="modal"><span class="fa fa-check"></span> Guardar</a>
             <?php echo form_close(); ?>
         </div>
     </div>
