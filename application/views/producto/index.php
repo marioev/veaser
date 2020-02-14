@@ -166,11 +166,10 @@
                     <thead role="rowgroup">
                         <tr role="row">
                             <th  role="columnheader" >#</th>
-                            <th  role="columnheader" >Nombre</th>
-                            <th  role="columnheader" >Categoria|<br>Presentación</th>
+                            <th  role="columnheader" >Producto</th>
+                            <th  role="columnheader" >Categoria | Código</th>
                             <th  role="columnheader" class="no-print" >Map</th>
-                            <th  role="columnheader" style="width: 20%;" >Caracteristicas</th>
-                            <th  role="columnheader" >Código|<br>Cód. Barra</th>
+                            <th  role="columnheader" >Caracteristicas</th>
                             <th  role="columnheader" >Precio</th>
                             <th  role="columnheader" >Moneda</th>
                             <th  role="columnheader" class="no-print">Estado</th>

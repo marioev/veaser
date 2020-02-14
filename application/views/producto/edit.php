@@ -80,40 +80,19 @@ function mostrar(a) {
                             <span class="text-danger"><?php echo form_error('producto_nombre');?></span>
                         </div>
                     </div>
-                    <div class="col-md-2">
-                        <label for="producto_unidad" class="control-label">Unidad</label>
-                        <div class="form-group">
-                            <select name="producto_unidad" class="form-control">
-                                <option value="">- UNIDAD -</option>
-                                <?php 
-                                foreach($unidades as $unidad)
-                                {
-                                    $selected = ($unidad['unidad_nombre'] == $producto['producto_unidad']) ? ' selected="selected"' : "";
-
-                                    echo '<option value="'.$unidad['unidad_nombre'].'" '.$selected.'>'.$unidad['unidad_nombre'].'</option>';
-                                } 
-                                ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
+          
+                    <div class="col-md-3">
                         <label for="producto_marca" class="control-label">Marca</label>
                         <div class="form-group">
                             <input type="text" name="producto_marca" value="<?php echo ($this->input->post('producto_marca') ? $this->input->post('producto_marca') : $producto['producto_marca']); ?>" class="form-control" id="producto_marca" onkeyup="var start = this.selectionStart; var end = this.selectionEnd; this.value = this.value.toUpperCase(); this.setSelectionRange(start, end);" />
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <label for="producto_industria" class="control-label">Industria</label>
                         <div class="form-group">
                             <input type="text" name="producto_industria" value="<?php echo ($this->input->post('producto_industria') ? $this->input->post('producto_industria') : $producto['producto_industria']); ?>" class="form-control" id="producto_industria" onkeyup="var start = this.selectionStart; var end = this.selectionEnd; this.value = this.value.toUpperCase(); this.setSelectionRange(start, end);" />
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <label for="producto_codigobarra" class="control-label"><span class="text-danger">*</span>Código de barras</label>
-                        <div class="form-group">
-                            <input type="text" name="producto_codigobarra" value="<?php echo ($this->input->post('producto_codigobarra') ? $this->input->post('producto_codigobarra') : $producto['producto_codigobarra']); ?>" class="form-control" id="producto_codigobarra" onkeyup="var start = this.selectionStart; var end = this.selectionEnd; this.value = this.value.toUpperCase(); this.setSelectionRange(start, end);" required />
-                        </div>
-                    </div>                                    
                     <div class="col-md-3">
                         <label for="producto_codigo" class="control-label"><span class="text-danger">*</span>Código Producto</label>
                         <div class="form-group">
@@ -155,36 +134,38 @@ function mostrar(a) {
                             </select>
                         </div>
                     </div>
+                     <div class="col-md-3">
+                        <label for="producto_foto" class="control-label">Foto</label>
+                        <div class="form-group">
+                            <input type="file" name="producto_foto" value="<?php echo ($this->input->post('producto_foto') ? $this->input->post('producto_foto') : $producto['producto_foto']); ?>" class="btn btn-success btn-sm form-control" id="producto_foto" accept="image/png, image/jpeg, jpg, image/gif" />
+                            <input type="hidden" name="producto_foto1" value="<?php echo ($this->input->post('producto_foto') ? $this->input->post('producto_foto') : $producto['producto_foto']); ?>" class="form-control" id="producto_foto1" />
+                        </div>
+                    </div>
 
+                   
                     <div class="col-md-3">
-                        <label for="producto_costo" class="control-label">Comisión</label>
-                        <div class="form-group">
-                            <input type="number" step="any" min="0" name="producto_costo" value="<?php echo ($this->input->post('producto_costo') ? $this->input->post('producto_costo') : $producto['producto_costo']); ?>" class="form-control" id="producto_costo" />
-                        </div>
+                            <label for="producto_preciocliente" class="control-label">Precio Cliente</label>
+                            <div class="form-group">
+                                <input type="number" step="any" min="0" name="producto_preciocliente" value="<?php echo ($this->input->post('producto_preciocliente') ? $this->input->post('producto_preciocliente') : $producto['producto_preciocliente']); ?>" class="form-control" id="producto_preciocliente"  onclick="this.select();"/>
+                            </div>
                     </div>
-                    <div class="col-md-3">
-                        <label for="producto_precio" class="control-label">Precio de Venta</label>
-                        <div class="form-group">
-                            <input type="number" step="any" min="0" name="producto_precio" value="<?php echo ($this->input->post('producto_precio') ? $this->input->post('producto_precio') : $producto['producto_precio']); ?>" class="form-control" id="producto_precio" />
-                        </div>
-                    </div>
+                  
                     <div class="col-md-3">
                         <label for="producto_preciominimo" class="control-label">Precio de Venta Minimo</label>
                         <div class="form-group">
                             <input type="number" step="any" min="0" name="producto_preciominimo" value="<?php echo ($this->input->post('producto_preciominimo') ? $this->input->post('producto_preciominimo') : $producto['producto_preciominimo']); ?>" class="form-control" id="producto_preciominimo" />
                         </div>
                     </div>
-                    <div class="col-md-2 hidden">
-                        <label for="producto_comision" class="control-label">Comisión (%)</label>
-                        <div class="form-group">
-                            <input type="number" step="any" min="0" max="100" name="producto_comision" value="<?php echo ($this->input->post('producto_comision') ? $this->input->post('producto_comision') : $producto['producto_comision']); ?>" class="form-control" id="producto_comision"  onclick="this.select();"/>
-                        </div>
+                    <div class="col-md-3">
+                            <label for="producto_preciooferta" class="control-label">Precio de Oferta</label>
+                            <div class="form-group">
+                                <input type="number" step="any" min="0" name="producto_preciooferta" value="<?php echo ($this->input->post('producto_preciooferta') ? $this->input->post('producto_preciooferta') : $producto['producto_preciooferta']); ?>" class="form-control" id="producto_preciooferta"  onclick="this.select();"/>
+                            </div>
                     </div>
                     <div class="col-md-3">
-                        <label for="producto_foto" class="control-label">Foto</label>
+                        <label for="producto_comision" class="control-label">Comisión</label>
                         <div class="form-group">
-                            <input type="file" name="producto_foto" value="<?php echo ($this->input->post('producto_foto') ? $this->input->post('producto_foto') : $producto['producto_foto']); ?>" class="btn btn-success btn-sm form-control" id="producto_foto" accept="image/png, image/jpeg, jpg, image/gif" />
-                            <input type="hidden" name="producto_foto1" value="<?php echo ($this->input->post('producto_foto') ? $this->input->post('producto_foto') : $producto['producto_foto']); ?>" class="form-control" id="producto_foto1" />
+                            <input type="number" step="any" min="0" name="producto_comision" value="<?php echo ($this->input->post('producto_comisionproducto_comision') ? $this->input->post('producto_comision') : $producto['producto_comision']); ?>" class="form-control" id="producto_costo" />
                         </div>
                     </div>
                     

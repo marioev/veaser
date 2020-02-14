@@ -124,7 +124,8 @@ function tablaresultadosproducto(limite)
                         html += "</div>";
                         html += "<div style='padding-left: 4px'>";
                         html += "<b id='masgrande'>"+registros[i]["producto_nombre"]+"</b><br>";
-                        html += registros[i]["producto_unidad"]+" | "+registros[i]["producto_marca"]+" | "+registros[i]["producto_industria"];
+                        html +=  registros[i]["producto_marca"]+" | "+registros[i]["producto_industria"]+"<br>";
+                        html += "<b>Oferta: </b>"+registros[i]["producto_preciooferta"]+"";
                         
                         html += "</div>";
                         html += "</div>";
@@ -135,15 +136,15 @@ function tablaresultadosproducto(limite)
                         }else{
                             escategoria = registros[i]["categoria_nombre"];
                         }
+
                         var esmoneda="";
                         if(registros[i]["moneda_id"] == null || registros[i]["moneda_id"] == 0 || registros[i]["moneda_id"] == ""){ 
                             esmoneda = "No definido";
                         }else{
                             esmoneda = registros[i]["moneda_descripcion"];
                         }
-                        html += "<td><b>Cat.: </b>"+escategoria+"<br><b>Pres.: </b>"+registros[i]["producto_unidad"]+"<br>";
-                        html += "<b>Cant. Min.: </b>";
-                        html +="</td>";
+                        html += "<td><b>Cat.: </b>"+escategoria+"<br><b>Cod.: </b>"+registros[i]["producto_codigo"]+"</td>";
+                     
                         html += "<td class='no-print' style='text-align: center'>";
                         if(registros[i]["producto_check"] == 0){
                             html += "<img src='"+base_url+"resources/images/noubicacion.png' width='30' height='30'>";
@@ -160,20 +161,14 @@ function tablaresultadosproducto(limite)
                         }
                         html+= caracteristica+"</td>";
                         
-                        var codbarras = "";
-                        if(!(registros[i]["producto_codigobarra"] == null)){
-                            codbarras = registros[i]["producto_codigobarra"];
-                        }
-                        html += "<td>"+registros[i]["producto_codigo"]+"<br>"+ codbarras +"</td>";
-                        html += "<td><b>Venta: </b>"+registros[i]["producto_precio"]+"<br>";
+                        html += "<td><b>Cliente: </b>"+registros[i]["producto_preciocliente"]+"<br>";
                         html += "<span class='text-danger'><b>Venta Min.: "+registros[i]["producto_preciominimo"]+"</b></span><br>";
-                        html += "<b>Comisión: </b>"+registros[i]["producto_costo"]+"<br>";
-                            //html += "<b>Comisión: </b>"+registros[i]["producto_comision"];
+                        html += "<b>Comisión: </b>"+registros[i]["producto_comision"]+"<br>";
                             html += "</td>";
                         html += "<td><b>Moneda: </b>"+esmoneda+"<br>";
                         html += "</td>";
                         html += "<td class='no-print' style='background-color: #"+registros[i]["estado_color"]+"'>"+registros[i]["estado_descripcion"]+"</td>";
-		        html += "<td class='no-print'>";
+		                html += "<td class='no-print'>";
                         html += "<a href='"+base_url+"producto/edit/"+registros[i]["miprod_id"]+"' class='btn btn-info btn-xs' title='Modificar Información'><span class='fa fa-pencil'></span></a>";
                         html += "<a href='"+base_url+"galeria/index/"+registros[i]["miprod_id"]+"' class='btn btn-success btn-xs' title='galeria de Imagenes' ><span class='fa fa-image'></span></a>";
                         html += "<a class='btn btn-danger btn-xs' data-toggle='modal' data-target='#myModal"+i+"' title='Eliminar'><span class='fa fa-trash'></span></a>";
