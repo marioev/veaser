@@ -42,7 +42,7 @@ function mostrar(a) {
         if(seg>0&&seg<10){
             seg = "0"+seg;
         }
-        $('#producto_codigobarra').val(anio+mes+dia+hora+min+seg);
+        /*$('#producto_codigobarra').val(anio+mes+dia+hora+min+seg);*/
         $('#producto_codigo').val(anio+mes+dia+hora+min+seg);
     }
 </script>
@@ -96,33 +96,16 @@ function mostrar(a) {
                                     <span class="text-danger"><?php echo form_error('producto_nombre');?></span>
                             </div>
                     </div>
-                    <div class="col-md-2">
-                        <label for="producto_unidad" class="control-label">Unidad</label>
-                        <div class="form-group">
-                            <select name="producto_unidad" class="form-control">
-                                <?php 
-                                foreach($unidades as $u){ ?>
-                                    <option value="<?php echo $u['unidad_nombre']; ?>"> <?php echo $u['unidad_nombre']; ?> </option>
-                                <?php } ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                             <label for="producto_marca" class="control-label">Marca</label>
                             <div class="form-group">
                                 <input type="text" name="producto_marca" value="S/N" class="form-control" id="producto_marca" onclick="this.select();" onkeyup="var start = this.selectionStart; var end = this.selectionEnd; this.value = this.value.toUpperCase(); this.setSelectionRange(start, end);"/>
                             </div>
                     </div>         
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                             <label for="producto_industria" class="control-label">Industria</label>
                             <div class="form-group">
                                     <input type="text" name="producto_industria" value="<?php echo "BOLIVANA"; ?>" class="form-control" id="producto_industria"  onclick="this.select();" onkeyup="var start = this.selectionStart; var end = this.selectionEnd; this.value = this.value.toUpperCase(); this.setSelectionRange(start, end);"/>
-                            </div>
-                    </div>
-                    <div class="col-md-3">
-                            <label for="producto_codigobarra" class="control-label"><span class="text-danger">*</span>Código de barras</label>
-                            <div class="form-group">
-                                    <input type="text" name="producto_codigobarra" value="<?php echo $this->input->post('producto_codigobarra'); ?>" class="form-control" id="producto_codigobarra" required  onclick="this.select();" onkeyup="var start = this.selectionStart; var end = this.selectionEnd; this.value = this.value.toUpperCase(); this.setSelectionRange(start, end);"/>
                             </div>
                     </div>
                     <div class="col-md-3">
@@ -167,16 +150,17 @@ function mostrar(a) {
                             </div>
                     </div>
 
+                    
                     <div class="col-md-3">
-                            <label for="producto_costo" class="control-label">Comisión</label>
+                            <label for="producto_foto" class="control-label">Foto</label>
                             <div class="form-group">
-                                <input type="number" step="any" min="0" name="producto_costo" value="<?php echo '0.00'; ?>" class="form-control" id="producto_costo"  onclick="this.select();"/>
+                                    <input type="file" name="producto_foto" value="<?php echo "producto.jpg"; ?>" class="btn btn-success btn-sm form-control" id="producto_foto" accept="image/png, image/jpeg, jpg, image/gif" />
                             </div>
                     </div>
                     <div class="col-md-3">
-                            <label for="producto_precio" class="control-label">Precio de Venta</label>
+                            <label for="producto_preciocliente" class="control-label">Precio Cliente</label>
                             <div class="form-group">
-                                <input type="number" step="any" min="0" name="producto_precio" value="<?php echo '0.00'; ?>" class="form-control" id="producto_precio"  onclick="this.select();"/>
+                                <input type="number" step="any" min="0" name="producto_preciocliente" value="<?php echo '0.00'; ?>" class="form-control" id="producto_preciocliente"  onclick="this.select();"/>
                             </div>
                     </div>
                     <div class="col-md-3">
@@ -186,18 +170,19 @@ function mostrar(a) {
                             </div>
                     </div>
 
-                    <div class="col-md-2 hidden">
-                            <label for="producto_comision" class="control-label">Comisión (%)</label>
+                    <div class="col-md-3">
+                            <label for="producto_preciooferta" class="control-label">Precio de Oferta</label>
                             <div class="form-group">
-                                    <input type="number" step="any" min="0" max="100" name="producto_comision" value="<?php echo '0.00'; ?>" class="form-control" id="producto_comision"  onclick="this.select();"/>
+                                <input type="number" step="any" min="0" name="producto_preciooferta" value="<?php echo '0.00'; ?>" class="form-control" id="producto_preciooferta"  onclick="this.select();"/>
                             </div>
                     </div>
                     <div class="col-md-3">
-                            <label for="producto_foto" class="control-label">Foto</label>
+                            <label for="producto_comision" class="control-label">Comisión</label>
                             <div class="form-group">
-                                    <input type="file" name="producto_foto" value="<?php echo "producto.jpg"; ?>" class="btn btn-success btn-sm form-control" id="producto_foto" accept="image/png, image/jpeg, jpg, image/gif" />
+                                <input type="number" step="any" min="0" name="producto_comision" value="<?php echo '0.00'; ?>" class="form-control" id="producto_comision"  onclick="this.select();"/>
                             </div>
                     </div>
+
                     <div class="col-md-6">
                         <label  class="control-label"><a href="#" class="btn btn-success btn-sm " id="mosmapa" onclick="mostrar('1'); return false">Obtener Ubicación</a></label>
                         <!-- ***********************aqui empieza el mapa para capturar coordenadas *********************** -->
