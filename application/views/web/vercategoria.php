@@ -245,7 +245,7 @@ var elem=$('#container ul');
                                                                     
                                                                 <section class="list-left">
                                                                 <h5 class="title"><?php echo $pc['producto_nombre']; ?></h5>
-                                                                <span class="adprice"><?php echo $pc['moneda_descripcion']." ".$pc['producto_precio']; ?></span>
+                                                                <span class="adprice"><?php echo $pc['moneda_descripcion']." ".$pc['producto_preciooferta']; ?></span>
                                                                 <p class="catpath"><?php echo $pc['producto_marca']." » ".$pc['producto_industria']; ?></p>
                                                                 </section>
                                                                 <section class="list-right">
@@ -345,7 +345,8 @@ var elem=$('#container ul');
 				<div class="w3-footer-logo">
 					<h1><a href="<?php echo site_url(''); ?>"><?php echo $empresa['empresa_nombre']; ?></a></h1>
 				</div>
-				<div class="w3-footer-social-icons">
+                <!-- Redes sociales -->
+				<!-- div class="w3-footer-social-icons">
 					<ul>
 						<li><a class="facebook" href="<?php echo site_url('resources/#'); ?>"><i class="fa fa-facebook" aria-hidden="true"></i><span>Facebook</span></a></li>
 						<li><a class="twitter" href="<?php echo site_url('resources/#'); ?>"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a></li>
@@ -353,7 +354,7 @@ var elem=$('#container ul');
 						<li><a class="googleplus" href="<?php echo site_url('resources/#'); ?>"><i class="fa fa-google-plus" aria-hidden="true"></i><span>Google+</span></a></li>
 						<li><a class="dribbble" href="<?php echo site_url('resources/#'); ?>"><i class="fa fa-dribbble" aria-hidden="true"></i><span>Dribbble</span></a></li>
 					</ul>
-				</div>
+				</div -->
 				<div class="copyrights">
                                     <p>Desarrollado por <a href="http://www.passwordbolivia.com/">PASSWORD SRL</a> Ingenieria Hardware & Software</p>
 				</div>

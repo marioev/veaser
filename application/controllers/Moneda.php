@@ -92,7 +92,7 @@ class Moneda extends CI_Controller{
 
 			$this->form_validation->set_rules('moneda_descripcion','Moneda Descripcion','required');
 		
-			if($this->form_validation->run())     
+            if($this->form_validation->run())     
             {   
                 $params = array(
                         'estado_id' => $this->input->post('estado_id'),
@@ -114,7 +114,7 @@ class Moneda extends CI_Controller{
         }
         else
             show_error('The moneda you are trying to edit does not exist.');
-    } 
+        } 
 }
 
     /*
@@ -133,7 +133,7 @@ class Moneda extends CI_Controller{
         }
         else
             show_error('The moneda you are trying to delete does not exist.');
+        }
     }
-}
     
 }

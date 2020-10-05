@@ -25,32 +25,45 @@
                     foreach($galeria as $e){ 
                         $i=$i+1; ?>
                     <tr>
-                        <td><?php echo $i; ?></td>
-                        <td><?php echo $e['galeria_nombre']; ?></td>
+                        <td><?= $i; ?></td>
+                        <td><?= $e['galeria_nombre']; ?></td>
                         
-                        <td> <a class="btn  btn-xs" id="contieneimg" data-toggle="modal" data-target="#mostrarimagen<?php echo $i; ?>" style="padding: 0px;">
+                        <td> <a class="btn btn-xs" id="contieneimg" data-toggle="modal" data-target="#mostrarimagen<?php echo $i; ?>" style="padding: 0px;">
                                         <?php
                                         echo '<img src="'.site_url('/resources/images/galeria/'."thumb_".$e['galeria_imagen']).'" />';
                                         ?>
                                     </a>
                            <!------------------------ INICIO modal para MOSTRAR imagen REAL ------------------->
-                                    <div class="modal fade" id="mostrarimagen<?php echo $i; ?>" tabindex="-1" role="dialog" aria-labelledby="mostrarimagenlabel<?php echo $i; ?>">
+                                    <div class="modal fade" id="mostrarimagen<?= $i; ?>" tabindex="-1" role="dialog" aria-labelledby="mostrarimagenlabel<?php echo $i; ?>">
                                         <div class="modal-dialog" role="document">
                                             <br><br>
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-                                                    <font size="3"><b><?php echo $e['galeria_nombre']; ?></b></font>
+                                                    <font size="3"><b><?= $e['galeria_nombre']; ?></b></font>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <!------------------------------------------------------------------->
-                                                    <?php echo '<img style="max-height: 100%; max-width: 100%" src="'.site_url('/resources/images/galeria/'.$e['galeria_imagen']).'" />'; ?>
-                                                    <!------------------------------------------------------------------->
+                                                    <!------------------------------------------------------------------>
+                                                    <?php echo '<img style="max-height: 100%; max-width: 100%" src="'.site_url('/resources/images/galeria/'.$e['galeria_imagen']).'" />';?>
+                                                    <!------------------------------------------------------------------>
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- check -->
+                                    <!-- <fieldset class="form-group">
+                                        <div class="row"> -->
+                                        <!-- <legend class="col-form-label col-sm-2 pt-0">Radios</legend> -->
+                                        <!-- <div class="col-sm-10">
+                                            <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                                            <label class="form-check-label" for="gridRadios1">
+                                                First radio
+                                            </label>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </fieldset> -->
                             <!------------------------ FIN modal para MOSTRAR imagen REAL -------------------></td>
 						<td>
                             <a href="<?php echo site_url('galeria/remove/'.$e['galeria_id'].'/'.$producto['producto_id']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span></a> 
@@ -75,20 +88,7 @@
         </div>
         <div class="modal-body">
             <?php echo form_open_multipart('galeria/add/'.$producto['producto_id'],'class="dropzone" id="my-awesome-dropzone"'); ?>
-            
-                <!--div class="row clearfix">
-                    <div class="col-md-6">
-                        <label for="galeria_nombre" class="control-label"><span class="text-danger">*</span>Nombre</label>
-                        <div class="form-group">
-                            <input type="text" name="galeria_nombre" value="<?php /*echo $this->input->post('galeria_nombre'); ?>" class="form-control" id="galeria_nombre" onKeyUp="this.value = this.value.toUpperCase();" required/>
-                    </div></div>
-                    <div class="col-md-6">
-                        <label for="galeria_imagen" class="control-label"><span class="text-danger">*</span>Imagen</label>
-                        <div class="form-group">
-                            <input type="file" name="galeria_imagen[]" value="<?php echo $this->input->post('galeria_imagen');*/ ?>" multiple class="form-control" id="galeria_imagen" required/>
-                        </div>
-                    </div>
-                </div>-->
+                
         
         </div>
         <div class="modal-footer">

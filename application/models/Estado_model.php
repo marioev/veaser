@@ -95,4 +95,13 @@ class Estado_model extends CI_Model
         return $estado;
     }
 
+    function get_all_estado_activo_inactivo(){
+        return $this->db->query("
+            SELECT
+                *
+            FROM
+                estado
+        ");
+    }
+
 }

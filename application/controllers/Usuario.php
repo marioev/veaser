@@ -170,6 +170,7 @@ private function acceso($id_rol){
                     $this->load->model('Tipo_usuario_model');
                     $data['all_tipo_usuario'] = $this->Tipo_usuario_model->get_all_tipo_usuario();
                     $data['page_title'] = "Usuarios";
+                    $data['_form'] = "usuario/form_usuario";
                     $data['_view'] = 'usuario/add';
                     $this->load->view('layouts/main', $data);
                 }
@@ -203,6 +204,7 @@ private function acceso($id_rol){
                 $this->load->model('Tipo_usuario_model');
                 $data['all_tipo_usuario'] = $this->Tipo_usuario_model->get_all_tipo_usuario();
                 $data['page_title'] = "Usuario";
+                $data['_form'] = "usuario/form_usuario";
                 $data['_view'] = 'usuario/edit';
                 $this->load->view('layouts/main', $data);
 

@@ -211,7 +211,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <li>
                                             <a href="<?php echo site_url('web/verdetalle/'.$ul['producto_id']); ?>">
                                                 <img src="<?php echo site_url('resources/images/productos/'.$lafoto) ?>" width="220px" height="220px" />
-                                                <span class="price"><?php echo $ul['moneda_descripcion']." ".$ul['producto_precio']; ?></span>
+                                                <span class="price"><?php echo $ul['moneda_descripcion']." ".$ul['producto_preciooferta']; ?></span>
                                             </a>
                                             <div class="w3-ad-info">
                                                 <h5><?php echo $ul['producto_nombre']; ?></h5>
@@ -350,8 +350,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="container">
 				<div class="w3-footer-logo">
 					<h1><a href="<?php echo site_url(''); ?>"><?php echo $empresa['empresa_nombre']; ?></a></h1>
-				</div>
-				<div class="w3-footer-social-icons">
+                </div>
+                <!-- Redes sociales -->
+				<!-- div class="w3-footer-social-icons">
 					<ul>
 						<li><a class="facebook" href="<?php echo site_url('resources/#'); ?>"><i class="fa fa-facebook" aria-hidden="true"></i><span>Facebook</span></a></li>
 						<li><a class="twitter" href="<?php echo site_url('resources/#'); ?>"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a></li>
@@ -359,9 +360,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a class="googleplus" href="<?php echo site_url('resources/#'); ?>"><i class="fa fa-google-plus" aria-hidden="true"></i><span>Google+</span></a></li>
 						<li><a class="dribbble" href="<?php echo site_url('resources/#'); ?>"><i class="fa fa-dribbble" aria-hidden="true"></i><span>Dribbble</span></a></li>
 					</ul>
-				</div>
+				</div -->
 				<div class="copyrights">
-                                    <p>Desarrollado por <a href="http://www.passwordbolivia.com/">PASSWORD SRL</a> Ingenieria Hardware & Software</p>
+                    <p>Desarrollado por <a href="http://www.passwordbolivia.com/">PASSWORD SRL</a> Ingenieria Hardware & Software</p>
 				</div>
 				<div class="clearfix"></div>
 			</div>

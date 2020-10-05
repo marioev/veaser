@@ -11,6 +11,7 @@ Class Login extends CI_Controller
 
     public function index(){
         $data['empresa'] = $this->Empresa_model->get_empresa(1);
+        // Licencia de software - fecha limite
     	$licencia="SELECT DATEDIFF(licencia_fechalimite, CURDATE()) as dias FROM licencia WHERE licencia_id = 1";
         $lice = $this->db->query($licencia)->row_array();
         if ($lice['dias']<=10){

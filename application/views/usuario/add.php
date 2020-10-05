@@ -8,7 +8,7 @@
             
             <?php $attributes = array("name" => "usuarioForm", "id"=>"usuarioForm");
             echo form_open_multipart("usuario/add", $attributes);?>
-          	<div class="box-body">
+          	<!-- <div class="box-body">
           		<div class="row clearfix">
                                         <div class="col-md-6">
                                         <label for="usuario_nombre" class="control-label">Nombre</label>
@@ -87,7 +87,11 @@
             	<a href="index"><button type="button" class="btn btn-danger">
             		<i class="fa fa-times"></i> Cancelar
             	</button></a>
-          	</div>
+          	</div> -->
+              <?php
+                if(isset($_form) && $_form)
+                    $this->load->view($_form);
+              ?>
             <?php echo form_close(); ?>
       	</div>
     </div>

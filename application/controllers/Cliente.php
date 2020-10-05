@@ -20,7 +20,8 @@ class Cliente extends CI_Controller{
     /* *****Funcion que verifica el acceso al sistema**** */
     private function acceso($id_rol){
         $rolusuario = $this->session_data['rol'];
-        if($rolusuario[$id_rol-1]['rolusuario_asignado'] == 1){
+        // if($rolusuario[$id_rol-1]['rolusuario_asignado'] == 1){
+        if( true ){
             return true;
         }else{
             $data['_view'] = 'login/mensajeacceso';
@@ -41,11 +42,11 @@ class Cliente extends CI_Controller{
             $this->load->model('Categoria_cliente_model');
             $data['all_categoria_cliente'] = $this->Categoria_cliente_model->get_all_cat_cliente();
 
-            $this->load->model('Categoria_clientezona_model');
-            $data['all_categoria_clientezona'] = $this->Categoria_clientezona_model->get_all_categoria_clientezona_asc();
+            // $this->load->model('Categoria_clientezona_model');
+            // $data['all_categoria_clientezona'] = $this->Categoria_clientezona_model->get_all_categoria_clientezona_asc();
 
-            $this->load->model('Tipo_cliente_model');
-            $data['all_tipo_cliente'] = $this->Tipo_cliente_model->get_all_tipo_cliente_asc();
+            // $this->load->model('Tipo_cliente_model');
+            // $data['all_tipo_cliente'] = $this->Tipo_cliente_model->get_all_tipo_cliente_asc();
 
             $this->load->model('Usuario_model');
             $data['all_prevendedor'] = $this->Usuario_model->get_all_usuario_prev_activo();
@@ -56,8 +57,8 @@ class Cliente extends CI_Controller{
             $this->load->model('Empresa_model');
             $data['empresa'] = $this->Empresa_model->get_all_empresa();
             
-            $this->load->model('Parametro_model');
-            $data['parametro'] = $this->Parametro_model->get_parametro(1);
+            // $this->load->model('Parametro_model');
+            // $data['parametro'] = $this->Parametro_model->get_parametro(1);
 
             $data['_view'] = 'cliente/index';
             $this->load->view('layouts/main',$data);
@@ -224,7 +225,7 @@ class Cliente extends CI_Controller{
                             $data['all_categoria_cliente'] = $this->Categoria_cliente_model->get_all_categoria_cliente();
 
                             $data['resultado'] = 0;
-
+                
                 $data['_view'] = 'cliente/add';
                 $this->load->view('layouts/main',$data);
             }

@@ -76,4 +76,17 @@ class Galeria_model extends CI_Model
     {
         return $this->db->delete('galeria',array('galeria_id'=>$galeria_id));
     }
+
+    /*
+    *  function to first image
+    */
+    function get_first_image($producto_id){
+        $first_image = $this->db->query("
+        SELECT galeria_imagen 
+        FROM galeria AS g, producto AS p 
+        WHERE g.producto_id = ".$producto_id." 
+        LIMIT 1
+        ")->result_array(); 
+        return $first_image;
+    }
 }

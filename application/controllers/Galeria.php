@@ -33,9 +33,12 @@ class Galeria extends CI_Controller{
      */
     function index($producto_id)
     {
+        $first="";
         if($this->acceso(4)){
             $data['galeria'] = $this->Galeria_model->get_all_galeria($producto_id);
             $data['producto'] = $this->Producto_model->get_producto($producto_id);
+            // $first = $this->Galeria_model->get_first_image(1);
+            // $data['first_image'] = "hola mundo";
             $data['_view'] = 'galeria/index';
             $this->load->view('layouts/main',$data);
         }

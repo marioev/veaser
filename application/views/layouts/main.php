@@ -163,11 +163,25 @@
                                 //if($rolusuario[23-1]['rolusuario_asignado'] == 1){
                                 ?>
                                 <li>
-                                    <a href="<?php echo site_url('usuario/index');?>"><i class="fa fa-user"></i> Usuarios</a>
+                                    <a href="<?= site_url('usuario/index');?>"><i class="fa fa-user"></i> Usuarios</a>
                                 </li>
+                                
                                 <?php
                                 //}
                                 ?>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-user"></i> <span>Ventas</span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <a href="<?= site_url('cliente/index')?>"><i class="fa fa-user"></i> Clientes</a>
+                                </li>
+                                <li>
+                                    <a href="<?= site_url('cliente/index')?>"><i class="fa fa-user"></i> Flujo de ventas</a>
+                                </li>
                             </ul>
                         </li>
                     </ul>
