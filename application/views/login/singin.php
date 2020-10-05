@@ -23,7 +23,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <!--background: url(../images/account-bg.jpg) no-repeat 0px 0px;-->
 <body style="background: url(<?php echo base_url('resources/images/account-bg.jpg'); ?>);">
-    <?php if($diaslic['dias'] < 0){ ?>
+    <?php if($diaslic < 0){ ?>
     <div class="info-box bg-red">
         <span class="info-box-icon"><i class="ion-alert-circled"></i></span>
 
@@ -75,8 +75,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <!--<h3 class="text-center">Ximpleman</h3>-->
                     </div>
                     <?php echo form_open('verificar'); ?>
-                    <input type="text" name="username" id="username" placeholder="Usuario" autocomplete="off" autofocus  required="" <?php if($diaslic['dias'] < 0){ ?> readonly <?php } ?> >
-                    <input type="password" name="password" id="password" class="lock" placeholder="Contraseña" <?php if($diaslic['dias'] < 0){ ?> readonly <?php } ?> >
+                    <input type="text" name="username" id="username" placeholder="Usuario" autocomplete="off" autofocus  required="" <?php if($diaslic < 0){ ?> readonly <?php } ?> >
+                    <input type="password" name="password" id="password" class="lock" placeholder="Contraseña" <?php if($diaslic < 0){ ?> readonly <?php } ?> >
                     <input type="submit" name="Sign In" value="Ingresar">
                     <?php echo form_close(); ?>
                 </div>
