@@ -1,9 +1,3 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,8 +13,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Resale Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } }</script>
 <!-- //meta tags -->
+
 <!--fonts-->
 <link href='//fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
@@ -120,7 +115,7 @@ var elem=$('#container ul');
                             foreach($all_categoria as $c){
                             $i++;
                             ?>
-                            <a href="<?php echo site_url('web/vercategoria/'.$c['categoria_id']); ?>"><i class="fa fa-fw fa-mobile"></i><span><?php echo $c['categoria_nombre']; ?></span></a>
+                                <a href="<?php echo site_url('web/vercategoria/'.$c['categoria_id']); ?>"><i class="<?= $c['icono_etiqueta'] ?>"></i><span><?php echo $c['categoria_nombre']; ?></span></a>
                             <?php
                             }
                             ?>
@@ -223,39 +218,42 @@ var elem=$('#container ul');
                                                     <ul class="list">
                                                             <?php
                                                             foreach ($all_productocategoria as $pc){
+                                                                // condicional para mostrar solo los que tengan el estado id 2 referido a INACTIVO
+                                                                if($pc['estado_id'] != 2){
                                                             ?>
-                                                            <a href="<?php echo site_url('web/verdetalle/'.$pc['producto_id']) ?>" onclick="aumentarvistoproducto(<?php echo $pc['producto_id']; ?>)">
-                                                                <li>
-                                                                    <?php
-                                                                    //$mimagen = "";
-                                                                    if($pc["producto_foto"]){
-                                                                        //$tipo_imagen = "circle";
-                                                                        $tipo_imagen = "";
-                                                                    ?>
-                                                                        <!--mimagen += "<a class='btn  btn-xs' data-toggle='modal' data-target='#mostrarimagen"+i+"' style='padding: 0px;'>";-->
-                                                                        <img src="<?php echo site_url('resources/images/productos/'.$pc['producto_foto']) ?>" class="img img-<?php echo $tipo_imagen; ?>" width="207px" height="186px" />
-                                                                        <!--mimagen += "</a>";-->
-                                                                    <?php
-                                                                    }else{
-                                                                    ?>
-                                                                        <img src="<?php echo site_url('resources/images/productos/thumb_image.png') ?>" class="img img-<?php echo $tipo_imagen; ?>"  width="207px" height="186px" />;
-                                                                    <?php
-                                                                    }
-                                                                    ?>
-                                                                    
-                                                                <section class="list-left">
-                                                                <h5 class="title"><?php echo $pc['producto_nombre']; ?></h5>
-                                                                <span class="adprice"><?php echo $pc['moneda_descripcion']." ".$pc['producto_preciooferta']; ?></span>
-                                                                <p class="catpath"><?php echo $pc['producto_marca']." » ".$pc['producto_industria']; ?></p>
-                                                                </section>
-                                                                <section class="list-right">
-                                                                <span class="date"><?php echo date("d/m/Y H:i:s", strtotime($pc['producto_fechahora'])); ?></span>
-                                                                <!--<span class="cityname">City name</span>-->
-                                                                </section>
-                                                                <div class="clearfix"></div>
-                                                                </li> 
-                                                            </a>
+                                                                    <a href="<?php echo site_url('web/verdetalle/'.$pc['producto_id']) ?>" onclick="aumentarvistoproducto(<?php echo $pc['producto_id']; ?>)">
+                                                                        <li>
+                                                                            <?php
+                                                                            //$mimagen = "";
+                                                                            if($pc["producto_foto"]){
+                                                                                //$tipo_imagen = "circle";
+                                                                                $tipo_imagen = "";
+                                                                            ?>
+                                                                                <!--mimagen += "<a class='btn  btn-xs' data-toggle='modal' data-target='#mostrarimagen"+i+"' style='padding: 0px;'>";-->
+                                                                                <img src="<?php echo site_url('resources/images/productos/'.$pc['producto_foto']) ?>" class="img img-<?php echo $tipo_imagen; ?>" width="207px" height="186px" />
+                                                                                <!--mimagen += "</a>";-->
+                                                                            <?php
+                                                                            }else{
+                                                                            ?>
+                                                                                <img src="<?php echo site_url('resources/images/productos/thumb_image.png') ?>" class="img img-<?php echo $tipo_imagen; ?>"  width="207px" height="186px" />;
+                                                                            <?php
+                                                                            }
+                                                                            ?>
+                                                                            
+                                                                        <section class="list-left">
+                                                                        <h5 class="title"><?php echo $pc['producto_nombre'];?></h5>
+                                                                        <span class="adprice"><?php echo $pc['moneda_descripcion']." ".$pc['producto_preciooferta']; ?></span>
+                                                                        <p class="catpath"><?php echo $pc['producto_marca']." » ".$pc['producto_industria']; ?></p>
+                                                                        </section>
+                                                                        <section class="list-right">
+                                                                        <span class="date"><?php echo date("d/m/Y H:i:s", strtotime($pc['producto_fechahora'])); ?></span>
+                                                                        <!--<span class="cityname">City name</span>-->
+                                                                        </section>
+                                                                        <div class="clearfix"></div>
+                                                                        </li> 
+                                                                    </a>
                                                             <?php
+                                                                }
                                                             }
                                                             ?>
 							</ul>

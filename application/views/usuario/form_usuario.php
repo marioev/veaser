@@ -1,6 +1,6 @@
 <div class="box-body">
 	<div class="row clearfix">
-			<div class="col-md-6">
+		<div class="col-md-6">
 			<label for="usuario_nombre" class="control-label">Nombre</label>
 			<div class="form-group">
 				<input type="text" name="usuario_nombre" value="<?= (isset($usuario['usuario_nombre']) ? $usuario['usuario_nombre'] : $this->input->post['usuario_nombre'])?>" class="form-control" id="usuario_nombre" required onkeyup="var start = this.selectionStart; var end = this.selectionEnd; this.value = this.value.toUpperCase(); this.setSelectionRange(start, end);" />
@@ -23,7 +23,13 @@
 				</select>
 			</div>
 		</div>
-	
+		<div class="col-md-6">
+			<label for="usuario_codigo" class="control-label">Codigo</label>
+			<div class="form-group">
+				<input type="text" name="usuario_codigo" value="<?= (isset($usuario['usuario_codigo']) ? $usuario['usuario_codigo'] : $this->input->post('usuario_codigo')) ?>" class="form-control" id="usuario_codigo" onchange="verificar_codigo()"/>
+				<span class="text-danger"><?php echo form_error('usuario_codigo');?></span>
+			</div>
+		</div>
 		<div class="col-md-6">
 			<label for="usuario_email" class="control-label">Email</label>
 			<div class="form-group">

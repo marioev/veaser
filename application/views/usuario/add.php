@@ -1,9 +1,13 @@
 <link href="<?php echo site_url('resources/css/formValidation.css')?>" rel="stylesheet">
+<script type="text/javascript" src="<?php echo site_url('resources/js/funciones_usuario.js')?>"></script> 
 <div class="row">
     <div class="col-md-12">
-      	<div class="box box-info">
+        <div class="box box-info">
             <div class="box-header with-border">
-              	<h3 class="box-title">Añadir Usuario</h3>
+                <h3 class="box-title">Añadir Usuario</h3>
+                <button type="button" class="btn btn-success btn-sm" onclick="generar_codigo()" title="genera codigo de usuario">
+                    <i class="fa fa-barcode"></i> Generar Codigo
+                </button>
             </div>
             
             <?php $attributes = array("name" => "usuarioForm", "id"=>"usuarioForm");

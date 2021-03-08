@@ -1,9 +1,3 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +12,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Resale Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }} </script>
 <!-- //meta tags -->
 <!--fonts-->
 <link href='//fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
@@ -62,17 +56,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="<?php echo site_url('resources/js/jquery.uls.languagefilter.js'); ?>"></script>
 <script src="<?php echo site_url('resources/js/jquery.uls.regionfilter.js'); ?>"></script>
 <script src="<?php echo site_url('resources/js/jquery.uls.core.js'); ?>"></script>
+<script src="<?php echo site_url('resources/js/web.js'); ?>"></script>
 <script>
-			$( document ).ready( function() {
-				$( '.uls-trigger' ).uls( {
-					onSelect : function( language ) {
-						var languageName = $.uls.data.getAutonym( language );
-						$( '.uls-trigger' ).text( languageName );
-					},
-					quickList: ['en', 'hi', 'he', 'ml', 'ta', 'fr'] //FIXME
-				} );
-			} );
-		</script>
+    $( document ).ready( function() {
+        $( '.uls-trigger' ).uls( {
+            onSelect : function( language ) {
+                var languageName = $.uls.data.getAutonym( language );
+                $( '.uls-trigger' ).text( languageName );
+            },
+            quickList: ['en', 'hi', 'he', 'ml', 'ta', 'fr'] //FIXME
+        } );
+    } );
+</script>
+<input type="hidden" name="base_url" id="base_url" value="<?php echo base_url(); ?>" />
+
 <!-- //language-select -->
 <link rel="stylesheet" href="<?php echo site_url('resources/css/flexslider.css'); ?>" media="screen" /><!-- flexslider css -->
 </head>
@@ -88,7 +85,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             foreach($all_categoria as $c){
                             $i++;
                             ?>
-                            <a href="<?php echo site_url('web/vercategoria/'.$c['categoria_id']); ?>"><i class="fa fa-fw fa-mobile"></i><span><?php echo $c['categoria_nombre']; ?></span></a>
+                            <a href="<?php echo site_url('web/vercategoria/'.$c['categoria_id']); ?>"><i class="<?= $c['icono_etiqueta'] ?>"></i><span><?php echo $c['categoria_nombre']; ?></span></a>
                             <?php
                             }
                             ?>
@@ -156,33 +153,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<div class="product-desc">
 				<div class="col-md-7 product-view">
-					<h2><?php echo $producto['producto_nombre']; ?></h2>
+					<h2><?= $producto['producto_nombre']; ?></h2>
 					<p>
-                                            <?php
-                                            if($producto['producto_check'] == 1){
-                                            ?>
-                                                <a href='<?php echo "https://www.google.com/maps/dir/".$producto["producto_latitud"].",".$producto["producto_longitud"]; ?>' target="_blank" title='<?php echo "lat:".$producto["producto_latitud"].", long:".$producto["producto_longitud"]; ?>'>
-                                                <img src='<?php echo site_url("resources/images/blue.png"); ?>' width='30' height='30'>
-                                                </a> | 
-                                            <?php
-                                            }
-                                            ?>
-                                            
-                                            añadido el <?php echo date("d/m/Y H:i:s", strtotime($producto['producto_fechahora'])); ?>
-                                        </p>
-					<div class="flexslider">
-                                            <ul class="slides">
-                                                <?php
-                                                foreach ($all_galeria as $galeria){
-                                                ?>
-                                                <li data-thumb="<?php echo site_url('resources/images/galeria/'."thumb_".$galeria['galeria_imagen']); ?>">
-                                                    <img src="<?php echo site_url('resources/images/galeria/'.$galeria['galeria_imagen']); ?>" />
-                                                </li>
-                                                <?php
-                                                }
-                                                ?>
-                                            </ul>
-					</div>
+                        <?php
+                        if($producto['producto_check'] == 1){
+                        ?>
+                            <a href='<?= "https://www.google.com/maps/dir/".$producto["producto_latitud"].",".$producto["producto_longitud"]; ?>' target="_blank" title='Ver ubicación'>
+                            <img src='<?= site_url("resources/images/blue.png"); ?>' width='30' height='30'>
+                            </a>  
+                        <?php
+                        }
+                        ?>
+                        
+                        <!-- añadido el <?= date("d/m/Y H:i:s", strtotime($producto['producto_fechahora'])); ?> -->
+                    </p>
+					<!-- <div class="flexslider">
+                        <ul class="slides">
+                            <?php
+                            foreach ($all_galeria as $galeria){
+                            ?>
+                            <li data-thumb="<?= site_url('resources/images/galeria/'."thumb_".$galeria['galeria_imagen']); ?>">
+                                <img src="<?= site_url('resources/images/galeria/'.$galeria['galeria_imagen']); ?>" />
+                            </li>
+                            <?php
+                            }
+                            ?>
+                        </ul>
+					</div> -->
 					<!-- FlexSlider -->
 					  <script defer src="<?php echo site_url('resources/js/jquery.flexslider.js'); ?>"></script>
 
@@ -222,12 +219,42 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="clearfix"></div>
 						</div>
 					</div>
-					<div class="interested text-center">
-                                            
-                                            <a href="https://wa.me/<?php echo $empresa['empresa_celular']; ?>" target="_blank">
-						<h4>¿Estas interesado?<small> Contactanos!</small></h4>
-						<p><i class="fa fa-whatsapp"></i>+<?php echo $empresa['empresa_celular']; ?></p>
-                                            </a>
+					<div class="interested">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <span>
+                                    <h4>¿Estas interesado?<small> Contactanos!</small></h4>
+                                    <!-- <p><i class="fa fa-whatsapp"></i>+<?php echo $empresa['empresa_celular']; ?></p> -->
+                                </span>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group  has-feedback col-md-12" style="margin-top: 10px; display: inline;">
+                                    Solicita que un vendedor te ayude&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <button class="btn btn-danger btn-sm" style="color: white; border-radius: 5px;" title="Uno de nuestros vendedores te brindará ayuda." onclick="buscar_vendedor(0)"><i class="fa fa-user" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                            <div class="form-group  has-feedback col-md-12" style="margin-top: 10px;">
+                                <div class="row">
+                                    <div class="input-group col-md-12">
+                                        <input type="text" class="form-control" id="codigo_vendedor" aria-describedby="inputGroupSuccess4Status" style="background-color: #ffdede" placeholder="Busca a un vendedor por su codigo">
+                                        <span class="input-group-addon" style="background-color: #ffa0a0" onclick="buscar_vendedor(1)"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                    </div>
+                                    <div id="div_vendedor" style="display:none; width:100%; margin-top:20px;" class="col-md-12">
+                                        <div><a class="btn btn-sm text-danger" href="javascript:cerrar();" style="float: right"><span style="font-size:10pt"><i class="fa fa-times" aria-hidden="true"></i></span></a></div>
+                                        <div class="thumbnail">
+                                            <div class="caption">
+                                                <h3 id="nombre">Vendedor no encontrado</h3>
+                                                <p><b>CODIGO:</b> <span id="codigo"></span></p>
+                                                <p><b>TELEFONO:</b> <span id="numero"></span></p>
+                                                <p><b>CORREO:</b> <span id="correo" value="Hola"></span></p>
+                                                
+                                                <p><a id="contaco_whatsapp" href="" class="btn btn-success m-auto" role="button" style="margin-left: 33.33%; margin-right: 33.33%" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true"></i>Whatsapp</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>        
 					</div>
                                         <!--<div class="tips">
                                             <h4>Safety Tips for Buyers</h4>

@@ -46,9 +46,9 @@ class Estado_model extends CI_Model
                 1 = 1
 
             ORDER BY `estado_id` 
-        ")->result_array();
+        ");
 
-        return $estado;
+        return $estado->result_array();
     }
         
     /*
@@ -80,8 +80,7 @@ class Estado_model extends CI_Model
     /*
      * Get estado
      */
-    function get_estado_tipo($tipo)
-    {
+    function get_estado_tipo($tipo){
         $estado = $this->db->query("
             SELECT
                 e.*
@@ -95,13 +94,13 @@ class Estado_model extends CI_Model
         return $estado;
     }
 
-    function get_all_estado_activo_inactivo(){
-        return $this->db->query("
-            SELECT
-                *
-            FROM
-                estado
-        ");
-    }
+    // function get_all_estado_activo_inactivo(){
+    //     return $this->db->query("
+    //         SELECT
+    //             *
+    //         FROM
+    //             estado
+    //     ");
+    // }
 
 }

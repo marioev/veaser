@@ -61,21 +61,16 @@ class Producto_model extends CI_Model
     {
         $producto = $this->db->query("
             SELECT
-                *, p.producto_id as miprod_id
-
+                p.*, c.`categoria_nombre`,e.`estado_descripcion`, m.`moneda_descripcion`
             FROM
-                producto p, estado e, categoria_producto c, presentacion pr, moneda m
-
+                producto as p, categoria as c, estado as e, moneda as m
             WHERE
-                p.estado_id = e.estado_id
-                and p.categoria_id = c.categoria_id
-                and p.presentacion_id = pr.presentacion_id
-                and p.moneda_id = m.moneda_id
-
-            ORDER BY p.producto_nombre ASC LIMIT 50
-
+                p.estado_id = e.estado_id 
+                AND p.categoria_id = c.`categoria_id` 
+                AND p.`moneda_id` = m.`moneda_id`
+            ORDER BY 
+                p.`producto_nombre` asc
         ")->result_array();
-
         return $producto;
     }
     
@@ -483,5 +478,21 @@ class Producto_model extends CI_Model
         ")->result_array();
 
         return $producto;
+    }
+
+    /*
+    * 5 se refiere al id del estado, que seria OFERTA
+    */
+    function get_producto_oferta(){
+        return $this->db->query("
+            SELECT
+                p.*, m.moneda_descripcion
+            FROM
+                producto p
+            LEFT JOIN moneda m on p.moneda_id = m.moneda_id
+            WHERE
+                p.estado_id = 5
+                ORDER By p.producto_id DESC limit 12    
+        ")->result_array();
     }
 }

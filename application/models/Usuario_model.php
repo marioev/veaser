@@ -332,4 +332,16 @@ class Usuario_model extends CI_Model
         return $respuesta;
         
     }
+    /*
+    * Total de vendedores que se tiene
+    */
+    function get_all_cod_vendedores($aux){
+        $sql = "SELECT 
+                u.`usuario_codigo`, u.`usuario_email`,u.`usuario_nombre`, u.`usuario_imagen`
+                    , u.`usuario_telefono`
+                FROM
+                    usuario u
+                $aux";
+        return $this->db->query($sql)->result_array();
+    }
 }

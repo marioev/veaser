@@ -39,8 +39,8 @@ class Web extends CI_Controller{
         $this->load->model('Categoria_model');
         $data['all_categoria'] = $this->Categoria_model->get_all_categoriactiva();
         
-        $this->load->model('Galeria_model');
-        $data['all_galeria'] = $this->Galeria_model->get_all_galeria($producto_id);
+        // $this->load->model('Galeria_model');
+        // $data['all_galeria'] = $this->Galeria_model->get_all_galeria($producto_id);
         
         $this->load->model('Empresa_model');
         $empresa_id = 1;

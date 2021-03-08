@@ -6,6 +6,8 @@
  
 class Categoria_model extends CI_Model
 {
+    // var $table ="";
+    
     function __construct()
     {
         parent::__construct();
@@ -18,31 +20,53 @@ class Categoria_model extends CI_Model
     {
         return $this->db->get_where('categoria',array('categoria_id'=>$categoria_id))->row_array();
     }
+    /*
+    * 
+    */
+    // function get_categoria_icon($categoria_id)
+    // {
+    //     return $this->db->query(
+    //         "SELECT c.`icono_id`
+    //         from categoria as c, icono as i
+    //         where i.`icono_id` = c.`icono_id`
+    //         and c.`categoria_id` = ".$categoria_id."
+    //         ")->row_array();
+    // }
         
     /*
      * Get all categoria
      */
     function get_all_categoria()
     {
-        $this->db->select('c.*, e.estado_descripcion, e.estado_color');
-        $this->db->from('categoria as c');
-        $this->db->join('estado as e', 'c.estado_id = e.estado_id');
-        $this->db->order_by('c.categoria_nombre', 'asc');
-        $query = $this->db->get();
-        return $query->result_array();
+        $categorias = $this->db->query(
+            "SELECT c.*, e.estado_descripcion, e.`estado_color`,i.`icono_etiqueta`
+            from categoria as c
+            left join estado as e on c.`estado_id` = e.`estado_id`
+            left join icono as i on i.icono_id = c.`icono_id`"
+            )->result_array();
+        return $categorias;
     }
     /*
      * Get all categorias activas
      */
     function get_all_categoriactiva()
     {
-        $this->db->select('c.*, e.estado_descripcion, e.estado_color');
-        $this->db->from('categoria as c');
-        $this->db->join('estado as e', 'c.estado_id = e.estado_id');
-        $this->db->where('c.estado_id', 1);
-        $this->db->order_by('c.categoria_nombre', 'asc');
-        $query = $this->db->get();
-        return $query->result_array();
+        $categoria_activa = $this->db->query(
+            "SELECT c.*, e.estado_descripcion, e.estado_color, i.icono_etiqueta
+            FROM categoria as c
+            LEFT JOIN estado as e on c.estado_id = e.estado_id
+            LEFT JOIN icono as i on c.icono_id = i.icono_id
+            WHERE c.estado_id = 1
+            ")->result_array();
+        return $categoria_activa;
+        // $this->db->select('c.*, e.estado_descripcion, e.estado_color, i.icono_etiqueta');
+        // $this->db->from('categoria as c');
+        // $this->db->join('estado as e', 'c.estado_id = e.estado_id');
+        // $this->db->join('icono as i', '');
+        // $this->db->where('c.estado_id', 1);
+        // $this->db->order_by('c.categoria_nombre', 'asc');
+        // $query = $this->db->get();
+        // return $query->result_array();
     }
     /*
      * function to add new categoria

@@ -36,11 +36,11 @@
                         foreach($all_categoria as $categoria)
                         {
                             $selected = ($categoria['categoria_id'] == $producto['categoria_id']) ? ' selected="selected"' : "";
-
                             echo '<option value="'.$categoria['categoria_id'].'" '.$selected.'>'.$categoria['categoria_nombre'].'</option>';
                         } 
                         ?>
                 </select>
+
                 <a data-toggle="modal" data-target="#modalcategoria" class="btn btn-warning" title="Registrar Nueva Categoria">
                     <i class="fa fa-plus-circle"></i></a>
             </div>
@@ -64,6 +64,7 @@
             <div class="col-md-3">
             <label for="producto_foto" class="control-label">Foto</label>
             <div class="form-group">
+                <!-- <input type="file" name="producto_foto" value="<?= "producto.jpg"; ?>" class="btn btn-success btn-sm form-control" id="producto_foto" accept="image/png, image/jpeg, jpg, image/gif" /> -->
                 <input type="file" name="producto_foto" value="<?= (isset($producto['producto_foto']) ? $producto['producto_foto'] : $this->input->post('producto_foto'))?>" class="btn btn-success btn-sm form-control" id="producto_foto" accept="image/png, image/jpeg, jpg, image/gif" />
                 <input type="hidden" name="producto_foto1" value="<?= (isset($producto['producto_foto']) ? $producto['producto_foto'] : $this->input->post('producto_foto'))?>" class="form-control" id="producto_foto1" />
             </div>
@@ -233,6 +234,21 @@
                 <?php }?>
             </div>
         </div>
+        <div class="col-md-4">
+            <label for="producto_condicion" class="control-label">Asignar Vendedor</label>
+            <div class="form-group">
+                <!-- <input type="text" name="producto_condicion" value="<?= (isset($producto['producto_condicion']) ? $producto['producto_condicion'] : $this->input->post('producto_condicion')) ?>" class="form-control" id="producto_condicion" /> -->
+                <select name="usuario_id" id="usuario_id" class="form-control">
+                    <option value="0">- VENDEDOR -</option>
+                    <?php 
+                        foreach($all_user as $usuario){
+                            $selected = ($usuario['usuario_id'] == $usuario['usuario_id']) ? ' selected="selected"' : "";
+                            echo "<option value='{$usuario['usuario_id']}' $selected>{$usuario['usuario_codigo']} - {$usuario['usuario_nombre']}</option>";
+                        }
+                    ?>
+                </select>
+            </div>
+        </div>
         <div class="col-md-2">
         <?php if(isset($producto['estado_id'])){?>
             <label for="estado_id" class="control-label">Estado</label>
@@ -258,6 +274,33 @@
     <button type="submit" class="btn btn-success" onclick="loader()">
         <i class="fa fa-check"></i> Guardar
     </button>
-    <a href="<?php echo site_url('producto/index'); ?>" class="btn btn-danger">
+    <a href="<?php echo site_url('producto'); ?>" class="btn btn-danger">
         <i class="fa fa-times"></i> Cancelar</a>
 </div>
+
+<!-- ---------------------- INICIO modal para Registrar nueva Categoria ------------------->
+<div class="modal fade" id="modalcategoria" tabindex="-1" role="dialog" aria-labelledby="modalcategoria">
+    <div class="modal-dialog" role="document">
+        <br><br>
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+            </div>
+            <div class="modal-body">
+            <!------------------------------------------------------------------->
+                <div class="col-md-12">
+                    <label for="nueva_categoria" class="control-label">Registrar Nueva Categoria</label>
+                    <div class="form-group">
+                        <input type="text" name="nueva_categoria"  class="form-control" id="nueva_categoria" onkeyup="var start = this.selectionStart; var end = this.selectionEnd; this.value = this.value.toUpperCase(); this.setSelectionRange(start, end);" />
+                    </div>
+                </div>
+            <!------------------------------------------------------------------->
+            </div>
+            <div class="modal-footer aligncenter">
+                <a onclick="registrarnuevacategoria()" class="btn btn-success"><span class="fa fa-check"></span> Registrar </a>
+                <a href="#" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span> No </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!------------------------ FIN modal para Registrar nueva Categoria ----------------- --> 

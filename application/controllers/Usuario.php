@@ -160,6 +160,7 @@ private function acceso($id_rol){
                         'usuario_login' => $this->input->post('usuario_login'),
                         'usuario_clave' => md5($this->input->post('usuario_clave')),
                         'usuario_imagen' => $foto,
+                        'usuario_codigo' => $this->input->post('usuario_codigo'),
                     );
 
 
@@ -610,6 +611,36 @@ private function acceso($id_rol){
         $res = $this->Usuario_model->hay_login($login,$uid);
 
         echo $res;
+    }
+    /*
+    * Retorna los codigos de los usuarios vendedores
+    */
+    function get_all_vendedores(){
+        if ($this->input->is_ajax_request()) {
+            $codigo = $this->input->post('codigo');
+            $b = $this->input->post('b');
+            $aux = "";
+            if($b == 0){
+                $aux = "";
+            }else{
+                if($b == 1 && $codigo != ""){
+                    $aux = "WHERE u.usuario_codigo = '$codigo'";
+                }
+            }
+            $total = $this->Usuario_model->get_all_cod_vendedores($aux);
+            echo json_encode($total);
+        }
+    }
+    /**
+     * Buscar usuario por su codigo
+     */
+    function get_vendedores(){
+        if ($this->input->is_ajax_request()) {
+            $usuario_codigo = $this->input->post('codigo');
+            $usuario = $this->Usuario_model->get_usuario_codigo($usuario_codigo);
+            echo json_encode($usuario);
+        }
+
     }
 
 }

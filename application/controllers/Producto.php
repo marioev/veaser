@@ -11,6 +11,7 @@ class Producto extends CI_Controller{
         parent::__construct();
         $this->load->model('Producto_model');
         $this->load->model('Galeria_model');
+        $this->load->model('Usuario_model');
        if ($this->session->userdata('logged_in')) {
             $this->session_data = $this->session->userdata('logged_in');
         }else {
@@ -35,32 +36,21 @@ class Producto extends CI_Controller{
     {
         if($this->acceso(102)) {
             $data['rol'] = $this->session_data['rol'];
-        $data['a'] = $a;
-        $this->load->model('Categoria_model');
-        $data['all_categoria'] = $this->Categoria_model->get_all_categoria();
-        /*
-        $this->load->model('Presentacion_model');
-        $data['all_presentacion'] = $this->Presentacion_model->get_alls_presentacion();
-        
-        $this->load->model('Moneda_model');
-        $data['all_moneda'] = $this->Moneda_model->get_alls_moneda_asc();
-        */
-        $this->load->model('Estado_model');
-        $data['all_estado'] = $this->Estado_model->get_all_estado();
-        
-        $this->load->model('Empresa_model');
-        $data['empresa'] = $this->Empresa_model->get_all_empresa();
-
-        // $this->load->model('Galeria_model');
-        // $data['galeria'] = $this->Galeria_model->get_first_image($producto_id);
-        
-        $data['page_title'] = "Producto";
-        $data['_view'] = 'producto/index';
-        $this->load->view('layouts/main',$data);
+            $data['a'] = $a;
+            // $this->load->model(array('Categoria_model','Estado_model','Empresa_model'));
+            $producto = $this->Producto_model->get_all_producto();
+            $file_product = fopen("producto.txt","w") or die("Problemas al crear el archivo");
+            fwrite($file_product, '{ "data":');
+            fwrite($file_product, json_encode($producto));
+            fwrite($file_product, '}');
+            fclose($file_product);
+            // $data['file'] = $consulta_json;
+            $data['productos'] = $producto;
+            $data['page_title'] = 'Producto';
+            $data['_view'] = 'producto/index';
+            $this->load->view('layouts/main',$data);
         }
-            
-    }
-
+    } 
     /*
      * Adding a new producto
      */
@@ -141,10 +131,10 @@ class Producto extends CI_Controller{
             //             $foto = $new_name.$extension;
             //         }
             $foto="";
-            if (!empty($_FILES['file']['name'])){
+            if (!empty($_FILES['producto_foto']['name'])){
 		
                 $this->load->library('image_lib');
-                $config['upload_path'] = './resources/images/galeria/';
+                $config['upload_path'] = './resources/images/productos/';
                 $img_full_path = $config['upload_path'];
 
                 $config['allowed_types'] = 'gif|jpeg|jpg|png';
@@ -158,7 +148,7 @@ class Producto extends CI_Controller{
                 $config['file_ext_tolower'] = TRUE;
 
                 $this->load->library('upload', $config);
-                $this->upload->do_upload('file');
+                $this->upload->do_upload('producto_foto');
 
                 $img_data = $this->upload->data();
                 $extension = $img_data['file_ext'];
@@ -206,7 +196,7 @@ class Producto extends CI_Controller{
                 'categoria_id' => $this->input->post('categoria_id'),
                 'moneda_id' => $this->input->post('moneda_id'),
                 'producto_codigo' => $this->input->post('producto_codigo'),
-                // 'producto_foto' => $foto,
+                'producto_foto' => $foto,
                 'producto_nombre' => $this->input->post('producto_nombre'),
                 'producto_marca' => $this->input->post('producto_marca'),
                 'producto_industria' => $this->input->post('producto_industria'),
@@ -222,34 +212,35 @@ class Producto extends CI_Controller{
                 'producto_check' => $escheck,
             );
             
-            $params_galeria = array(
-                'producto_id' => $producto_id,
-                'galeria_nombre' => $foto, //$this->input->post('galeria_nombre'),
-                'galeria_imagen' => $foto,
-            );
+            // $params_galeria = array(
+            //     'producto_id' => $producto_id,
+            //     'galeria_nombre' => $foto, //$this->input->post('galeria_nombre'),
+            //     'galeria_imagen' => $foto,
+            // );
 
             $producto_id = $this->Producto_model->add_producto($params);
             sleep(1);
-            $galeria_id = $this->Galeria_model->add_galeria($params_galeria);
+            // $galeria_id = $this->Galeria_model->add_galeria($params_galeria);
             //$this->load->model('Inventario_model');
             //$this->Inventario_model->ingresar_producto_inventario($producto_id);
-            redirect('producto/index');
+            redirect('producto');
         //}
-        }else{
-            $this->load->model('Categoria_model');
-            $data['all_categoria'] = $this->Categoria_model->get_all_categoriactiva();
-            
-            $this->load->model('Moneda_model');
-            $data['all_moneda'] = $this->Moneda_model->get_all_moneda();
-            $data['unidades'] = $this->Producto_model->get_all_unidad();
-            
-            $data['resultado'] = 0;
-            $data['page_title'] = "Producto";
-            // $data['_form'] = 'producto/form';
-            $data['_form'] = 'producto/form_producto';
-            $data['_view'] = 'producto/add';
-            $this->load->view('layouts/main',$data);
-        }
+            }else{
+                $this->load->model('Categoria_model');
+                $data['all_categoria'] = $this->Categoria_model->get_all_categoriactiva();
+                
+                $this->load->model('Moneda_model');
+                $data['all_moneda'] = $this->Moneda_model->get_all_moneda();
+                $data['all_user'] = $this->Usuario_model->get_all_usuario_prev_activo();
+                $data['unidades'] = $this->Producto_model->get_all_unidad();
+                
+                $data['resultado'] = 0;
+                $data['page_title'] = "Producto";
+                // $data['_form'] = 'producto/form';
+                $data['_form'] = 'producto/form_producto';
+                $data['_view'] = 'producto/add';
+                $this->load->view('layouts/main',$data);
+            }
         }
           
     }  
@@ -366,7 +357,7 @@ class Producto extends CI_Controller{
                 $this->Producto_model->update_producto($producto_id,$params);
                 //$this->load->model('Inventario_model');
                 //$this->Inventario_model->update_inventario($producto_id, $params);
-                redirect('producto/index');
+                redirect('producto');
             }
             else
             {
@@ -707,10 +698,10 @@ class Producto extends CI_Controller{
                 
                 $this->load->model('Inventario_model');
                 $this->Inventario_model->delete_inventario($producto_id);
-                redirect('producto/index');
+                redirect('producto');
             }else{
                 $a = 1;
-                redirect('producto/index/'.$a);
+                redirect('producto'.$a);
             }
         }
         else
