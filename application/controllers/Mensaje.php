@@ -32,7 +32,13 @@ class Mensaje extends CI_Controller{
     function index()
     {
         if($this->acceso(124)){
-            $data['mensaje'] = $this->Mensaje_model->get_all_mensaje();
+            // $data['mensaje'] = $this->Mensaje_model->get_all_mensaje();
+            $msj = $this->Mensaje_model->get_all_mensaje();
+            $file_msj = fopen("resources/json/msj.txt", "w") or die("Problemas al crear el archivo mjs");
+            fwrite($file_msj, '{ "data":');
+            fwrite($file_msj, json_encode($msj));
+            fwrite($file_msj, '}');
+            fclose($file_msj);
             $data['page_title'] = "Mensaje";
             $data['_view'] = 'mensaje/index';
             $this->load->view('layouts/main',$data);
@@ -132,7 +138,7 @@ class Mensaje extends CI_Controller{
                 $this->email->message($this->input->post('mensaje_respuesta'));
                 $this->email->set_mailtype('html');
                 $this->email->send();
-                redirect('mensaje/index');
+                redirect('mensaje');
             }
             else
             {

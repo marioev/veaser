@@ -39,7 +39,7 @@ class Producto extends CI_Controller{
             $data['a'] = $a;
             // $this->load->model(array('Categoria_model','Estado_model','Empresa_model'));
             $producto = $this->Producto_model->get_all_producto();
-            $file_product = fopen("producto.txt","w") or die("Problemas al crear el archivo");
+            $file_product = fopen("resources/json/producto.txt","w") or die("Problemas al crear el archivo");
             fwrite($file_product, '{ "data":');
             fwrite($file_product, json_encode($producto));
             fwrite($file_product, '}');

@@ -314,7 +314,7 @@ echo '<script type="text/javascript">
     
     $(document).ready(function() {
         var table = $('#table_producto').DataTable( {
-            "ajax": "producto.txt",
+            "ajax": "resources/json/producto.txt",
             "columns": [
                 {
                     "className":      'details-control',

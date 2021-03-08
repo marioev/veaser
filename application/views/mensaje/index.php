@@ -79,8 +79,6 @@
             <div class="pull-right">
                     <?php echo $this->pagination->create_links(); ?>                    
             </div>
-            holas
-             <a href="">holas 2</a>
         </div>
     </div>
 </div>
@@ -93,7 +91,7 @@
     $(document).ready(function() {
         var i = 1;
         var table = $('#table_mensajes').DataTable( {
-            "ajax": "msj.txt",
+            "ajax": "resources/json/msj.txt",
             "columns": [
                 { "render": ()=>{ return i++; } },
                 { "data": "estado_id", "visible": false },
