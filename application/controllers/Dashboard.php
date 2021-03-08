@@ -8,21 +8,19 @@ class Dashboard extends CI_Controller{
     function __construct()
     {
         parent::__construct();
-        $this->load->model('Empresa_model');
-        $this->load->model('Categoria_model');
-        $this->load->model('Producto_model');
-        $this->load->model('Slide_model');
-        
+        $this->load->model(array('Empresa_model','Categoria_model','Producto_model','Slide_model','Auspisiador_model'));
     }
 
     function index()
     {
         $empresa_id = 1;
-        $data['empresa'] = $this->Empresa_model->get_this_empresa($empresa_id);
-        $data['all_categoria'] = $this->Categoria_model->get_all_categoriactiva();
-        $data['productos_ultimos'] = $this->Producto_model->get_productosultimos();
-        $data['productos_vistos'] = $this->Producto_model->get_productosvistos();
-        $data['all_slide'] = $this->Slide_model->get_all_slide();
+        $data['empresa']           = $this->Empresa_model->get_this_empresa($empresa_id);
+        $data['all_slide']         = $this->Slide_model->get_all_slide();
+        $data['all_categoria']     = $this->Categoria_model->get_all_categoriactiva();
+        $data['productos_vistos']  = $this->Producto_model->get_productosvistos();
+        // $data['productos_ultimos'] = $this->Producto_model->get_productosultimos();//oferta
+        $data['productos_ultimos'] = $this->Producto_model->get_producto_oferta();//oferta
+        $data['all_auspisiadores'] = $this->Auspisiador_model->get_all_auspisiadores();//auspisiadores
         
         $data['_view'] = 'dashboard';
         //$this->load->view('layouts/main',$data);

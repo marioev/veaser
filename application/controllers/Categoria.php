@@ -8,7 +8,7 @@ class Categoria extends CI_Controller{
     function __construct()
     {
         parent::__construct();
-        $this->load->model('Categoria_model');
+        $this->load->model(array('Categoria_model','Icono_model'));
     } 
 
     /*
@@ -17,6 +17,7 @@ class Categoria extends CI_Controller{
     function index()
     {
         $data['categoria'] = $this->Categoria_model->get_all_categoria();
+        $data['icono'] = $this->Icono_model->get_all_icons();    
         
         $data['_view'] = 'categoria/index';
         $this->load->view('layouts/main',$data);
@@ -93,13 +94,16 @@ class Categoria extends CI_Controller{
                 'categoria_nombre' => $this->input->post('categoria_nombre'),
                 'categoria_imagen' => $foto,
                 'categoria_visto' => $categoria_vistas,
+                'icono_id' => $this->input->post('icono_id'),
             );
             
             $categoria_id = $this->Categoria_model->add_categoria($params);
             redirect('categoria/index');
         }
         else
-        {            
+        {   
+            $data['iconos'] = $this->Icono_model->get_all_icons();
+            $data['_form'] = 'categoria/form_categoria';    
             $data['_view'] = 'categoria/add';
             $this->load->view('layouts/main',$data);
         }
@@ -122,8 +126,7 @@ class Categoria extends CI_Controller{
                 /* *********************INICIO imagen***************************** */
                 $foto="";
                     $foto1= $this->input->post('categoria_imagen1');
-                if (!empty($_FILES['categoria_imagen']['name']))
-                {
+                if (!empty($_FILES['categoria_imagen']['name'])){
                     $this->load->library('image_lib');
                     $config['upload_path'] = './resources/images/categorias/';
                     $config['allowed_types'] = 'gif|jpeg|jpg|png';
@@ -188,6 +191,7 @@ class Categoria extends CI_Controller{
             /* *********************FIN imagen***************************** */
                 $params = array(
                     'estado_id' => $this->input->post('estado_id'),
+                    'icono_id'=> $this->input->post('icono_id'),
                     'categoria_nombre' => $this->input->post('categoria_nombre'),
                     'categoria_imagen' => $foto,
                     'categoria_visto' => $this->input->post('categoria_visto'),
@@ -200,15 +204,16 @@ class Categoria extends CI_Controller{
             {
                 $estado_tipo = 1;
                 $this->load->model('Estado_model');
+                $data['iconos'] = $this->Icono_model->get_all_icons();
                 $data['all_estado'] = $this->Estado_model->get_estado_tipo($estado_tipo);            
-                
+                $data['_form'] = 'categoria/form_categoria';
                 $data['_view'] = 'categoria/edit';
                 $this->load->view('layouts/main',$data);
             }
         }
         else
             show_error('The categoria you are trying to edit does not exist.');
-    } 
+    }
 
     /*
      * Deleting categoria

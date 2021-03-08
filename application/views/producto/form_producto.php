@@ -234,21 +234,6 @@
                 <?php }?>
             </div>
         </div>
-        <div class="col-md-4">
-            <label for="producto_condicion" class="control-label">Asignar Vendedor</label>
-            <div class="form-group">
-                <!-- <input type="text" name="producto_condicion" value="<?= (isset($producto['producto_condicion']) ? $producto['producto_condicion'] : $this->input->post('producto_condicion')) ?>" class="form-control" id="producto_condicion" /> -->
-                <select name="usuario_id" id="usuario_id" class="form-control">
-                    <option value="0">- VENDEDOR -</option>
-                    <?php 
-                        foreach($all_user as $usuario){
-                            $selected = ($usuario['usuario_id'] == $usuario['usuario_id']) ? ' selected="selected"' : "";
-                            echo "<option value='{$usuario['usuario_id']}' $selected>{$usuario['usuario_codigo']} - {$usuario['usuario_nombre']}</option>";
-                        }
-                    ?>
-                </select>
-            </div>
-        </div>
         <div class="col-md-2">
         <?php if(isset($producto['estado_id'])){?>
             <label for="estado_id" class="control-label">Estado</label>

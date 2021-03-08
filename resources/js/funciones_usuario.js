@@ -1,4 +1,4 @@
-function generar_codigo(){
+    function generar_codigo(){
     var estetime = new Date();
     var anio = estetime.getFullYear();
     var dia = parseInt(estetime.getDate());

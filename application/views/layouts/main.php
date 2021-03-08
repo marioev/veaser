@@ -6,6 +6,8 @@
         <title>VEASER</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        
+        <script src="<?php echo site_url('resources/js/jquery-2.2.3.min.js');?>"></script>
         <!-- Bootstrap 3.3.6 -->
         <link rel="stylesheet" href="<?php echo site_url('resources/css/bootstrap.min.css');?>">
         <!-- Font Awesome -->
@@ -17,9 +19,19 @@
         <!-- Theme style -->
         <link rel="stylesheet" href="<?php echo site_url('resources/css/AdminLTE.min.css');?>">
         <!-- AdminLTE Skins. Choose a skin from the css/skins
-             folder instead of downloading all of them to reduce the load. -->
+            folder instead of downloading all of them to reduce the load. -->
         <link rel="stylesheet" href="<?php echo site_url('resources/css/_all-skins.min.css');?>">
-        <script src="<?php echo site_url('resources/js/jquery-2.2.3.min.js');?>"></script>
+        <!-- Estilos galeria de iconos -->
+        <link rel="stylesheet" href="<?= site_url('resources/css/style_gal_icon.css');?>">
+
+
+        <!-- <link rel="stylesheet" href="https://cdn.DataTables-1.10.22/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">  -->
+        <!-- estilos Data Table -->
+        <link rel="stylesheet" href="<?= site_url('resources/css/datatables.css'); ?>">
+        <!-- <link rel="stylesheet" href="<?= site_url('resources/css/datatables.min.css'); ?>"> -->
+        <link rel="stylesheet" href="<?= site_url('resources/css/dataTables.bootstrap4.css'); ?>">
+
         <?php
             $session_data = $this->session->userdata('logged_in');
         ?>
@@ -122,6 +134,9 @@
                                     <a href="<?php echo site_url('categoria');?>"><i class="fa fa-list-ul"></i> Categoría</a>
                                 </li>
                                 <li>
+                                    <a href="<?php echo site_url('auspisiador');?>"><i class="fa fa-money"></i> Auspisiador</a>
+                                </li>
+                                <li>
                                     <a href="<?php echo site_url('empresa');?>"><i class="fa fa-bank"></i> Empresa</a>
                                 </li>
                                 <li>
@@ -171,7 +186,7 @@
                                 ?>
                             </ul>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="#">
                                 <i class="fa fa-user"></i> <span>Ventas</span>
                             </a>
@@ -183,7 +198,7 @@
                                     <a href="<?= site_url('cliente/index')?>"><i class="fa fa-user"></i> Flujo de ventas</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                 </section>
                 <!-- /.sidebar -->
@@ -244,5 +259,6 @@
         <script src="<?php echo site_url('resources/js/moment.js');?>"></script>
         <script src="<?php echo site_url('resources/js/bootstrap-datetimepicker.min.js');?>"></script>
         <script src="<?php echo site_url('resources/js/global.js');?>"></script>
+        
     </body>
 </html>
