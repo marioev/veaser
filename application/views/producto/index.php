@@ -14,7 +14,7 @@
             }(jQuery));
         });
 </script>    -->
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+<!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"> -->
 
 <!----------------------------- fin script buscador --------------------------------------->
 <style type="text/css">
@@ -63,10 +63,8 @@
         <div id="cabcentro">
             <div id="titulo">
                 <u>PRODUCTOS</u><br><br>
-                <!--<span style="font-size: 9pt">INGRESOS DIARIOS</span><br>-->
                 <span class="lahora" id="fhimpresion"></span><br>
                 <span style="font-size: 8pt;" id="busquedacategoria"></span>
-                <!--<span style="font-size: 8pt;">PRECIOS EXPRESADOS EN MONEDA BOLIVIANA (Bs.)</span>-->
             </div>
         </div>
         <div id="cabderecha">
@@ -178,66 +176,63 @@
                             <th>estado_id</th>
                             <th>categoria_id</th>
                             <th>Foto del producto</th>
-                            <th>Nombre</th>
-                            <th>Código</th>
-                            <th>Codigo barra</th>
+                            <th style="font-size:11pt;">Nombre</th>
+                            <th style="font-size:11pt;">Código</th>
+                            <th style="font-size:11pt;">Codigo barra</th>
                             <th>producto_unidad</th>
-                            <th>Categoria</th>
-                            <th>Marca</th>
-                            <th>Moneda</th>
+                            <th style="font-size:11pt;">Categoria</th>
+                            <th style="font-size:11pt;">Marca</th>
+                            <th style="font-size:11pt;">Moneda</th>
                             <th>producto_industria</th>
                             <th>producto_costo</th>
                             <th>producto_precio</th>
-                            <th>Precio Minimo</th>
-                            <th>Comision</th>
+                            <th style="font-size:11pt;">Precio Minimo</th>
+                            <th style="font-size:11pt;">Comision</th>
                             <th>producto_caracteristicas</th>
                             <!-- <th>producto_fechahora</th> -->
                             <th>producto_latitud</th>
                             <th>producto_longitud</th>
                             <th>producto_condicion</th>
                             <!-- <th>producto_check</th> -->
-                            <th>Precio Cliente</th>
-                            <th>Precio Oferta</th>
-                            <th>Visitas</th>
-                            <th>Estado</th>
+                            <th style="font-size:11pt;">Precio Cliente</th>
+                            <th style="font-size:11pt;">Precio Oferta</th>
+                            <th style="font-size:11pt;">Visitas</th>
+                            <th style="font-size:11pt;">Estado</th>
                         </tr>
                     </thead>                 
                     <tfoot>
-                        <tr class="info">
+                    <tr class="info">
                             <th>#</th>
                             <th>producto_id</th>
                             <th>estado_id</th>
                             <th>categoria_id</th>
                             <th>Foto del producto</th>
-                            <th>Nombre</th>
-                            <th>Código</th>
-                            <th>Codigo barra</th>
+                            <th style="font-size:11pt;">Nombre</th>
+                            <th style="font-size:11pt;">Código</th>
+                            <th style="font-size:11pt;">Codigo barra</th>
                             <th>producto_unidad</th>
-                            <th>Categoria</th>
-                            <th>Marca</th>
-                            <th>Moneda</th>
+                            <th style="font-size:11pt;">Categoria</th>
+                            <th style="font-size:11pt;">Marca</th>
+                            <th style="font-size:11pt;">Moneda</th>
                             <th>producto_industria</th>
                             <th>producto_costo</th>
                             <th>producto_precio</th>
-                            <th>Precio Minimo</th>
-                            <th>Comision</th>
+                            <th style="font-size:11pt;">Precio Minimo</th>
+                            <th style="font-size:11pt;">Comision</th>
                             <th>producto_caracteristicas</th>
                             <!-- <th>producto_fechahora</th> -->
                             <th>producto_latitud</th>
                             <th>producto_longitud</th>
                             <th>producto_condicion</th>
                             <!-- <th>producto_check</th> -->
-                            <th>Precio Cliente</th>
-                            <th>Precio Oferta</th>
-                            <th>Visitas</th>
-                            <th>Estado</th>
+                            <th style="font-size:11pt;">Precio Cliente</th>
+                            <th style="font-size:11pt;">Precio Oferta</th>
+                            <th style="font-size:11pt;">Visitas</th>
+                            <th style="font-size:11pt;">Estado</th>
                         </tr>
                     </tfoot>
                 </table>
             </div>
-            <!-- <div class="pull-right">
-                <?php echo $this->pagination->create_links(); ?>                    
-            </div>                 -->
         </div>
     </div>
 </div>
@@ -276,7 +271,7 @@ echo '<script type="text/javascript">
 <script src="<?= site_url('resources/js/dataTables.bootstrap4.min.js')?>"></script>
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script>
-    function format ( d ) {
+    function format (d) {
         return (
             '<table class="table" cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
                 '<tr class="info">'+
@@ -346,24 +341,24 @@ echo '<script type="text/javascript">
                 { "data": "categoria_id", "visible": false },
                 { "data": "producto_foto", "visible": false},
                 // { "data": "moneda_id" },
-                { "data": "producto_nombre" },
+                { "data": "producto_nombre", "render":(data)=>{ return '<p style="font-size: 11pt;"><b>'+data+'</b></p>' }},
                 { "data": "producto_codigo" },
                 { "data": "producto_codigobarra", "visible":false },
                 { "data": "producto_unidad", "visible": false },
                 { "data": "categoria_nombre" },
                 { "data": "producto_marca" },
-                { "data": "moneda_descripcion", "render": (data)=>{ return '<p style="font-size: 12pt;"><b>'+data+'</b></p>' }},
+                { "data": "moneda_descripcion", "render": (data)=>{ return '<p style="font-size: 10pt;"><b>'+data+'</b></p>' }},
                 { "data": "producto_industria", "visible": false },
                 { "data": "producto_costo", "visible": false },
                 { "data": "producto_precio", "visible": false },
-                { "data": "producto_preciominimo", "render": (data)=>{ return '<p style="font-size: 12pt;"><b>'+data+'</b></p>' } },
-                { "data": "producto_comision", "render": (data)=>{ return '<p style="font-size: 12pt;"><b>'+data+'</b></p>' } },
+                { "data": "producto_preciominimo", "render": (data)=>{ return '<p style="font-size: 10pt;"><b>'+data+'</b></p>' } },
+                { "data": "producto_comision", "render": (data)=>{ return '<p style="font-size: 10pt;"><b>'+data+'</b></p>' } },
                 { "data": "producto_caracteristicas", "visible": false },
                 { "data": "producto_latitud", "visible": false },
                 { "data": "producto_longitud", "visible": false },
                 { "data": "producto_condicion", "visible":false },
-                { "data": "producto_preciocliente", "render": (data)=>{ return '<p style="font-size: 12pt;"><b>'+data+'</b></p>' } },
-                { "data": "producto_preciooferta", "render": (data)=>{ return '<p style="font-size: 12pt;"><b>'+data+'</b></p>' } },
+                { "data": "producto_preciocliente", "render": (data)=>{ return '<p style="font-size: 10pt;"><b>'+data+'</b></p>' } },
+                { "data": "producto_preciooferta", "render": (data)=>{ return '<p style="font-size: 10pt;"><b>'+data+'</b></p>' } },
                 { "data": "producto_visto"},
                 { "data": "estado_descripcion" }
             ],
