@@ -37,6 +37,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!-- <link rel="stylesheet" href="<?php echo site_url('resources/css/styleflexisel.css'); ?>" type="text/css" media="screen" />flexslider-CSS -->
     <link rel="stylesheet" href="<?php echo site_url('resources/css/skdslider.css'); ?>" type="text/css">
 
+    <!-- <style>
+        body{
+            background: -prefix-linear-gradient(left top, #662d8b, #1bfdfe);
+            background: linear-gradient(to bottom right, #662d8b, #1bfdfe);
+        }
+    </style> -->
 
 </head>
 <body>	
