@@ -88,13 +88,13 @@
                     <li><a href="<?php echo site_url('admin/dashb')?>"><i class="fa fa-dashboard"></i> Inicio</a></li>
                     <!--<li><a href="<?php echo site_url('cliente')?>">Clientes</a></li>-->
                     <li class="active"><b>Productos: </b></li>
-                    <input style="border-width: 0; background-color: #DEDEDE" id="encontrados" type="text"  size="5"  readonly="true">
+                    <input class="text-center" style="border-width: 0; background-color: #DEDEDE" id="encontrados" type="text"  size="5"  readonly="true" value="<?= $total['total'] ?>">
                 </ol>
             </div>
             <!--este es FIN del BREADCRUMB buscador-->
     
             <!--este es INICIO de input buscador-->
-            <div class="col-md-12">
+            <!-- <div class="col-md-12">
                 <div class="col-md-7">
                     <div class="input-group">
                         <span class="input-group-addon"> Buscar </span>           
@@ -133,7 +133,7 @@
                 </div>
             </div>
             
-                
+                 -->
             <!--este es FIN de input buscador-->
 
             <!-- **** INICIO de BUSCADOR select y productos encontrados *** -->

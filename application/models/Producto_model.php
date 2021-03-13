@@ -495,4 +495,15 @@ class Producto_model extends CI_Model
                 ORDER By p.producto_id DESC limit 12    
         ")->result_array();
     }
+    /**
+     * cantidad de prodcutos
+     */
+    function total_procutos() {
+        return $this->db->query(
+            "SELECT 
+                IF(COUNT(p.producto_nombre) > 0, COUNT(p.producto_nombre), 0) AS total
+            FROM
+                producto p"
+        )->row_array();
+    }
 }

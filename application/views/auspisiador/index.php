@@ -21,8 +21,9 @@
 
 <div class="row">
     <div class="col-md-12">
-        <div class="input-group"> <span class="input-group-addon">Buscar</span>
-            <input id="filtrar" type="text" class="form-control" placeholder="Ingrese nombre categoría">
+        <div class="input-group"> 
+            <!-- <span class="input-group-addon">Buscar</span> -->
+            <!-- <input id="filtrar" type="text" class="form-control" placeholder="Ingrese nombre categoría"> -->
         </div>
         <div class="box">
             

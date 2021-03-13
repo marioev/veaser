@@ -45,6 +45,7 @@ class Producto extends CI_Controller{
             fwrite($file_product, '}');
             fclose($file_product);
             // $data['file'] = $consulta_json;
+            $data['total'] = $this->Producto_model->total_procutos();
             $data['productos'] = $producto;
             $data['page_title'] = 'Producto';
             $data['_view'] = 'producto/index';
@@ -201,6 +202,7 @@ class Producto extends CI_Controller{
                 'producto_marca' => $this->input->post('producto_marca'),
                 'producto_industria' => $this->input->post('producto_industria'),
                 'producto_preciocliente' => $this->input->post('producto_preciocliente'),
+                'producto_preciopublico' => $this->input->post('producto_preciopublico'),
                 'producto_preciominimo' => $this->input->post('producto_preciominimo'),
                 'producto_preciooferta' => $this->input->post('producto_preciooferta'),
                 'producto_comision' => $this->input->post('producto_comision'),
@@ -344,9 +346,10 @@ class Producto extends CI_Controller{
                     'producto_marca' => $this->input->post('producto_marca'),
                     'producto_industria' => $this->input->post('producto_industria'),
                     'producto_preciocliente' => $this->input->post('producto_preciocliente'),
+                    'producto_preciopublico' => $this->input->post('producto_preciopublico'),
                     'producto_preciominimo' => $this->input->post('producto_preciominimo'),
                     'producto_preciooferta' => $this->input->post('producto_preciooferta'),
-                    'producto_comision' => $this->input->post('producto_comision'),
+                    // 'producto_comision' => $this->input->post('producto_comision'),
                     'producto_caracteristicas' => $this->input->post('producto_caracteristicas'),
                     'producto_latitud' => $this->input->post('producto_latitud'),
                     'producto_longitud' => $this->input->post('producto_longitud'),

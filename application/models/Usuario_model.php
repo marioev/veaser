@@ -344,4 +344,11 @@ class Usuario_model extends CI_Model
                 $aux";
         return $this->db->query($sql)->result_array();
     }
+    /**
+     * Obter los vendedores con su puntuación
+     */
+    function get_vendedores(){
+        $sql = "";
+        return $this->db->query($sql)->result_array();
+    }
 }

@@ -28,9 +28,9 @@
 <div class="row">
     <div class="col-md-12">
         <!--------------------- parametro de buscador --------------------->
-                  <div class="input-group"> <span class="input-group-addon">Buscar</span>
-                    <input id="filtrar" type="text" class="form-control" placeholder="Ingrese nombre, correo...">
-                  </div>
+        <!-- <div class="input-group"> <span class="input-group-addon">Buscar</span>
+        <input id="filtrar" type="text" class="form-control" placeholder="Ingrese nombre, correo...">
+        </div> -->
         <div class="row" id='loader'  style='display:none; text-align: center'>
             <img src="<?php echo base_url("resources/images/loader.gif"); ?>"  >
         </div>

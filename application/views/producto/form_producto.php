@@ -70,6 +70,12 @@
             </div>
         </div>
 
+        <div class="col-md-3">
+                <label for="producto_preciopublico" class="control-label">Precio Publico</label>
+                <div class="form-group">
+                    <input type="number" step="any" min="0" name="producto_preciopublico" value="<?= (isset($producto['producto_preciopublico']) ? $producto['producto_preciopublico'] : $this->input->post('producto_preciopublico')) ?>" class="form-control" id="producto_preciocliente"  onclick="this.select();" />
+                </div>
+        </div>
         
         <div class="col-md-3">
                 <label for="producto_preciocliente" class="control-label">Precio Cliente</label>
@@ -89,12 +95,6 @@
                 <div class="form-group">
                     <input type="number" step="any" min="0" name="producto_preciooferta" value="<?= (isset($producto['producto_preciooferta']) ? $producto['producto_preciooferta'] : $this->input->post('producto_preciooferta')) ?>" class="form-control" id="producto_preciooferta"  onclick="this.select();"/>
                 </div>
-        </div>
-        <div class="col-md-3">
-            <label for="producto_comision" class="control-label">Comisión</label>
-            <div class="form-group">
-                <input type="number" step="any" min="0" name="producto_comision" value="<?= (isset($producto['producto_comision']) ? $producto['producto_comision'] : $this->input->post('producto_comision')) ?>" class="form-control" id="producto_costo" />
-            </div>
         </div>
         
         <div class="col-md-6">
@@ -206,6 +206,12 @@
                 <?php }?>
             </div>
         </div>
+        <!-- <div class="col-md-3">
+            <label for="producto_comision" class="control-label">Comisión</label>
+            <div class="form-group">
+                <input type="number" step="any" min="0" name="producto_comision" value="<?= (isset($producto['producto_comision']) ? $producto['producto_comision'] : $this->input->post('producto_comision')) ?>" class="form-control" id="producto_costo" />
+            </div>
+        </div> -->
         <div class="col-md-2">
             <label for="producto_latitud" class="control-label">Latitud</label>
             <div class="form-group">
@@ -219,13 +225,13 @@
             </div>
         </div>
         <div class="col-md-4">
-            <label for="producto_condicion" class="control-label">Condición</label>
+            <label for="producto_condicion" class="control-label">Condici&oacute;n</label>
             <div class="form-group">
                 <input type="text" name="producto_condicion" value="<?= (isset($producto['producto_condicion']) ? $producto['producto_condicion'] : $this->input->post('producto_condicion')) ?>" class="form-control" id="producto_condicion" />
             </div>
         </div>
         <div class="col-md-5">
-            <label for="producto_caracteristicas" class="control-label">Características</label>
+            <label for="producto_caracteristicas" class="control-label">Documentaci&oacute;n presentada</label>
             <div class="form-group">
             <?php if(isset($producto['producto_caracteristicas'])){ ?>
                 <textarea rows="3" type="texarea" name="producto_caracteristicas" value="" class="form-control" id="producto_caracteristicas" onkeyup="var start = this.selectionStart; var end = this.selectionEnd; this.value = this.value.toUpperCase(); this.setSelectionRange(start, end);" ><?php echo ($this->input->post('producto_caracteristicas') ? $this->input->post('producto_caracteristicas') : $producto['producto_caracteristicas']); ?></textarea>
