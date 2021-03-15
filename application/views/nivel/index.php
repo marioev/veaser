@@ -61,8 +61,8 @@
                     <tr>
 						<th>#</th>
 						<th>Nombre</th>
-						<th>Puntaje Desde</th>
 						<th>Puntaje Hasta</th>
+						<th>Puntaje Desde</th>
 						<th>Estado</th>
 						<th></th>
                     </tr>
@@ -72,8 +72,8 @@
                             <tr>
                                 <td><?= $cont ?></td>
                                 <td><?= $n['nivel_nombre']; ?></td>
-                                <td><?= $n['nivel_puntaje_min']; ?></td>
                                 <td><?= $n['nivel_puntaje_max']; ?></td>
+                                <td><?= $n['nivel_puntaje_min']; ?></td>
                                 <td><?= $n['estado_descripcion']; ?></td>
                                 <td>
                                     <a href="<?php echo site_url('nivel/edit/'.$n['nivel_id']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span></a>

@@ -142,9 +142,9 @@
                                 <li>
                                     <a href="<?php echo site_url('estado');?>"><i class="fa fa-ellipsis-v"></i> Estado</a>
                                 </li>
-                                <!--<li>
-                                    <a href="<?php echo site_url('unidad');?>"><i class="fa fa-file-text-o"></i> Unidad</a>
-                                </li>-->
+                                <li>
+                                    <a href="<?php echo site_url('nivel');?>"><i class="fa fa-file-text-o"></i> Niveles</a>
+                                </li>
                             </ul>
                         </li>
                         <li>
