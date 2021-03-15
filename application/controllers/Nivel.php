@@ -41,7 +41,9 @@ class Nivel extends CI_Controller{
             
             $categoria_id = $this->Nivel_model->add_nivel($params);
             redirect('nivel/index');
-        }else{   
+        }else{
+            $ultimo_nivel = $this->Nivel_model->get_puntajes_max(0); 
+            $data['ultimo'] = $ultimo_nivel;
             $data['_form'] = 'nivel/form_nivel';    
             $data['_view'] = 'nivel/add';
             $this->load->view('layouts/main',$data);

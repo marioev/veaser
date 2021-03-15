@@ -10,7 +10,7 @@
         <div class="col-md-3">
             <label for="nivel_puntaje_min" class="control-label"><span class="text-danger">*</span>Puntaje inicial</label>
             <div class="form-group">
-                <input type="text" name="nivel_puntaje_min" value="<?=(isset($nivel['nivel_puntaje_min']) ? $nivel['nivel_puntaje_min'] : $this->input->post('nivel_puntaje_min')); ?>" class="form-control" id="nivel_puntaje_min" required onkeyup="var start = this.selectionStart; var end = this.selectionEnd; this.value = this.value.toUpperCase(); this.setSelectionRange(start, end);" min="0" onchange="permitido()"/>
+                <input type="text" name="nivel_puntaje_min" value="<?=(isset($nivel['nivel_puntaje_min']) ? $nivel['nivel_puntaje_min'] : $ultimo['max']); ?>" class="form-control" id="nivel_puntaje_min" required onkeyup="var start = this.selectionStart; var end = this.selectionEnd; this.value = this.value.toUpperCase(); this.setSelectionRange(start, end);" min="<?=(isset($ultimo['max']) ? $ultimo['max'] : 0);?>" onchange="permitido()"/>
                 <!-- <span class="text-danger"><?php echo form_error('nivel_puntaje_min');?></span> -->
             </div>
         </div>

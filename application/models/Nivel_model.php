@@ -41,7 +41,7 @@ class Nivel_model  extends CI_Model
         return $this->db->update('nivel',$params);
     }
     /**
-     * obtener todos los putnajes max
+     * obtener el puntaje max
      */
     function get_puntajes_max($nivel_id){
         $aux = "";
@@ -57,5 +57,13 @@ class Nivel_model  extends CI_Model
                 n.estado_id = 1 $aux"
         )->row_array();
     }
+    /**
+     * obtener el valor mas alto
+     */
+    // function ultimo_valor(){
+    //     return $this->db->query(
+    //         "SELECT"
+    //         )->row_array();
+    // }
 
 }
