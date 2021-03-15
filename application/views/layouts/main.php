@@ -134,7 +134,7 @@
                                     <a href="<?php echo site_url('categoria');?>"><i class="fa fa-list-ul"></i> Categoría</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo site_url('auspisiador');?>"><i class="fa fa-money"></i> Auspisiador</a>
+                                    <a href="<?= site_url('auspisiador');?>"><i class="fa fa-money"></i> Auspisiador</a>
                                 </li>
                                 <li>
                                     <a href="<?php echo site_url('empresa');?>"><i class="fa fa-bank"></i> Empresa</a>
@@ -143,7 +143,7 @@
                                     <a href="<?php echo site_url('estado');?>"><i class="fa fa-ellipsis-v"></i> Estado</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo site_url('nivel');?>"><i class="fa fa-file-text-o"></i> Niveles</a>
+                                    <a href="<?= site_url('nivel');?>"><i class="fa fa-level-up"></i> Niveles</a>
                                 </li>
                             </ul>
                         </li>

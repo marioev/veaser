@@ -167,7 +167,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         
                         <!-- añadido el <?= date("d/m/Y H:i:s", strtotime($producto['producto_fechahora'])); ?> -->
                     </p>
-					<!-- <div class="flexslider">
+					<div class="flexslider">
                         <ul class="slides">
                             <?php
                             foreach ($all_galeria as $galeria){
@@ -179,7 +179,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             }
                             ?>
                         </ul>
-					</div> -->
+					</div>
 					<!-- FlexSlider -->
 					  <script defer src="<?php echo site_url('resources/js/jquery.flexslider.js'); ?>"></script>
 
