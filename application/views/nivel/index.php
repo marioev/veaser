@@ -15,7 +15,7 @@
 </script>   
 <!----------------------------- fin script buscador --------------------------------------->
 <!------------------ ESTILO DE LAS TABLAS ----------------->
-<link href="<?php echo base_url('resources/css/mitabla.css'); ?>" rel="stylesheet">
+<link href="<?= base_url('resources/css/mitabla.css'); ?>" rel="stylesheet">
 <!-------------------------------------------------------->
 <div class="row no-print">
         <div class="col-md-8">
@@ -23,7 +23,7 @@
 
             <!-- **** INICIO de BUSCADOR select y productos encontrados *** -->
             <div class="row" id='loader'  style='display:none; text-align: center'>
-                <img src="<?php echo base_url("resources/images/loader.gif"); ?>"  >
+                <img src="<?= base_url("resources/images/loader.gif"); ?>"  >
             </div>
             <!-- **** FIN de BUSCADOR select y productos encontrados *** -->
             
@@ -33,7 +33,7 @@
         <div class="col-md-4">
             
                 <div class="box-tools text-center">
-                <a href="<?php echo site_url('nivel/add'); ?>" class="btn btn-success btn-foursquarexs" title="Registrar nuevo Producto"><font size="5"><span class="fa fa-user-plus"></span></font><br><small>Registrar</small></a>
+                <a href="<?= site_url('nivel/add'); ?>" class="btn btn-success btn-foursquarexs" title="Registrar nuevo Producto"><font size="5"><span class="fa fa-user-plus"></span></font><br><small>Registrar</small></a>
                 <button data-toggle="modal" data-target="#modalbuscar" class="btn btn-warning btn-foursquarexs" onclick="tablaresultadosproducto(3)" title="Mostrar todos los Productos" ><font size="5"><span class="fa fa-search"></span></font><br><small>Ver Todos</small></button>
                 <?php
                 /*if($rol[106-1]['rolusuario_asignado'] == 1){ ?>
@@ -51,18 +51,17 @@
         <!--------------------- parametro de buscador --------------------->
         <div class="input-group"> 
             <span class="input-group-addon">Buscar</span>
-            <input id="filtrar" type="text" class="form-control" placeholder="Ingrese descripción, tipo c.">
+            <input id="filtrar" type="text" class="form-control" placeholder="Ingrese nombre del nivel">
         </div>
             <!--------------------- fin parametro de buscador --------------------->
         <div class="box">
-            
             <div class="box-body table-responsive">
                 <table class="table table-striped table-condensed" id="mitabla">
                     <tr>
 						<th>#</th>
 						<th>Nombre</th>
-						<th>Puntaje Desde</th>
 						<th>Puntaje Hasta</th>
+						<th>Puntaje Desde</th>
 						<th>Estado</th>
 						<th></th>
                     </tr>
@@ -72,11 +71,11 @@
                             <tr>
                                 <td><?= $cont ?></td>
                                 <td><?= $n['nivel_nombre']; ?></td>
-                                <td><?= $n['nivel_puntaje_min']; ?></td>
                                 <td><?= $n['nivel_puntaje_max']; ?></td>
+                                <td><?= $n['nivel_puntaje_min']; ?></td>
                                 <td><?= $n['estado_descripcion']; ?></td>
                                 <td>
-                                    <a href="<?php echo site_url('nivel/edit/'.$n['nivel_id']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span></a>
+                                    <a href="<?= site_url('nivel/edit/'.$n['nivel_id']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span></a>
                                 </td>
                             </tr>
                         <?php $cont += 1; } ?>
@@ -84,7 +83,7 @@
                 </table>            
             </div>
             <div class="pull-right">
-                <?php echo $this->pagination->create_links(); ?>                    
+                <?= $this->pagination->create_links(); ?>                    
             </div>
         </div>
     </div>
